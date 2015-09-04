@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{517D3DC5-C71E-4A11-A497-9D3479CF681D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>General</RootNamespace>
+    <AssemblyName>General</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\GlobalConfiguration.cs" />
+    <Compile Include="Data\DBConnection.cs" />
+    <Compile Include="Data\FullTextSearch.cs" />
+    <Compile Include="Data\SqlConvert.cs" />
+    <Compile Include="Data\SQLHelper.cs" />
+    <Compile Include="Debugging\ErrorReporter.cs" />
+    <Compile Include="Debugging\Report.cs" />
+    <Compile Include="Environment\HostApplicationState.cs" />
+    <Compile Include="Environment\HostCache.cs" />
+    <Compile Include="Environment\HostState.cs" />
+    <Compile Include="Model\GPSCoordinate.cs" />
+    <Compile Include="Model\JsonObject.cs" />
+    <Compile Include="Model\JsonRectangle.cs" />
+    <Compile Include="Model\ShortGuid.cs" />
+    <Compile Include="More\ModelCollection.cs" />
+    <Compile Include="Model\DateTimeSpan.cs" />
+    <Compile Include="Model\ObjectBase.cs" />
+    <Compile Include="IO\IOTools.cs" />
+    <Compile Include="Mail\MailTools.cs" />
+    <Compile Include="Mail\SMTPSendRawMIME.cs" />
+    <Compile Include="Mail\SMTPTest.cs" />
+    <Compile Include="Model\AddressBookEntry.cs" />
+    <Compile Include="Model\EmailAddress.cs" />
+    <Compile Include="Environment\Current.cs" />
+    <Compile Include="Internal\JITData.cs" />
+    <Compile Include="Model\FingerPrint.cs" />
+    <Compile Include="Model\PhoneNumber.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\PostalAddress.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Enum.cs" />
+    <Compile Include="More\RootFunctions.cs" />
+    <Compile Include="More\TextLog.cs" />
+    <Compile Include="Serialization\DataTableToJson.cs" />
+    <Compile Include="StringFunctions.cs" />
+    <Compile Include="Model\URL.cs" />
+    <Compile Include="Threading\BackgroundWorker.cs" />
+    <Compile Include="Units\Distance\Angstrom.cs" />
+    <Compile Include="Units\Distance\AstronomicalUnit.cs" />
+    <Compile Include="Units\Distance\Centimetre.cs" />
+    <Compile Include="Units\Distance\Decimetre.cs" />
+    <Compile Include="Units\Distance\Distance.cs" />
+    <Compile Include="Units\Distance\Foot.cs" />
+    <Compile Include="Units\Distance\Inch.cs" />
+    <Compile Include="Units\Distance\Kilometre.cs" />
+    <Compile Include="Units\Distance\LightYear.cs" />
+    <Compile Include="Units\Distance\Metre.cs" />
+    <Compile Include="Units\Distance\Micron.cs" />
+    <Compile Include="Units\Distance\Mile.cs" />
+    <Compile Include="Units\Distance\Millimetre.cs" />
+    <Compile Include="Units\Distance\Nanometre.cs" />
+    <Compile Include="Units\Distance\NauticalMile.cs" />
+    <Compile Include="Units\Distance\Yard.cs" />
+    <Compile Include="Units\Speed\KilometrePerHour.cs" />
+    <Compile Include="Units\Speed\Knot.cs" />
+    <Compile Include="Units\Speed\MilePerHour.cs" />
+    <Compile Include="Units\Speed\Speed.cs" />
+    <Compile Include="Units\Unit.cs" />
+    <Compile Include="Web\MimeTypeMap.cs" />
+    <Compile Include="Web\WebTools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\General.PhoneNumber.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

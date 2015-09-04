@@ -1,0 +1,7 @@
+﻿General Library written by Ty Hansen (www.tyhansen.com)
+
+This library contains a cluster of static methods and class objects for handling common tasks like Email Validation, Phone Number validation, URL Validation, Address validation. 
+It includes a ton of useful string functions, HTTP/URI functions, and more.
+It contains a basic debugging structure, with Environmental context that uses the current servers Machine Name to distiguish Dev and Staging from Production. 
+
+This General Library is a consolidation of a much larger General library... containing only the most essential functions that were needed to impliment the General.ErrorLogging library.

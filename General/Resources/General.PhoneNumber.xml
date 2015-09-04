@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<General.PhoneNumber>
+	<Country Name="UNITED STATES OF AMERICA" ID="US" CountryCode="1" CountryCode2="" IDD="011" NDD="1" PhonePattern="CAAANNNNNNN">
+		<Area Code="800" Description="Toll Free"/>
+    <Area Code="833" Description="Toll Free"/>
+    <Area Code="844" Description="Toll Free"/>
+    <Area Code="855" Description="Toll Free"/>
+    <Area Code="866" Description="Toll Free"/>
+		<Area Code="877" Description="Toll Free"/>
+		<Area Code="888" Description="Toll Free"/>
+		<Area Code="907" Description="AK"/>
+		<Area Code="205" Description="AL - Birmingham"/>
+		<Area Code="251" Description="AL"/>
+		<Area Code="256" Description="AL - Huntsville"/>
+		<Area Code="334" Description="AL - Montgomery/Mobile"/>
+		<Area Code="479" Description="AR"/>
+		<Area Code="501" Description="AR"/>
+		<Area Code="870" Description="AR"/>
+		<Area Code="684" Description="AS"/>
+		<Area Code="480" Description="AZ - Phoenix"/>
+		<Area Code="520" Description="AZ - Tuscon"/>
+		<Area Code="602" Description="AZ - Phoenix"/>
+		<Area Code="623" Description="AZ - Phoenix"/>
+		<Area Code="928" Description="AZ - Flagstaff/Winslow/Yuma"/>
+		<Area Code="209" Description="CA"/>
+		<Area Code="213" Description="CA"/>
+		<Area Code="310" Description="CA"/>
+		<Area Code="424" Description="CA"/>
+		<Area Code="323" Description="CA"/>
+		<Area Code="408" Description="CA"/>
+		<Area Code="415" Description="CA"/>
+		<Area Code="510" Description="CA"/>
+		<Area Code="530" Description="CA"/>
+		<Area Code="559" Description="CA"/>
+		<Area Code="562" Description="CA"/>
+		<Area Code="619" Description="CA"/>
+		<Area Code="626" Description="CA"/>
+		<Area Code="650" Description="CA"/>
+		<Area Code="661" Description="CA"/>
+		<Area Code="707" Description="CA"/>
+		<Area Code="714" Description="CA"/>
+		<Area Code="760" Description="CA"/>
+		<Area Code="805" Description="CA"/>
+		<Area Code="818" Description="CA"/>
+		<Area Code="831" Description="CA"/>
+		<Area Code="858" Description="CA"/>
+		<Area Code="909" Description="CA"/>
+		<Area Code="916" Description="CA"/>
+		<Area Code="925" Description="CA"/>
+		<Area Code="949" Description="CA"/>
+		<Area Code="951" Description="CA"/>
+		<Area Code="303" Description="CO"/>
+		<Area Code="720" Description="CO"/>
+		<Area Code="719" Description="CO"/>
+		<Area Code="970" Description="CO"/>
+		<Area Code="203" Description="CT"/>
+		<Area Code="860" Description="CT"/>
+		<Area Code="202" Description="DC"/>
+		<Area Code="302" Description="DE"/>
+		<Area Code="239" Description="FL"/>
+		<Area Code="305" Description="FL"/>
+		<Area Code="786" Description="FL"/>
+		<Area Code="321" Description="FL"/>
+		<Area Code="352" Description="FL"/>
+		<Area Code="386" Description="FL"/>
+		<Area Code="407" Description="FL"/>
+		<Area Code="321" Description="FL"/>
+		<Area Code="561" Description="FL"/>
+		<Area Code="727" Description="FL"/>
+		<Area Code="772" Description="FL"/>
+		<Area Code="813" Description="FL"/>
+		<Area Code="850" Description="FL"/>
+		<Area Code="863" Description="FL"/>
+		<Area Code="904" Description="FL"/>
+		<Area Code="941" Description="FL"/>
+		<Area Code="954" Description="FL"/>
+		<Area Code="754" Description="FL"/>
+		<Area Code="229" Description="GA"/>
+		<Area Code="404" Description="GA"/>
+		<Area Code="678" Description="GA"/>
+		<Area Code="470" Description="GA"/>
+		<Area Code="478" Description="GA"/>
+		<Area Code="770" Description="GA"/>
+		<Area Code="678" Description="GA"/>
+		<Area Code="470" Description="GA"/>
+		<Area Code="706" Description="GA"/>
+		<Area Code="912" Description="GA"/>
+		<Area Code="808" Description="HI"/>
+		<Area Code="319" Description="IA"/>
+		<Area Code="515" Description="IA"/>
+		<Area Code="563" Description="IA"/>
+		<Area Code="641" Description="IA"/>
+		<Area Code="712" Description="IA"/>
+		<Area Code="208" Description="ID"/>
+		<Area Code="217" Description="IL"/>
+		<Area Code="309" Description="IL"/>
+		<Area Code="312" Description="IL"/>
+		<Area Code="618" Description="IL"/>
+		<Area Code="630" Description="IL"/>
+		<Area Code="708" Description="IL"/>
+		<Area Code="773" Description="IL"/>
+		<Area Code="815" Description="IL"/>
+		<Area Code="847" Description="IL"/>
+		<Area Code="224" Description="IL"/>
+		<Area Code="219" Description="IN"/>
+		<Area Code="260" Description="IN"/>
+		<Area Code="317" Description="IN"/>
+		<Area Code="574" Description="IN"/>
+		<Area Code="765" Description="IN"/>
+		<Area Code="812" Description="IN"/>
+		<Area Code="316" Description="KS"/>
+		<Area Code="620" Description="KS"/>
+		<Area Code="785" Description="KS"/>
+		<Area Code="913" Description="KS"/>
+		<Area Code="270" Description="KY"/>
+		<Area Code="502" Description="KY"/>
+		<Area Code="606" Description="KY"/>
+		<Area Code="859" Description="KY"/>
+		<Area Code="225" Description="LA"/>
+		<Area Code="318" Description="LA"/>
+		<Area Code="337" Description="LA"/>
+		<Area Code="504" Description="LA"/>
+		<Area Code="985" Description="LA"/>
+		<Area Code="413" Description="MA"/>
+		<Area Code="508" Description="MA"/>
+		<Area Code="774" Description="MA"/>
+		<Area Code="617" Description="MA"/>
+		<Area Code="857" Description="MA"/>
+		<Area Code="781" Description="MA"/>
+		<Area Code="339" Description="MA"/>
+		<Area Code="978" Description="MA"/>
+		<Area Code="351" Description="MA"/>
+		<Area Code="301" Description="MD"/>
+		<Area Code="240" Description="MD"/>
+		<Area Code="227" Description="MD"/>
+		<Area Code="410" Description="MD"/>
+		<Area Code="443" Description="MD"/>
+		<Area Code="667" Description="MD"/>
+		<Area Code="207" Description="ME"/>
+		<Area Code="231" Description="MI"/>
+		<Area Code="248" Description="MI"/>
+		<Area Code="947" Description="MI"/>
+		<Area Code="269" Description="MI"/>
+		<Area Code="313" Description="MI"/>
+		<Area Code="679" Description="MI"/>
+		<Area Code="517" Description="MI"/>
+		<Area Code="586" Description="MI"/>
+		<Area Code="616" Description="MI"/>
+		<Area Code="734" Description="MI"/>
+		<Area Code="810" Description="MI"/>
+		<Area Code="906" Description="MI"/>
+		<Area Code="989" Description="MI"/>
+		<Area Code="218" Description="MN"/>
+		<Area Code="320" Description="MN"/>
+		<Area Code="507" Description="MN"/>
+		<Area Code="612" Description="MN"/>
+		<Area Code="651" Description="MN"/>
+		<Area Code="763" Description="MN"/>
+		<Area Code="952" Description="MN"/>
+		<Area Code="314" Description="MO"/>
+		<Area Code="417" Description="MO"/>
+		<Area Code="573" Description="MO"/>
+		<Area Code="636" Description="MO"/>
+		<Area Code="660" Description="MO"/>
+		<Area Code="816" Description="MO"/>
+		<Area Code="670" Description="MP"/>
+		<Area Code="228" Description="MS"/>
+		<Area Code="601" Description="MS"/>
+		<Area Code="662" Description="MS"/>
+		<Area Code="406" Description="MT"/>
+		<Area Code="252" Description="NC"/>
+		<Area Code="336" Description="NC"/>
+		<Area Code="704" Description="NC"/>
+		<Area Code="980" Description="NC"/>
+		<Area Code="828" Description="NC"/>
+		<Area Code="910" Description="NC"/>
+		<Area Code="919" Description="NC"/>
+		<Area Code="701" Description="ND"/>
+		<Area Code="308" Description="NE"/>
+		<Area Code="402" Description="NE"/>
+		<Area Code="603" Description="NH"/>
+		<Area Code="201" Description="NJ"/>
+		<Area Code="551" Description="NJ"/>
+		<Area Code="609" Description="NJ"/>
+		<Area Code="732" Description="NJ"/>
+		<Area Code="848" Description="NJ"/>
+		<Area Code="856" Description="NJ"/>
+		<Area Code="908" Description="NJ"/>
+		<Area Code="973" Description="NJ"/>
+		<Area Code="862" Description="NJ"/>
+		<Area Code="505" Description="NM"/>
+		<Area Code="702" Description="NV - Las Vegas"/>
+		<Area Code="775" Description="NV"/>
+		<Area Code="212" Description="NY"/>
+		<Area Code="646" Description="NY"/>
+		<Area Code="315" Description="NY"/>
+		<Area Code="516" Description="NY"/>
+		<Area Code="518" Description="NY"/>
+		<Area Code="585" Description="NY"/>
+		<Area Code="607" Description="NY"/>
+		<Area Code="631" Description="NY"/>
+		<Area Code="716" Description="NY"/>
+		<Area Code="718" Description="NY"/>
+		<Area Code="347" Description="NY"/>
+		<Area Code="845" Description="NY"/>
+		<Area Code="914" Description="NY"/>
+		<Area Code="917" Description="NY"/>
+		<Area Code="216" Description="OH"/>
+		<Area Code="330" Description="OH"/>
+		<Area Code="234" Description="OH"/>
+		<Area Code="419" Description="OH"/>
+		<Area Code="567" Description="OH"/>
+		<Area Code="440" Description="OH"/>
+		<Area Code="513" Description="OH"/>
+		<Area Code="614" Description="OH"/>
+		<Area Code="740" Description="OH"/>
+		<Area Code="937" Description="OH"/>
+		<Area Code="405" Description="OK"/>
+		<Area Code="580" Description="OK"/>
+		<Area Code="918" Description="OK"/>
+		<Area Code="503" Description="OR"/>
+		<Area Code="971" Description="OR"/>
+		<Area Code="541" Description="OR"/>
+		<Area Code="215" Description="PA"/>
+		<Area Code="267" Description="PA"/>
+		<Area Code="412" Description="PA"/>
+		<Area Code="878" Description="PA"/>
+		<Area Code="570" Description="PA"/>
+		<Area Code="610" Description="PA"/>
+		<Area Code="484" Description="PA"/>
+		<Area Code="717" Description="PA"/>
+		<Area Code="724" Description="PA"/>
+		<Area Code="878" Description="PA"/>
+		<Area Code="814" Description="PA"/>
+		<Area Code="878" Description="PA"/>
+		<Area Code="787" Description="PR"/>
+		<Area Code="939" Description="PR"/>
+		<Area Code="401" Description="RI"/>
+		<Area Code="684" Description="AS"/>
+		<Area Code="803" Description="SC"/>
+		<Area Code="843" Description="SC"/>
+		<Area Code="864" Description="SC"/>
+		<Area Code="605" Description="SD"/>
+		<Area Code="423" Description="TN"/>
+		<Area Code="615" Description="TN"/>
+		<Area Code="731" Description="TN"/>
+		<Area Code="865" Description="TN"/>
+		<Area Code="901" Description="TN"/>
+		<Area Code="931" Description="TN"/>
+		<Area Code="210" Description="TX"/>
+		<Area Code="214" Description="TX"/>
+		<Area Code="972" Description="TX"/>
+		<Area Code="469" Description="TX"/>
+		<Area Code="254" Description="TX"/>
+		<Area Code="281" Description="TX"/>
+		<Area Code="325" Description="TX"/>
+		<Area Code="361" Description="TX"/>
+		<Area Code="409" Description="TX"/>
+		<Area Code="430" Description="TX"/>
+		<Area Code="432" Description="TX"/>
+		<Area Code="469" Description="TX"/>
+		<Area Code="512" Description="TX"/>
+		<Area Code="682" Description="TX"/>
+		<Area Code="713" Description="TX"/>
+		<Area Code="281" Description="TX"/>
+		<Area Code="832" Description="TX"/>
+		<Area Code="806" Description="TX"/>
+		<Area Code="817" Description="TX"/>
+		<Area Code="682" Description="TX"/>
+		<Area Code="830" Description="TX"/>
+		<Area Code="832" Description="TX"/>
+		<Area Code="903" Description="TX"/>
+		<Area Code="430" Description="TX"/>
+		<Area Code="915" Description="TX"/>
+		<Area Code="936" Description="TX"/>
+		<Area Code="940" Description="TX"/>
+		<Area Code="956" Description="TX"/>
+		<Area Code="972" Description="TX"/>
+		<Area Code="979" Description="TX"/>
+		<Area Code="435" Description="UT"/>
+		<Area Code="801" Description="UT"/>
+		<Area Code="385" Description="UT"/>
+		<Area Code="340" Description="VI"/>
+		<Area Code="276" Description="VA"/>
+		<Area Code="434" Description="VA"/>
+		<Area Code="540" Description="VA"/>
+		<Area Code="703" Description="VA"/>
+		<Area Code="571" Description="VA"/>
+		<Area Code="757" Description="VA"/>
+		<Area Code="804" Description="VA"/>
+		<Area Code="802" Description="VT"/>
+		<Area Code="206" Description="WA"/>
+		<Area Code="253" Description="WA"/>
+		<Area Code="360" Description="WA"/>
+		<Area Code="425" Description="WA"/>
+		<Area Code="509" Description="WA"/>
+		<Area Code="564" Description="WA"/>
+		<Area Code="262" Description="WI"/>
+		<Area Code="414" Description="WI"/>
+		<Area Code="608" Description="WI"/>
+		<Area Code="715" Description="WI"/>
+		<Area Code="920" Description="WI"/>
+		<Area Code="304" Description="WV"/>
+		<Area Code="307" Description="WY"/>
+	</Country>
+	<Country Name="AFGHANISTAN" ID="AF" CountryCode="93" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ÅLAND ISLANDS" ID="AX" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="ALBANIA" ID="AL" CountryCode="355" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ALGERIA" ID="DZ" CountryCode="213" CountryCode2="" IDD="00" NDD="7"></Country>
+	<Country Name="AMERICAN SAMOA" ID="AS" CountryCode="684" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="ANDORRA" ID="AD" CountryCode="376" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="ANGOLA" ID="AO" CountryCode="244" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ANGUILLA" ID="AI" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="264" Description="Anguilla"/>
+	</Country>
+	<Country Name="ANTARCTICA" ID="AQ" CountryCode="672" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="ANTIGUA AND BARBUDA" ID="AG" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="268" Description="Antigua and Barbuda"/>
+	</Country>
+	<Country Name="ARGENTINA" ID="AR" CountryCode="54" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ARMENIA" ID="AM" CountryCode="374" CountryCode2="" IDD="00" NDD="8"></Country>
+	<Country Name="ARUBA" ID="AW" CountryCode="297" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="AUSTRALIA" ID="AU" CountryCode="61" CountryCode2="" IDD="0011,0015" NDD="0">
+		<Area Code="89" Description="Alice Springs/Darwin"/>
+		<Area Code="77" Description="Townsville"/>
+		<Area Code="76" Description="Toowoomba"/>
+		<Area Code="75" Description="Gold Coast"/>
+		<Area Code="70" Description="Cairns"/>
+		<Area Code="67" Description="Armidale"/>
+		<Area Code="62" Description="Canberra"/>
+		<Area Code="60" Description="Albury"/>
+		<Area Code="55" Description="Hamilton"/>
+		<Area Code="53" Description="Ballerat"/>
+		<Area Code="52" Description="Geelong"/>
+		<Area Code="50" Description="Mildura"/>
+		<Area Code="49" Description="Newcastle"/>
+		<Area Code="42" Description="Wollongong"/>
+		<Area Code="39" Description="Melbourne"/>
+		<Area Code="9" Description="Perth"/>
+		<Area Code="8" Description="Adelaide"/>
+		<Area Code="7" Description="Brisbane"/>
+		<Area Code="03" Description="Launceston"/>
+		<Area Code="02" Description="Hobart"/>
+		<Area Code="2" Description="Sydney"/>
+	</Country>
+	<Country Name="AUSTRIA" ID="AT" CountryCode="43" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="AZERBAIJAN" ID="AZ" CountryCode="994" CountryCode2="" IDD="00" NDD="8"></Country>
+	<Country Name="BAHAMAS" ID="BS" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="242" Description="Bahamas"/>
+	</Country>
+	<Country Name="BAHRAIN" ID="BH" CountryCode="973" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="BANGLADESH" ID="BD" CountryCode="880" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="BARBADOS" ID="BB" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="246" Description="Barbados"/>
+	</Country>
+	<Country Name="BELARUS" ID="BY" CountryCode="375" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="BELGIUM" ID="BE" CountryCode="32" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="3" Description="Antwerp"/>
+		<Area Code="2" Description="Brussels"/>
+		<Area Code="91" Description="Ghent"/>
+		<Area Code="41" Description="Liege"/>
+	</Country>
+	<Country Name="BELIZE" ID="BZ" CountryCode="501" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="BENIN" ID="BJ" CountryCode="229" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="BERMUDA" ID="BM" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="441" Description="Bermuda"/>
+	</Country>
+	<Country Name="BHUTAN" ID="BT" CountryCode="975" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="BOLIVIA" ID="BO" CountryCode="591" CountryCode2="" IDD="0010,0011,0012,0013" NDD="010,011,012,013"></Country>
+	<Country Name="BOSNIA AND HERZEGOVINA" ID="BA" CountryCode="387" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="BOTSWANA" ID="BW" CountryCode="267" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="BOUVET ISLAND" ID="BV" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="BRAZIL" ID="BR" CountryCode="55" CountryCode2="" IDD="0014,0015,0021,0023,0031" NDD="014,015,021,031"></Country>
+	<Country Name="BRITISH INDIAN OCEAN TERRITORY" ID="IO" CountryCode="91" CountryCode2="" IDD="" NDD="0"></Country>
+	<Country Name="BRUNEI DARUSSALAM" ID="BN" CountryCode="673" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="BULGARIA" ID="BG" CountryCode="359" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="BURKINA FASO" ID="BF" CountryCode="226" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="BURUNDI" ID="BI" CountryCode="257" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="CAMBODIA" ID="KH" CountryCode="855" CountryCode2="" IDD="001" NDD="0"></Country>
+	<Country Name="CAMEROON" ID="CM" CountryCode="237" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="CANADA" ID="CA" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="403" Description="Alberta"/>
+		<Area Code="780" Description="Alberta"/>
+		<Area Code="250" Description="British Columbia"/>
+		<Area Code="604" Description="British Columbia (Lower Mainland)"/>
+		<Area Code="204" Description="Manitoba"/>
+		<Area Code="506" Description="New Brunswick"/>
+		<Area Code="709" Description="Newfoundland"/>
+		<Area Code="902" Description="Nova Scotia"/>
+		<Area Code="519" Description="Ontario (London)"/>
+		<Area Code="705" Description="Ontario (North Bay)"/>
+		<Area Code="613" Description="Ontario (Ottawa)"/>
+		<Area Code="807" Description="Ontario (Thunder Bay) "/>
+		<Area Code="416" Description="Ontario (Toronto Metro)"/>
+		<Area Code="905" Description="Ontario (Toronto Vicinity)"/>
+		<Area Code="902" Description="Prince Edward Island"/>
+		<Area Code="514" Description="Quebec (Montreal)"/>
+		<Area Code="418" Description="Quebec (Quebec City)"/>
+		<Area Code="819" Description="Quebec (Sherbrooke)"/>
+		<Area Code="306" Description="Saskatchewan"/>
+	</Country>
+	<Country Name="CAPE VERDE" ID="CV" CountryCode="238" CountryCode2="" IDD="0" NDD=""></Country>
+	<Country Name="CAYMAN ISLANDS" ID="KY" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="345" Description="Cayman Islands"/>
+	</Country>
+	<Country Name="CENTRAL AFRICAN REPUBLIC" ID="CF" CountryCode="236" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="CHAD" ID="TD" CountryCode="235" CountryCode2="" IDD="15" NDD=""></Country>
+	<Country Name="CHILE" ID="CL" CountryCode="56" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="CHINA" ID="CN" CountryCode="86" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="8400" Description="Luzhou"/>
+		<Area Code="8241" Description="Deyang"/>
+		<Area Code="7892" Description="Hepu"/>
+		<Area Code="7682" Description="Jiangmen"/>
+		<Area Code="7681" Description="Chaozhou"/>
+		<Area Code="7680" Description="Heshan"/>
+		<Area Code="7663" Description="Sihui"/>
+		<Area Code="7658" Description="Kaiping"/>
+		<Area Code="7656" Description="Xinhui"/>
+		<Area Code="7654" Description="Xiaolan/Zhongshan"/>
+		<Area Code="7653" Description="Shunde"/>
+		<Area Code="7652" Description="Sanshui"/>
+		<Area Code="7650" Description="Gaoming"/>
+		<Area Code="7649" Description="Puning"/>
+		<Area Code="7644" Description="Chaoyang"/>
+		<Area Code="7620" Description="Dongguan"/>
+		<Area Code="7401" Description="Yongzhou"/>
+		<Area Code="5098" Description="Chongan"/>
+		<Area Code="5096" Description="Shaowu"/>
+		<Area Code="5094" Description="Jianou"/>
+		<Area Code="5091" Description="Pucheng"/>
+		<Area Code="5084" Description="Yongan"/>
+		<Area Code="5081" Description="Shaxian"/>
+		<Area Code="5063" Description="Zhangpu"/>
+		<Area Code="5062" Description="Longhai"/>
+		<Area Code="5053" Description="Nanan"/>
+		<Area Code="5051" Description="Huian"/>
+		<Area Code="5046" Description="Minqing"/>
+		<Area Code="5043" Description="Pingtan"/>
+		<Area Code="5041" Description="Changle"/>
+		<Area Code="5037" Description="Gutian"/>
+		<Area Code="5034" Description="Xiapu"/>
+		<Area Code="5033" Description="Fuding"/>
+		<Area Code="5032" Description="Zherong"/>
+		<Area Code="5021" Description="Tongan"/>
+		<Area Code="4615" Description="Shuangcheng"/>
+		<Area Code="4610" Description="Daqing"/>
+		<Area Code="4271" Description="Panjin"/>
+		<Area Code="2096" Description="Panyu"/>
+		<Area Code="2092" Description="Conghua"/>
+		<Area Code="991" Description="Urumqi"/>
+		<Area Code="971" Description="Xining"/>
+		<Area Code="951" Description="Yinchuan"/>
+		<Area Code="938" Description="Tianshui"/>
+		<Area Code="931" Description="Lanzhou"/>
+		<Area Code="917" Description="Baoji"/>
+		<Area Code="911" Description="Yanan"/>
+		<Area Code="871" Description="Kunming"/>
+		<Area Code="851" Description="Guiyang"/>
+		<Area Code="834" Description="Xichang"/>
+		<Area Code="831" Description="Yibin"/>
+		<Area Code="817" Description="Nanchong"/>
+		<Area Code="816" Description="Mianyang"/>
+		<Area Code="815" Description="Wenjiang"/>
+		<Area Code="813" Description="Zigong"/>
+		<Area Code="811" Description="Chongqing"/>
+		<Area Code="791" Description="Nanching"/>
+		<Area Code="779" Description="Beihai"/>
+		<Area Code="777" Description="Qinzhou"/>
+		<Area Code="773" Description="Guilin"/>
+		<Area Code="772" Description="Liuzhou"/>
+		<Area Code="771" Description="Nanning"/>
+		<Area Code="759" Description="Zhanjiang"/>
+		<Area Code="758" Description="Zhaoqing"/>
+		<Area Code="757" Description="Foshan"/>
+		<Area Code="756" Description="Zhuhai"/>
+		<Area Code="755" Description="Baoan Xian/Longgang/Nantou/Shekou/Shenzhen/Yulin"/>
+		<Area Code="754" Description="Shantou"/>
+		<Area Code="753" Description="Meizhou"/>
+		<Area Code="752" Description="Huizhou"/>
+		<Area Code="751" Description="Shaoguan"/>
+		<Area Code="750" Description="Haikou"/>
+		<Area Code="737" Description="Yiyang"/>
+		<Area Code="736" Description="Changde"/>
+		<Area Code="734" Description="Hengyang"/>
+		<Area Code="733" Description="Zhuzhou"/>
+		<Area Code="732" Description="Xiangtan"/>
+		<Area Code="731" Description="Changsha"/>
+		<Area Code="730" Description="Yueyang"/>
+		<Area Code="714" Description="Huangshi"/>
+		<Area Code="713" Description="Huanggang"/>
+		<Area Code="712" Description="Xiaogan"/>
+		<Area Code="599" Description="Nanping"/>
+		<Area Code="598" Description="Sanming"/>
+		<Area Code="597" Description="Longyan/Fujian"/>
+		<Area Code="596" Description="Zhangzhou"/>
+		<Area Code="595" Description="Jinjiang/Quanzhou/Shishi"/>
+		<Area Code="594" Description="Putian"/>
+		<Area Code="593" Description="Ningde"/>
+		<Area Code="592" Description="Xiamen"/>
+		<Area Code="591" Description="Fuzhou/Mawei"/>
+		<Area Code="590" Description="Jianyang"/>
+		<Area Code="579" Description="Jinhua"/>
+		<Area Code="578" Description="Lishui"/>
+		<Area Code="577" Description="Wenzhou"/>
+		<Area Code="576" Description="Taizhou"/>
+		<Area Code="575" Description="Shaoxing"/>
+		<Area Code="574" Description="Ningbo"/>
+		<Area Code="573" Description="Jiaxing"/>
+		<Area Code="572" Description="Huzhou"/>
+		<Area Code="571" Description="Hangzhou"/>
+		<Area Code="570" Description="Quzhou"/>
+		<Area Code="557" Description="Suxian"/>
+		<Area Code="556" Description="Anqing"/>
+		<Area Code="555" Description="Maanshan"/>
+		<Area Code="553" Description="Wuhu"/>
+		<Area Code="552" Description="Bengbu"/>
+		<Area Code="551" Description="Hefei"/>
+		<Area Code="538" Description="Taian"/>
+		<Area Code="537" Description="Jining"/>
+		<Area Code="536" Description="Weifang"/>
+		<Area Code="535" Description="Yantai"/>
+		<Area Code="533" Description="Zibo"/>
+		<Area Code="532" Description="Qingdao"/>
+		<Area Code="531" Description="Jinan"/>
+		<Area Code="519" Description="Changzhou"/>
+		<Area Code="518" Description="Lianyungang"/>
+		<Area Code="516" Description="Xuzhou"/>
+		<Area Code="515" Description="Yancheng"/>
+		<Area Code="514" Description="Yangzhou"/>
+		<Area Code="513" Description="Nantong"/>
+		<Area Code="512" Description="Suzhou"/>
+		<Area Code="511" Description="Zhenjiang"/>
+		<Area Code="510" Description="Wuxi"/>
+		<Area Code="455" Description="Suihua"/>
+		<Area Code="454" Description="Jiamusi"/>
+		<Area Code="453" Description="Mudanjiang"/>
+		<Area Code="451" Description="Harbin"/>
+		<Area Code="438" Description="Gongzhuling"/>
+		<Area Code="437" Description="Liaoyuan"/>
+		<Area Code="436" Description="Baicheng"/>
+		<Area Code="435" Description="Tonghua"/>
+		<Area Code="434" Description="Siping"/>
+		<Area Code="433" Description="Yanji"/>
+		<Area Code="432" Description="Jilin"/>
+		<Area Code="431" Description="Changchun"/>
+		<Area Code="419" Description="Liaoyang"/>
+		<Area Code="418" Description="Fuxin"/>
+		<Area Code="416" Description="Jinzhou"/>
+		<Area Code="415" Description="Dandong"/>
+		<Area Code="412" Description="Anshan"/>
+		<Area Code="411" Description="Dalian"/>
+		<Area Code="410" Description="Tieling"/>
+		<Area Code="379" Description="Luoyang"/>
+		<Area Code="378" Description="Kaifeng"/>
+		<Area Code="377" Description="Nanyang"/>
+		<Area Code="375" Description="Pingdingshan"/>
+		<Area Code="374" Description="Xuchang"/>
+		<Area Code="373" Description="Xinxiang"/>
+		<Area Code="371" Description="Zhengzhou"/>
+		<Area Code="370" Description="Shangqiu"/>
+		<Area Code="351" Description="Taiyuan"/>
+		<Area Code="335" Description="Qinhuangdao"/>
+		<Area Code="319" Description="Xingtai"/>
+		<Area Code="318" Description="Hengshui"/>
+		<Area Code="317" Description="Cangzhou"/>
+		<Area Code="316" Description="Langfang"/>
+		<Area Code="315" Description="Tangshan"/>
+		<Area Code="314" Description="Chengde"/>
+		<Area Code="313" Description="Zhangjiakou"/>
+		<Area Code="312" Description="Baoding"/>
+		<Area Code="311" Description="Shijiazhuang"/>
+		<Area Code="310" Description="Handan"/>
+		<Area Code="29" Description="Xi'an"/>
+		<Area Code="28" Description="Chengdu"/>
+		<Area Code="27" Description="Hankou/Wuhan"/>
+		<Area Code="25" Description="Nanjing"/>
+		<Area Code="24" Description="Shenyang"/>
+		<Area Code="22" Description="Dagang/Hangu/Tanggu/Tianjin"/>
+		<Area Code="21" Description="Shanghai"/>
+		<Area Code="20" Description="Guangzhou/Huaxian"/>
+		<Area Code="10" Description="Beijing(Peking)"/>
+	</Country>
+	<Country Name="CHRISTMAS ISLAND" ID="CX" CountryCode="618" CountryCode2="" IDD="0011" NDD="0"></Country>
+	<Country Name="COCOS (KEELING) ISLANDS" ID="CC" CountryCode="61" CountryCode2="" IDD="0011" NDD="0"></Country>
+	<Country Name="COLOMBIA" ID="CO" CountryCode="57" CountryCode2="" IDD="005,007,009,#555,#999" NDD="03,05,07,09"></Country>
+	<Country Name="COMOROS" ID="KM" CountryCode="269" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="CONGO" ID="CG" CountryCode="242" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="CONGO, THE DEMOCRATIC REPUBLIC OF THE" ID="CD" CountryCode="242" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="COOK ISLANDS" ID="CK" CountryCode="682" CountryCode2="" IDD="00" NDD="00"></Country>
+	<Country Name="COSTA RICA" ID="CR" CountryCode="506" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="COTE D'IVOIRE" ID="CI" CountryCode="225" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="CROATIA" ID="HR" CountryCode="385" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="CUBA" ID="CU" CountryCode="53" CountryCode2="" IDD="119" NDD="0"></Country>
+	<Country Name="CYPRUS" ID="CY" CountryCode="357" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="CZECH REPUBLIC" ID="CZ" CountryCode="420" CountryCode2="" IDD="00,95200" NDD=""></Country>
+	<Country Name="DENMARK" ID="DK" CountryCode="45" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="DJIBOUTI" ID="DJ" CountryCode="253" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="DOMINICA" ID="DM" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="767" Description="Dominica"/>
+	</Country>
+	<Country Name="DOMINICAN REPUBLIC" ID="DO" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="809" Description="Dominican Republic"/>
+	</Country>
+	<Country Name="ECUADOR" ID="EC" CountryCode="593" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="EGYPT" ID="EG" CountryCode="20" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="EL SALVADOR" ID="SV" CountryCode="503" CountryCode2="" IDD="00,144" NDD=""></Country>
+	<Country Name="EQUATORIAL GUINEA" ID="GQ" CountryCode="240" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="ERITREA" ID="ER" CountryCode="291" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ESTONIA" ID="EE" CountryCode="372" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="ETHIOPIA" ID="ET" CountryCode="251" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="FALKLAND ISLANDS (MALVINAS)" ID="FK" CountryCode="500" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="FAROE ISLANDS" ID="FO" CountryCode="298" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="FIJI" ID="FJ" CountryCode="679" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="FINLAND" ID="FI" CountryCode="358" CountryCode2="" IDD="00,990,994,999" NDD="0"></Country>
+	<Country Name="FRANCE" ID="FR" CountryCode="33" CountryCode2="" IDD="00,40,50,70,90" NDD="0">
+		<Area Code="562" Description="Lourdes/Lyon"/>
+		<Area Code="559" Description="Biarritz"/>
+		<Area Code="556" Description="Bordeaux/Cannes"/>
+		<Area Code="549" Description="Chauvigny"/>
+		<Area Code="495" Description="Corsica"/>
+		<Area Code="494" Description="St. Tropez/Toulon"/>
+		<Area Code="493" Description="Cannes/Nice"/>
+		<Area Code="491" Description="Marseille"/>
+		<Area Code="477" Description="St. Etienne"/>
+		<Area Code="476" Description="Grenoble"/>
+		<Area Code="472" Description="Lyon"/>
+		<Area Code="470" Description="Vichy"/>
+		<Area Code="467" Description="Montpellier"/>
+		<Area Code="442" Description="Aix-En-Provence"/>
+		<Area Code="388" Description="Strasbourg"/>
+		<Area Code="326" Description="Reims"/>
+		<Area Code="320" Description="Lille"/>
+		<Area Code="247" Description="Tours"/>
+		<Area Code="240" Description="Nantes"/>
+		<Area Code="235" Description="Le Havre/Rouen"/>
+		<Area Code="233" Description="Cherbourg"/>
+		<Area Code="5" Description="Toulouse"/>
+		<Area Code="4" Description="Monaco"/>
+		<Area Code="1" Description="Paris"/>
+	</Country>
+	<Country Name="FRENCH GUIANA" ID="GF" CountryCode="594" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="FRENCH POLYNESIA" ID="PF" CountryCode="689" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="FRENCH SOUTHERN TERRITORIES" ID="TF" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="GABON" ID="GA" CountryCode="241" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GAMBIA" ID="GM" CountryCode="220" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GEORGIA" ID="GE" CountryCode="995" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="GERMANY" ID="DE" CountryCode="49" CountryCode2="" IDD="" NDD="0">
+		<Area Code="9281" Description="Hof"/>
+		<Area Code="7541" Description="Friedrichshafen"/>
+		<Area Code="7231" Description="Pforzheim"/>
+		<Area Code="7221" Description="Baden-Baden"/>
+		<Area Code="6221" Description="Heidelberg"/>
+		<Area Code="6071" Description="Muenster"/>
+		<Area Code="931" Description="Wuerzburg"/>
+		<Area Code="921" Description="Bayreuth"/>
+		<Area Code="911" Description="Nurnberg"/>
+		<Area Code="821" Description="Augsberg"/>
+		<Area Code="721" Description="Karlsruhe"/>
+		<Area Code="711" Description="Stuttgart"/>
+		<Area Code="651" Description="Trier"/>
+		<Area Code="611" Description="Wiesbaden"/>
+		<Area Code="561" Description="Kassel"/>
+		<Area Code="511" Description="Hanover"/>
+		<Area Code="471" Description="Bremerhaven"/>
+		<Area Code="431" Description="Kiel"/>
+		<Area Code="421" Description="Bremen"/>
+		<Area Code="391" Description="Magdeburg"/>
+		<Area Code="351" Description="Dresden"/>
+		<Area Code="341" Description="Leipzig"/>
+		<Area Code="261" Description="Koblenz"/>
+		<Area Code="241" Description="Achim"/>
+		<Area Code="231" Description="Dortmund"/>
+		<Area Code="228" Description="Bonn"/>
+		<Area Code="221" Description="Cologne(Koln)"/>
+		<Area Code="212" Description="Solingen"/>
+		<Area Code="211" Description="Dussledorf"/>
+		<Area Code="208" Description="Oberhausen"/>
+		<Area Code="201" Description="Essen"/>
+		<Area Code="89" Description="Munich"/>
+		<Area Code="69" Description="Frankfurt"/>
+		<Area Code="40" Description="Hamburg"/>
+		<Area Code="30" Description="Berlin"/>
+	</Country>
+	<Country Name="GHANA" ID="GH" CountryCode="233" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GIBRALTAR" ID="GI" CountryCode="350" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GREECE" ID="GR" CountryCode="30" CountryCode2="" IDD="" NDD="">
+		<Area Code="1" Description="Athens/Pireaus"/>
+		<Area Code="81" Description="Iraklion (Crete)"/>
+		<Area Code="41" Description="Larissa"/>
+		<Area Code="241" Description="Rhodes"/>
+		<Area Code="31" Description="Thessaloniki"/>
+	</Country>
+	<Country Name="GREENLAND" ID="GL" CountryCode="299" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GRENADA" ID="GD" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="473" Description="Grenada"/>
+	</Country>
+	<Country Name="GUADELOUPE" ID="GP" CountryCode="590" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GUAM" ID="GU" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="671" Description="All"/>
+	</Country>
+	<Country Name="GUATEMALA" ID="GT" CountryCode="502" CountryCode2="" IDD="00,130,147" NDD=""></Country>
+	<Country Name="GUINEA" ID="GN" CountryCode="224" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="GUINEA-BISSAU" ID="GW" CountryCode="245" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="GUYANA" ID="GY" CountryCode="592" CountryCode2="" IDD="001" NDD="0"></Country>
+	<Country Name="HAITI" ID="HT" CountryCode="509" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="HEARD ISLAND AND MCDONALD ISLANDS" ID="HM" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="HOLY SEE (VATICAN CITY STATE)" ID="VA" CountryCode="39" CountryCode2="379" IDD="00" NDD=""></Country>
+	<Country Name="HONDURAS" ID="HN" CountryCode="504" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="HONG KONG" ID="HK" CountryCode="852" CountryCode2="" IDD="001,0080,009" NDD=""></Country>
+	<Country Name="HUNGARY" ID="HU" CountryCode="36" CountryCode2="" IDD="00" NDD="06"></Country>
+	<Country Name="ICELAND" ID="IS" CountryCode="354" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="INDIA" ID="IN" CountryCode="91" CountryCode2="" IDD="" NDD="0"></Country>
+	<Country Name="INDONESIA" ID="ID" CountryCode="62" CountryCode2="" IDD="001,008" NDD="0"></Country>
+	<Country Name="IRAN, ISLAMIC REPUBLIC OF" ID="IR" CountryCode="98" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="IRAQ" ID="IQ" CountryCode="964" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="IRELAND" ID="IE" CountryCode="353" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="402" Description="Arklow"/>
+		<Area Code="21" Description="Cork"/>
+		<Area Code="66" Description="Dingle"/>
+		<Area Code="73" Description="Donegal"/>
+		<Area Code="41" Description="Drogheda"/>
+		<Area Code="1" Description="Dublin"/>
+		<Area Code="42" Description="Dundalk"/>
+		<Area Code="65" Description="Ennis"/>
+		<Area Code="91" Description="Galway"/>
+		<Area Code="45" Description="Kildare"/>
+		<Area Code="56" Description="Kilkenny"/>
+		<Area Code="64" Description="Killarney"/>
+		<Area Code="61" Description="Limerick"/>
+		<Area Code="71" Description="Sligo"/>
+		<Area Code="62" Description="Tipperary"/>
+		<Area Code="65" Description="Tralee"/>
+		<Area Code="506" Description="Tullamore"/>
+		<Area Code="51" Description="Waterford"/>
+		<Area Code="53" Description="Wexford"/>
+	</Country>
+	<Country Name="ISRAEL" ID="IL" CountryCode="972" CountryCode2="" IDD="00,012,013,014" NDD="0"></Country>
+	<Country Name="ITALY" ID="IT" CountryCode="39" CountryCode2="" IDD="00" NDD="">
+		<Area Code="965" Description="Reggio Clabria"/>
+		<Area Code="923" Description="Pantelleria"/>
+		<Area Code="831" Description="Brindisi"/>
+		<Area Code="444" Description="Vicenza"/>
+		<Area Code="342" Description="Sondrio"/>
+		<Area Code="185" Description="Portofino"/>
+		<Area Code="99" Description="Taranto"/>
+		<Area Code="95" Description="Catania"/>
+		<Area Code="91" Description="Palermo"/>
+		<Area Code="90" Description="Messina"/>
+		<Area Code="85" Description="Pescara"/>
+		<Area Code="81" Description="Capri/Naples/Pompei/Sorrento"/>
+		<Area Code="80" Description="Bari"/>
+		<Area Code="75" Description="Perugia"/>
+		<Area Code="70" Description="Cagliari"/>
+		<Area Code="59" Description="Modena"/>
+		<Area Code="55" Description="Florence"/>
+		<Area Code="51" Description="Bologna"/>
+		<Area Code="50" Description="Pisa"/>
+		<Area Code="49" Description="Padova"/>
+		<Area Code="45" Description="Verona"/>
+		<Area Code="41" Description="Venice"/>
+		<Area Code="40" Description="Triesto"/>
+		<Area Code="35" Description="Bergamo"/>
+		<Area Code="31" Description="Como"/>
+		<Area Code="11" Description="Turin"/>
+		<Area Code="10" Description="Genoa"/>
+		<Area Code="6" Description="Rome/Vatican City"/>
+		<Area Code="2" Description="Milan"/>
+	</Country>
+	<Country Name="JAMAICA" ID="JM" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="876" Description="Jamaica"/>
+	</Country>
+	<Country Name="JAPAN" ID="JP" CountryCode="81" CountryCode2="" IDD="001,010,0061,0041" NDD="0">
+		<Area Code="992" Description="Kagoshima"/>
+		<Area Code="985" Description="Miyazaki"/>
+		<Area Code="958" Description="Nagasaki"/>
+		<Area Code="956" Description="Sasebo"/>
+		<Area Code="888" Description="Kochi"/>
+		<Area Code="878" Description="Takamatsu"/>
+		<Area Code="862" Description="Okayama"/>
+		<Area Code="798" Description="Nishinomiya"/>
+		<Area Code="764" Description="Toyama"/>
+		<Area Code="582" Description="Gifu"/>
+		<Area Code="565" Description="Toyota"/>
+		<Area Code="562" Description="Aichi"/>
+		<Area Code="472" Description="Chuoko"/>
+		<Area Code="468" Description="Yokosuka"/>
+		<Area Code="425" Description="Tachikawa"/>
+		<Area Code="423" Description="Fuchu"/>
+		<Area Code="188" Description="Akita"/>
+		<Area Code="98" Description="Naha (Okinawa)"/>
+		<Area Code="92" Description="Fukuoka"/>
+		<Area Code="82" Description="Hiroshima"/>
+		<Area Code="78" Description="Kobe"/>
+		<Area Code="75" Description="Kyoto"/>
+		<Area Code="66" Description="Osaka"/>
+		<Area Code="52" Description="Nagoya"/>
+		<Area Code="48" Description="Saitamatan"/>
+		<Area Code="45" Description="Yokohama"/>
+		<Area Code="44" Description="Kanagawa/Kawasaki"/>
+		<Area Code="43" Description="Chiba"/>
+		<Area Code="25" Description="Niigata"/>
+		<Area Code="22" Description="Sendai"/>
+		<Area Code="11" Description="Sapporo"/>
+		<Area Code="6" Description="Amagasaki"/>
+		<Area Code="3" Description="Tokyo/Chuoko/Mitatoku Tokyo"/>
+	</Country>
+	<Country Name="JORDAN" ID="JO" CountryCode="962" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="KAZAKHSTAN" ID="KZ" CountryCode="7" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="KENYA" ID="KE" CountryCode="254" CountryCode2="" IDD="000,006,007" NDD="0"></Country>
+	<Country Name="KIRIBATI" ID="KI" CountryCode="686" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF" ID="KP" CountryCode="850" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="KOREA, REPUBLIC OF" ID="KR" CountryCode="82" CountryCode2="" IDD="" NDD="0,082"></Country>
+	<Country Name="KUWAIT" ID="KW" CountryCode="965" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="KYRGYZSTAN" ID="KG" CountryCode="996" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="LAO PEOPLE'S DEMOCRATIC REPUBLIC" ID="LA" CountryCode="856" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="LATVIA" ID="LV" CountryCode="371" CountryCode2="" IDD="00" NDD="8"></Country>
+	<Country Name="LEBANON" ID="LB" CountryCode="961" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="LESOTHO" ID="LS" CountryCode="266" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="LIBERIA" ID="LR" CountryCode="231" CountryCode2="" IDD="00" NDD="22"></Country>
+	<Country Name="LIBYAN ARAB JAMAHIRIYA" ID="LY" CountryCode="218" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="LIECHTENSTEIN" ID="LI" CountryCode="423" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="LITHUANIA" ID="LT" CountryCode="370" CountryCode2="" IDD="00" NDD="8"></Country>
+	<Country Name="LUXEMBOURG" ID="LU" CountryCode="352" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="MACAO" ID="MO" CountryCode="853" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF" ID="MK" CountryCode="389" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MADAGASCAR" ID="MG" CountryCode="261" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MALAWI" ID="MW" CountryCode="265" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="MALAYSIA" ID="MY" CountryCode="60" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MALDIVES" ID="MV" CountryCode="960" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MALI" ID="ML" CountryCode="223" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MALTA" ID="MT" CountryCode="356" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MARSHALL ISLANDS" ID="MH" CountryCode="692" CountryCode2="" IDD="011" NDD="1"></Country>
+	<Country Name="MARTINIQUE" ID="MQ" CountryCode="596" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MAURITANIA" ID="MR" CountryCode="222" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MAURITIUS" ID="MU" CountryCode="230" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MAYOTTE" ID="YT" CountryCode="269" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="MEXICO" ID="MX" CountryCode="52" CountryCode2="" IDD="00" NDD="01">
+		<Area Code="988" Description="Cancun"/>
+		<Area Code="987" Description="Cozumel"/>
+		<Area Code="682" Description="La Paz"/>
+		<Area Code="678" Description="Mazatlan"/>
+		<Area Code="671" Description="Culiacan"/>
+		<Area Code="665" Description="Tecate"/>
+		<Area Code="621" Description="Hermosillo"/>
+		<Area Code="481" Description="San Luis Potosi"/>
+		<Area Code="461" Description="Celaya"/>
+		<Area Code="322" Description="Puerto Vallarta"/>
+		<Area Code="121" Description="Tampico"/>
+		<Area Code="99" Description="Merida"/>
+		<Area Code="83" Description="Monterrey"/>
+		<Area Code="74" Description="Acapulco"/>
+		<Area Code="66" Description="Tijuana"/>
+		<Area Code="65" Description="Mexicali"/>
+		<Area Code="29" Description="Veracruz"/>
+		<Area Code="22" Description="Puebla"/>
+		<Area Code="17" Description="Torreon"/>
+		<Area Code="16" Description="Ciudad Juarez"/>
+		<Area Code="14" Description="Chihuahua"/>
+		<Area Code="5" Description="Mexico City"/>
+		<Area Code="3" Description="Guadalajara"/>
+	</Country>
+	<Country Name="MICRONESIA, FEDERATED STATES OF" ID="FM" CountryCode="691" CountryCode2="" IDD="011" NDD="1"></Country>
+	<Country Name="MOLDOVA, REPUBLIC OF" ID="MD" CountryCode="373" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MONACO" ID="MC" CountryCode="377" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MONGOLIA" ID="MN" CountryCode="976" CountryCode2="" IDD="001" NDD="0"></Country>
+	<Country Name="MONTSERRAT" ID="MS" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="664" Description="Montserrat"/>
+	</Country>
+	<Country Name="MOROCCO" ID="MA" CountryCode="212" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="MOZAMBIQUE" ID="MZ" CountryCode="258" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="MYANMAR" ID="MM" CountryCode="95" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="NAMIBIA" ID="NA" CountryCode="264" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NAURU" ID="NR" CountryCode="674" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NEPAL" ID="NP" CountryCode="977" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NETHERLANDS" ID="NL" CountryCode="31" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="20" Description="Amsterdam"/>
+		<Area Code="10" Description="Rotterdam"/>
+		<Area Code="70" Description="The Hague"/>
+	</Country>
+	<Country Name="NETHERLANDS ANTILLES" ID="AN" CountryCode="599" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NEW CALEDONIA" ID="NC" CountryCode="687" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NEW ZEALAND" ID="NZ" CountryCode="64" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NICARAGUA" ID="NI" CountryCode="505" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NIGER" ID="NE" CountryCode="227" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NIGERIA" ID="NG" CountryCode="234" CountryCode2="" IDD="009" NDD="0"></Country>
+	<Country Name="NIUE" ID="NU" CountryCode="683" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="NORFOLK ISLAND" ID="NF" CountryCode="672" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="NORTHERN MARIANA ISLANDS" ID="MP" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="NORWAY" ID="NO" CountryCode="47" CountryCode2="" IDD="00" NDD="">
+		<Area Code="5" Description="Bergen"/>
+		<Area Code="32" Description="Drammen"/>
+		<Area Code="69" Description="Halden"/>
+		<Area Code="67" Description="Lysaker"/>
+		<Area Code="22" Description="Oslo"/>
+		<Area Code="77" Description="Tromso"/>
+	</Country>
+	<Country Name="OMAN" ID="OM" CountryCode="968" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="PAKISTAN" ID="PK" CountryCode="92" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="PALAU" ID="PW" CountryCode="680" CountryCode2="" IDD="011" NDD=""></Country>
+	<Country Name="PALESTINIAN TERRITORY, OCCUPIED" ID="PS" CountryCode="970" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="PANAMA" ID="PA" CountryCode="507" CountryCode2="" IDD="00,088,055" NDD="0"></Country>
+	<Country Name="PAPUA NEW GUINEA" ID="PG" CountryCode="675" CountryCode2="" IDD="05" NDD=""></Country>
+	<Country Name="PARAGUAY" ID="PY" CountryCode="595" CountryCode2="" IDD="002" NDD="0"></Country>
+	<Country Name="PERU" ID="PE" CountryCode="51" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="PHILIPPINES" ID="PH" CountryCode="63" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="PITCAIRN" ID="PN" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="POLAND" ID="PL" CountryCode="48" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="58" Description="Gdansk"/>
+		<Area Code="22" Description="Warsaw"/>
+		<Area Code="12" Description="Crakow"/>		
+	</Country>
+	<Country Name="PORTUGAL" ID="PT" CountryCode="351" CountryCode2="" IDD="00,882" NDD="">
+		<Area Code="296" Description="Ponta Delgada S Miguel, Vita Do Porto St. Maria"/>
+		<Area Code="295" Description="Angra Do Heroismo, Lajes Terceira, Velas"/>
+		<Area Code="292" Description="Horta, Madalena Pico, Santa Cruz"/>
+		<Area Code="291" Description="Madeira Islands, Porto Santo"/>
+		<Area Code="290" Description="Funchal"/>
+		<Area Code="289" Description="Faro"/>
+		<Area Code="284" Description="Beja"/>
+		<Area Code="282" Description="Lagos"/>
+		<Area Code="266" Description="Evora"/>
+		<Area Code="265" Description="Setubal"/>
+		<Area Code="262" Description="Caldas Da Rainha, Nazare, Peniche"/>
+		<Area Code="259" Description="Villa Real"/>
+		<Area Code="258" Description="Viana Do Castelo"/>
+		<Area Code="253" Description="Braga"/>
+		<Area Code="252" Description="Riba de Ave"/>
+		<Area Code="244" Description="Leiria"/>
+		<Area Code="243" Description="Santarem"/>
+		<Area Code="239" Description="Coimbra"/>
+		<Area Code="234" Description="Aviero"/>
+		<Area Code="233" Description="Figueira Da Foz"/>
+		<Area Code="232" Description="Viseu"/>
+		<Area Code="22" Description="Porto"/>
+		<Area Code="21" Description="Lisbon"/>
+	</Country>
+	<Country Name="PUERTO RICO" ID="PR" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="787" Description="Puerto Rico"/>
+		<Area Code="939" Description="Puerto Rico"/>
+	</Country>
+	<Country Name="QATAR" ID="QA" CountryCode="974" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="REUNION" ID="RE" CountryCode="262" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ROMANIA" ID="RO" CountryCode="40" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="269" Description="Sibiu "/>
+		<Area Code="268" Description="Brasov"/>
+		<Area Code="267" Description="Covasna"/>
+		<Area Code="266" Description="Harghita"/>
+		<Area Code="265" Description="Mures"/>
+		<Area Code="264" Description="Cluj"/>
+		<Area Code="263" Description="Bistrita Nasaud"/>
+		<Area Code="262" Description="Maramures"/>
+		<Area Code="261" Description="Satu Mare "/>
+		<Area Code="260" Description="Salaj "/>
+		<Area Code="259" Description="Bihor"/>
+		<Area Code="258" Description="Alba"/>
+		<Area Code="257" Description="Arad"/>
+		<Area Code="256" Description="Timis"/>
+		<Area Code="255" Description="Caras Severin"/>
+		<Area Code="254" Description="Hunedoara"/>
+		<Area Code="253" Description="Gorj"/>
+		<Area Code="252" Description="Mehedinti"/>
+		<Area Code="251" Description="Dolj"/>
+		<Area Code="250" Description="Valcea"/>
+		<Area Code="249" Description="Olt"/>
+		<Area Code="248" Description="Arges"/>
+		<Area Code="247" Description="Teleorman"/>
+		<Area Code="246" Description="Giurgiu"/>
+		<Area Code="245" Description="Dambovita"/>
+		<Area Code="244" Description="Prahova"/>
+		<Area Code="243" Description="Ialomita"/>
+		<Area Code="242" Description="Calarasi"/>
+		<Area Code="241" Description="Constanta"/>
+		<Area Code="240" Description="Tulcea"/>
+		<Area Code="239" Description="Braila"/>
+		<Area Code="238" Description="Buzau"/>
+		<Area Code="237" Description="Vrancea"/>
+		<Area Code="236" Description="Galati"/>
+		<Area Code="235" Description="Vaslui"/>
+		<Area Code="234" Description="Bacau"/>
+		<Area Code="233" Description="Neamt"/>
+		<Area Code="232" Description="Iasi"/>
+		<Area Code="231" Description="Botosani"/>
+		<Area Code="230" Description="Suceava "/>
+		<Area Code="21" Description="Bucuresti"/>
+	</Country>
+	<Country Name="RUSSIAN FEDERATION" ID="RU" CountryCode="7" CountryCode2="" IDD="810" NDD="8">
+		<Area Code="95" Description="Moscow"/>
+	</Country>
+	<Country Name="RWANDA" ID="RW" CountryCode="250" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SAINT HELENA" ID="SH" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="SAINT KITTS AND NEVIS" ID="KN" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="869" Description="Saint Kitts And Nevis"/>
+	</Country>
+	<Country Name="SAINT LUCIA" ID="LC" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="758" Description="Saint Lucia"/>
+	</Country>
+	<Country Name="SAINT PIERRE AND MIQUELON" ID="PM" CountryCode="508" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SAINT VINCENT AND THE GRENADINES" ID="VC" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="784" Description="Saint Vincent and the Grenadines"/>
+	</Country>
+	<Country Name="SAMOA" ID="WS" CountryCode="684" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="SAN MARINO" ID="SM" CountryCode="378" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="549" Description="All"/>
+		<Area Code="541" Description="All"/>
+	</Country>
+	<Country Name="SAO TOME AND PRINCIPE" ID="ST" CountryCode="239" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SAUDI ARABIA" ID="SA" CountryCode="966" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SENEGAL" ID="SN" CountryCode="221" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SERBIA AND MONTENEGRO" ID="CS" CountryCode="381" CountryCode2="" IDD="99" NDD="0"></Country>
+	<Country Name="SEYCHELLES" ID="SC" CountryCode="248" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SIERRA LEONE" ID="SL" CountryCode="232" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SINGAPORE" ID="SG" CountryCode="65" CountryCode2="" IDD="001,002,008,012,013,018,019" NDD=""></Country>
+	<Country Name="SLOVAKIA" ID="SK" CountryCode="421" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SLOVENIA" ID="SI" CountryCode="386" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SOLOMON ISLANDS" ID="SB" CountryCode="677" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="SOMALIA" ID="SO" CountryCode="252" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="SOUTH AFRICA" ID="ZA" CountryCode="27" CountryCode2="" IDD="09" NDD="0"></Country>
+	<Country Name="SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS" ID="GS" CountryCode="995" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="SPAIN" ID="ES" CountryCode="34" CountryCode2="" IDD="00" NDD="">
+		<Area Code="988" Description="Orense"/>
+		<Area Code="987" Description="Leon"/>
+		<Area Code="986" Description="Pontevedra"/>
+		<Area Code="983" Description="Valladolid"/>
+		<Area Code="982" Description="Lugo"/>
+		<Area Code="981" Description="La Coruna"/>
+		<Area Code="980" Description="Zamora"/>
+		<Area Code="979" Description="Palencia"/>
+		<Area Code="978" Description="Teruel"/>
+		<Area Code="977" Description="Tarragona"/>
+		<Area Code="976" Description="Zaragoza"/>
+		<Area Code="975" Description="Soria"/>
+		<Area Code="974" Description="Huesca"/>
+		<Area Code="973" Description="Lerida"/>
+		<Area Code="972" Description="Gerona"/>
+		<Area Code="971" Description="Baleares"/>
+		<Area Code="969" Description="Cuenca"/>
+		<Area Code="968" Description="Murcia"/>
+		<Area Code="967" Description="Albacete"/>
+		<Area Code="964" Description="Castellon"/>
+		<Area Code="959" Description="Huelva"/>
+		<Area Code="958" Description="Granada"/>
+		<Area Code="957" Description="Cordoba"/>
+		<Area Code="956" Description="Cadiz/Ceuta"/>
+		<Area Code="953" Description="Jaen"/>
+		<Area Code="950" Description="Almeria"/>
+		<Area Code="949" Description="Guadalajara"/>
+		<Area Code="948" Description="Navarra"/>
+		<Area Code="947" Description="Burgos"/>
+		<Area Code="945" Description="Alava"/>
+		<Area Code="943" Description="Guipuzcoa"/>
+		<Area Code="942" Description="Cantabria"/>
+		<Area Code="941" Description="La Rioja"/>
+		<Area Code="928" Description="LasPalmas"/>
+		<Area Code="927" Description="Caceres"/>
+		<Area Code="926" Description="Ciudad Real"/>
+		<Area Code="925" Description="Toledo"/>
+		<Area Code="924" Description="Badajoz"/>
+		<Area Code="923" Description="Salamanca"/>
+		<Area Code="922" Description="Tenerife"/>
+		<Area Code="921" Description="Segovia"/>
+		<Area Code="920" Description="Avila"/>
+		<Area Code="98" Description="Asturias "/>
+		<Area Code="96" Description="Alicante/Valencia"/>
+		<Area Code="95" Description="Sevilla/Melilla/Malaga"/>
+		<Area Code="94" Description="Viscaya"/>
+		<Area Code="93" Description="Barcelona"/>
+		<Area Code="91" Description="Madrid"/>
+	</Country>
+	<Country Name="SRI LANKA" ID="LK" CountryCode="94" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SUDAN" ID="SD" CountryCode="249" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="SURINAME" ID="SR" CountryCode="597" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="SVALBARD AND JAN MAYEN" ID="SJ" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="SWAZILAND" ID="SZ" CountryCode="268" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="SWEDEN" ID="SE" CountryCode="46" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="31" Description="Goteborg"/>
+		<Area Code="40" Description="Malmo"/>
+		<Area Code="8" Description="Stockholm"/>
+		<Area Code="21" Description="Vasteras"/>
+	</Country>
+	<Country Name="SWITZERLAND" ID="CH" CountryCode="41" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="61" Description="Basel"/>
+		<Area Code="31" Description="Berne"/>
+		<Area Code="22" Description="Geneva"/>
+		<Area Code="41" Description="Lucerne"/>
+		<Area Code="1" Description="Zurich"/>
+	</Country>
+	<Country Name="SYRIAN ARAB REPUBLIC" ID="SY" CountryCode="963" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="TAIWAN, PROVINCE OF CHINA" ID="TW" CountryCode="886" CountryCode2="" IDD="002" NDD=""></Country>
+	<Country Name="TAJIKISTAN" ID="TJ" CountryCode="992" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="TANZANIA, UNITED REPUBLIC OF" ID="TZ" CountryCode="255" CountryCode2="" IDD="000,005,006" NDD="0"></Country>
+	<Country Name="THAILAND" ID="TH" CountryCode="66" CountryCode2="" IDD="" NDD="0"></Country>
+	<Country Name="TIMOR-LESTE" ID="TL" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="TOGO" ID="TG" CountryCode="228" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="TOKELAU" ID="TK" CountryCode="690" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="TONGA" ID="TO" CountryCode="676" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="TRINIDAD AND TOBAGO" ID="TT" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="868" Description="Trinidad and Tobago"/>
+	</Country>
+	<Country Name="TUNISIA" ID="TN" CountryCode="216" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="TURKEY" ID="TR" CountryCode="90" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="1426" Description="Bingo"/>
+		<Area Code="488" Description="Batman"/>
+		<Area Code="486" Description="Sirnak"/>
+		<Area Code="484" Description="Siirt"/>
+		<Area Code="482" Description="Mardin"/>
+		<Area Code="478" Description="Ardahan"/>
+		<Area Code="476" Description="Igdir"/>
+		<Area Code="474" Description="Kars"/>
+		<Area Code="472" Description="Agri"/>
+		<Area Code="466" Description="Artvin"/>
+		<Area Code="464" Description="Rize"/>
+		<Area Code="462" Description="Trabzon"/>
+		<Area Code="458" Description="Bayburt"/>
+		<Area Code="456" Description="Gumushane"/>
+		<Area Code="454" Description="Giresun"/>
+		<Area Code="452" Description="Ordu"/>
+		<Area Code="446" Description="Erzincan"/>
+		<Area Code="442" Description="Erzurum"/>
+		<Area Code="438" Description="Hakkari"/>
+		<Area Code="436" Description="Mus"/>
+		<Area Code="434" Description="Bitus"/>
+		<Area Code="432" Description="Van"/>
+		<Area Code="428" Description="Tunceli"/>
+		<Area Code="424" Description="Elazig"/>
+		<Area Code="422" Description="Malatya"/>
+		<Area Code="416" Description="Adiyaman"/>
+		<Area Code="414" Description="Sanliurfa"/>
+		<Area Code="412" Description="Diyarbakir"/>
+		<Area Code="392" Description="Lefkosa"/>
+		<Area Code="392" Description="Mersin"/>
+		<Area Code="388" Description="Nigde"/>
+		<Area Code="386" Description="Kirsehir"/>
+		<Area Code="384" Description="Nevsehir"/>
+		<Area Code="382" Description="Aksaray"/>
+		<Area Code="378" Description="Bartin"/>
+		<Area Code="376" Description="Cankiri"/>
+		<Area Code="374" Description="Bolu"/>
+		<Area Code="372" Description="Zonguldak"/>
+		<Area Code="368" Description="Sinop"/>
+		<Area Code="366" Description="Kastamonu"/>
+		<Area Code="364" Description="Corum"/>
+		<Area Code="362" Description="Samsun"/>
+		<Area Code="358" Description="Amasya"/>
+		<Area Code="356" Description="Tokat"/>
+		<Area Code="354" Description="Yozgat"/>
+		<Area Code="352" Description="Kayseri"/>
+		<Area Code="346" Description="Sivas"/>
+		<Area Code="344" Description="Kahramanmaras"/>
+		<Area Code="342" Description="Gaziantep"/>
+		<Area Code="338" Description="Karaman"/>
+		<Area Code="332" Description="Konya"/>
+		<Area Code="326" Description="Hatay"/>
+		<Area Code="324" Description="Icel (Mersin)"/>
+		<Area Code="322" Description="Adana"/>
+		<Area Code="318" Description="Kirikkale"/>
+		<Area Code="312" Description="Ankara"/>
+		<Area Code="288" Description="Kirklareli"/>
+		<Area Code="286" Description="Canakkale"/>
+		<Area Code="284" Description="Edirne"/>
+		<Area Code="282" Description="Tekirdag"/>
+		<Area Code="276" Description="Usak"/>
+		<Area Code="274" Description="Kutahya"/>
+		<Area Code="272" Description="Afyon"/>
+		<Area Code="266" Description="Balikesir"/>
+		<Area Code="264" Description="Sakarya (Adapazari)"/>
+		<Area Code="262" Description="Izmit"/>
+		<Area Code="262" Description="Kocaeli (Izmit)"/>
+		<Area Code="258" Description="Denizli"/>
+		<Area Code="256" Description="Aydin"/>
+		<Area Code="252" Description="Mugla"/>
+		<Area Code="248" Description="Burdur"/>
+		<Area Code="246" Description="Isparta"/>
+		<Area Code="242" Description="Antalya"/>
+		<Area Code="236" Description="Manisa"/>
+		<Area Code="232" Description="Bornoua"/>
+		<Area Code="232" Description="Izmir"/>
+		<Area Code="228" Description="Bilecik"/>
+		<Area Code="224" Description="Bursa"/>
+		<Area Code="222" Description="Eskisehir"/>
+		<Area Code="216" Description="Istanbul (Asian side)"/>
+		<Area Code="212" Description="Istanbul (Euro side)"/>
+	</Country>
+	<Country Name="TURKMENISTAN" ID="TM" CountryCode="993" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="TURKS AND CAICOS ISLANDS" ID="TC" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="649" Description="Turks and Caicos Islands"/>
+	</Country>
+	<Country Name="TUVALU" ID="TV" CountryCode="688" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="UGANDA" ID="UG" CountryCode="256" CountryCode2="" IDD="000,005,007" NDD="0"></Country>
+	<Country Name="UKRAINE" ID="UA" CountryCode="380" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="UNITED ARAB EMIRATES" ID="AE" CountryCode="971" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="UNITED KINGDOM" ID="GB" CountryCode="44" CountryCode2="" IDD="00" NDD="0">
+		<Area Code="148182" Description="Alderney, Channel Islands"/>
+		<Area Code="2891" Description="Bangor N. Ireland"/>
+		<Area Code="1983" Description="Isle of Wight"/>
+		<Area Code="1970" Description="Aberystwyth"/>
+		<Area Code="1926" Description="Kenilworth"/>
+		<Area Code="1865" Description="Oxford"/>
+		<Area Code="1792" Description="Swansea"/>
+		<Area Code="1752" Description="Plymouth"/>
+		<Area Code="1736" Description="Penzance"/>
+		<Area Code="1734" Description="Reading"/>
+		<Area Code="1704" Description="Southport"/>
+		<Area Code="1642" Description="Stockton on Tees"/>
+		<Area Code="1632" Description="Newcastle"/>
+		<Area Code="1631" Description="Oban"/>
+		<Area Code="1620" Description="Haddington"/>
+		<Area Code="1604" Description="Northampton"/>
+		<Area Code="1603" Description="Norwich"/>
+		<Area Code="1558" Description="Carmarthenshire"/>
+		<Area Code="1534" Description="Jersey Channel Islands"/>
+		<Area Code="1482" Description="Hull"/>
+		<Area Code="1481" Description="Guernsey Channel Islands"/>
+		<Area Code="1478" Description="Ipswich"/>
+		<Area Code="1475" Description="Greenock"/>
+		<Area Code="1452" Description="Gloucester"/>
+		<Area Code="1423" Description="Harrogate"/>
+		<Area Code="1392" Description="Exeter"/>
+		<Area Code="1385" Description="Durham"/>
+		<Area Code="1382" Description="Dundee"/>
+		<Area Code="1334" Description="Fife"/>
+		<Area Code="1304" Description="Dover"/>
+		<Area Code="1292" Description="Prestwick"/>
+		<Area Code="1274" Description="Bradford"/>
+		<Area Code="1273" Description="Brighton"/>
+		<Area Code="1253" Description="Blackpool"/>
+		<Area Code="1248" Description="Bangor"/>
+		<Area Code="1228" Description="Carlisle"/>
+		<Area Code="1227" Description="Canterbury"/>
+		<Area Code="1225" Description="Bath"/>
+		<Area Code="1224" Description="Aberdeen"/>
+		<Area Code="1223" Description="Cambridge"/>
+		<Area Code="1202" Description="Bournemouth"/>
+		<Area Code="870" Description="Toll Free"/>
+		<Area Code="208" Description="London (outer)"/>
+		<Area Code="207" Description="London (inner)"/>
+		<Area Code="161" Description="Manchester"/>
+		<Area Code="151" Description="Liverpool"/>
+		<Area Code="141" Description="Glasgow"/>
+		<Area Code="131" Description="Edinburgh"/>
+		<Area Code="121" Description="Birmingham"/>
+		<Area Code="117" Description="Bristol"/>
+		<Area Code="116" Description="Leicester"/>
+		<Area Code="115" Description="Nottingham"/>
+		<Area Code="114" Description="Sheffield"/>
+		<Area Code="113" Description="Leeds"/>
+		<Area Code="29" Description="Cardiff"/>
+		<Area Code="28" Description="Belfast/Londonderry"/>
+		<Area Code="24" Description="Coventry"/>
+		<Area Code="23" Description="Portsmouth/Southampton"/>
+	</Country>
+	<Country Name="UNITED STATES MINOR OUTLYING ISLANDS" ID="UM" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="URUGUAY" ID="UY" CountryCode="598" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="UZBEKISTAN" ID="UZ" CountryCode="998" CountryCode2="" IDD="810" NDD="8"></Country>
+	<Country Name="VANUATU" ID="VU" CountryCode="678" CountryCode2="" IDD="00" NDD=""></Country>
+	<Country Name="VENEZUELA" ID="VE" CountryCode="58" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="VIET NAM" ID="VN" CountryCode="84" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="VIRGIN ISLANDS, BRITISH" ID="VG" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="VIRGIN ISLANDS, U.S." ID="VI" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
+		<Area Code="340" Description="Virgin Islands, U.S."/>
+	</Country>
+	<Country Name="WALLIS AND FUTUNA" ID="WF" CountryCode="681" CountryCode2="" IDD="19" NDD=""></Country>
+	<Country Name="WESTERN SAHARA" ID="EH" CountryCode="" CountryCode2="" IDD="" NDD=""></Country>
+	<Country Name="YEMEN" ID="YE" CountryCode="967" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ZAMBIA" ID="ZM" CountryCode="260" CountryCode2="" IDD="00" NDD="0"></Country>
+	<Country Name="ZIMBABWE" ID="ZW" CountryCode="263" CountryCode2="" IDD="00" NDD="0"></Country>
+</General.PhoneNumber>
