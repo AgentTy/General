@@ -769,7 +769,7 @@
 	<Country Name="JAMAICA" ID="JM" CountryCode="1" CountryCode2="" IDD="011" NDD="1">
 		<Area Code="876" Description="Jamaica"/>
 	</Country>
-	<Country Name="JAPAN" ID="JP" CountryCode="81" CountryCode2="" IDD="001,010,0061,0041" NDD="0">
+	<Country Name="JAPAN" ID="JP" CountryCode="81" CountryCode2="" IDD="010,001,0061,0041" NDD="0">
 		<Area Code="992" Description="Kagoshima"/>
 		<Area Code="985" Description="Miyazaki"/>
 		<Area Code="958" Description="Nagasaki"/>

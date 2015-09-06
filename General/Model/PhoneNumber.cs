@@ -643,6 +643,7 @@ namespace General.Model
 				string strExt;
 				strTemp = strNumber.ToLower();
 				strTemp = strTemp.Trim();
+                strTemp = strTemp.Replace("(0)", ""); //Remove alternate dial instruction used in international numbers
 				strTemp = strTemp.Replace(" ","|");
 				strTemp = strTemp.Replace("(","|");
 				strTemp = strTemp.Replace(")","|");
@@ -1018,6 +1019,9 @@ namespace General.Model
 
 		private string ToDialString(Int64 OriginatingCountryCode,string IDD, string NDD)
 		{
+            if (String.IsNullOrEmpty(IDD))
+                IDD = "00"; //Most common IDD, use this when XML file doesn't specify
+
 			StringBuilder sb = new StringBuilder();
 			if(_intNumber <= 0)
 			{

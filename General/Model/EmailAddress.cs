@@ -113,7 +113,7 @@ namespace General.Model
 			if (_blnValid) {
 				_strSource = strEmail;
 				_strUser = strEmail.Substring(0, strEmail.IndexOf("@"));
-				_strDomain = strEmail.Substring(strEmail.IndexOf("@"));
+				_strDomain = strEmail.Substring(strEmail.IndexOf("@")).TrimStart('@');
 			}
 		}
 		
@@ -159,7 +159,7 @@ namespace General.Model
 		/// </summary>
 		public string ToLink()
 		{
-			return "<a href=mailto:" + _strSource + ">" + _strSource + "</a>";
+			return "<a href=\"mailto:" + _strSource + "\">" + _strSource + "</a>";
 		}
 
 		#endregion
@@ -215,7 +215,7 @@ namespace General.Model
         {
             get {
                 if (!StringFunctions.IsNullOrWhiteSpace(_strName))
-                    return _strName + " (" + _strSource + ")";
+                    return _strName + " <" + _strSource + ">";
                 else
                     return _strSource; 
             }

@@ -444,12 +444,14 @@ namespace General.Model
         #region GetSiteRoot
         public URL GetSiteRoot()
         {
-            return new URL(this.ToUri().Host);
+            return GetSiteRoot(this);
         }
 
         public static URL GetSiteRoot(URL urlSrc)
         {
-            return new URL(urlSrc.ToUri().Host);
+            var uri = urlSrc.ToUri();
+            var rootURL = uri.OriginalString.Replace(uri.LocalPath, "").Replace(uri.Query,"").Replace(uri.Fragment,"");
+            return new URL(rootURL);
         }
         #endregion
 

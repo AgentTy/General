@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General.More", "General.Mor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General.ScriptManager", "ScriptManager\General.ScriptManager.csproj", "{F74E2B8F-EE12-43F4-A5C0-6B037AA08CF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General.Tests", "General.Tests\General.Tests.csproj", "{8B5FA664-8847-4CEE-8D54-1E0C5A78003E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F74E2B8F-EE12-43F4-A5C0-6B037AA08CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F74E2B8F-EE12-43F4-A5C0-6B037AA08CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F74E2B8F-EE12-43F4-A5C0-6B037AA08CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5FA664-8847-4CEE-8D54-1E0C5A78003E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5FA664-8847-4CEE-8D54-1E0C5A78003E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5FA664-8847-4CEE-8D54-1E0C5A78003E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5FA664-8847-4CEE-8D54-1E0C5A78003E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
