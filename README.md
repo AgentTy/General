@@ -11,7 +11,8 @@ The code contained in General has been accumulating for over 10 years, some is o
 The General.Model namespace contains a bunch of classes for modeling discrete data types, or complex data entities. 
   See ModelTests.cs in General.Tests for demonstrations
   
-#General.Model.EmailAddress - dummy proof parsing, validation and formatting of an email address. 
+#General.Model.EmailAddress
+  dummy proof parsing, validation and formatting of an email address. 
 
           EmailAddress email = new EmailAddress("who@where.com", "Dr. Who");
             bool valid = email.Valid; //True
@@ -26,7 +27,8 @@ The General.Model namespace contains a bunch of classes for modeling discrete da
             object sqlObj = email.ToSql(); //who@where.com or DBNull.Value when empty
 
 
-#General.Model.URL - url parsing, validation, and testing for existance, redirection, 404 error, etc
+#General.Model.URL
+  url parsing, validation, and testing for existance, redirection, 404 error, etc
 
           URL url = new URL("https://test.where.com/Test.html?name=value#top");
             bool valid = url.Valid; //True
@@ -46,7 +48,8 @@ The General.Model namespace contains a bunch of classes for modeling discrete da
             URL.URLCheck404Result enu404Result = url3.CheckFor404(); //URL.URLCheck404Result.NotFound404
 
 
-#General.Model.PhoneNumber - The PhoneNumber class uses an embedded XML file that allows it to parse any number 
+#General.Model.PhoneNumber
+  The PhoneNumber class uses an embedded XML file that allows it to parse any number 
   from around the world, and know where that number is from and how to dial it from anywhere else in the world!
 
           PhoneNumber phone1 = new PhoneNumber("867-5309","702"); //Local number (area code defaults per your settings)
