@@ -90,7 +90,7 @@ namespace General.Tests
             string domain = email.Domain; //where.com
             string username = email.User; //who
             string name = email.Name; //Dr. Who
-            string formatted = email.EmailWithName; //Dr. Who (who@where.com)
+            string formatted = email.EmailWithName; //Dr. Who <who@where.com>
             string emailToString = email.ToString(); //who@where.com
             string emailStringImplicit = (string)email; //who@where.com
             string link = email.ToLink(); //<a href="mailto:who@where.com">who@where.com</a>
