@@ -20,7 +20,7 @@ The General.Model namespace contains a bunch of classes for modeling discrete da
             string domain = email.Domain; //where.com
             string username = email.User; //who
             string name = email.Name; //Dr. Who
-            string formatted = email.EmailWithName; //Dr. Who (who@where.com)
+            string formatted = email.EmailWithName; //Dr. Who <who@where.com>
             string emailToString = email.ToString(); //who@where.com
             string emailStringImplicit = (string)email; //who@where.com
             string link = email.ToLink(); //<a href="mailto:who@where.com">who@where.com</a>
@@ -51,6 +51,7 @@ The General.Model namespace contains a bunch of classes for modeling discrete da
 #General.Model.PhoneNumber
   The PhoneNumber class uses an embedded XML file that allows it to parse any number 
   from around the world, and know where that number is from and how to dial it from anywhere else in the world!
+  See ModelTests.cs in General.Tests for more thorough demonstrations
 
           PhoneNumber phone1 = new PhoneNumber("867-5309","702"); //Local number (area code defaults per your settings)
             bool valid = phone1.Valid; //True
