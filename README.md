@@ -55,8 +55,8 @@ The General.Model namespace contains a bunch of classes for modeling discrete da
 
           PhoneNumber phone1 = new PhoneNumber("867-5309","702"); //Local number (area code defaults per your settings)
             bool valid = phone1.Valid; //True
-            string phoneValue = phone1.Value; //who@where.com
-            string phoneToString = phone1.ToString(); //who@where.com
+            string phoneValue = phone1.Value; //(702) 867-5309
+            string phoneToString = phone1.ToString(); // (702) 867-5309
             object sqlObj = phone1.ToSql(); //17028675309 or DBNull.Value when empty
             string country = phone1.CountryName; //UNITED STATES OF AMERICA 
             string region = phone1.AreaDescription; //NV - Las Vegas
