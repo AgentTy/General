@@ -11,7 +11,10 @@ namespace General.Environment
 
         #region Settings
         public static string ServerNameList_Dev { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_Dev") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_dev") ?? ""; } }
+        public static string ServerNameList_QA { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_QA") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_qa") ?? ""; } }
         public static string ServerNameList_Staging { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_Staging") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_stage") ?? ""; } }
+        public static string ServerNameList_CustomEnv { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_CustomEnv") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_custom_env") ?? ""; } }
+
         #endregion
         
         #region Constructor
@@ -41,6 +44,14 @@ namespace General.Environment
 			return(WhereAmI() == EnvironmentContext.Dev);
 		}
 
+        /// <summary>
+        /// Returns true if the current MachineName is in the list of Developement Servers
+        /// </summary>
+        public static bool AmIQA()
+        {
+            return (WhereAmI() == EnvironmentContext.QA);
+        }
+
 		/// <summary>
 		/// Returns true if the current MachineName is in the list of Stage Servers
 		/// </summary>
@@ -48,6 +59,14 @@ namespace General.Environment
 		{
 			return(WhereAmI() == EnvironmentContext.Stage);
 		}
+
+        /// <summary>
+        /// Returns true if the current MachineName is in the list of Stage Servers
+        /// </summary>
+        public static bool AmICustomEnv()
+        {
+            return (WhereAmI() == EnvironmentContext.CustomEnv);
+        }
 
         #region AmIBeta
         /// <summary>
@@ -69,12 +88,19 @@ namespace General.Environment
 		public static EnvironmentContext WhereAmI()
 		{
 			string server_name = System.Environment.MachineName.ToUpperInvariant();
+
             string dev_list = ServerNameList_Dev.ToUpperInvariant();
 			if(dev_list == null)
 				dev_list = "";
+            string qa_list = ServerNameList_QA.ToUpperInvariant();
+            if (qa_list == null)
+                qa_list = "";
             string stage_list = ServerNameList_Staging.ToUpperInvariant();
 			if(stage_list == null)
 				stage_list = "";
+            string custom_list = ServerNameList_CustomEnv.ToUpperInvariant();
+            if (custom_list == null)
+                custom_list = "";
 
 			string[] list = dev_list.Split(',');	
 			for(int i=0; i<list.Length; i++)
@@ -83,12 +109,26 @@ namespace General.Environment
 					return(EnvironmentContext.Dev);
 			}
 
+            list = qa_list.Split(',');
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (list[i] == server_name)
+                    return (EnvironmentContext.QA);
+            }
+
 			list = stage_list.Split(',');	
 			for(int i=0; i<list.Length; i++)
 			{
 				if(list[i] == server_name)
 					return(EnvironmentContext.Stage);
 			}
+
+            list = custom_list.Split(',');
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (list[i] == server_name)
+                    return (EnvironmentContext.CustomEnv);
+            }
 
 			return EnvironmentContext.Live;
         }
@@ -183,7 +223,9 @@ namespace General.Environment
 	public enum EnvironmentContext
 	{
 		Dev = 1,
-		Stage = 2,
-		Live = 3
+        QA = 2,
+		Stage = 3,
+        CustomEnv = 4,
+        Live = 5
 	}
 }
