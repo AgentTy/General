@@ -656,7 +656,10 @@ namespace General.Model
         {
             get
             {
-                return ((Uri)this).Host;
+                if (this.Valid)
+                    return ((Uri)this).Host;
+                else
+                    return "";
             }
         }
 		#endregion
