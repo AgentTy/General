@@ -10,6 +10,8 @@ namespace General.Environment
     {
 
         #region Settings
+
+        public static string HostingEnvironment { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("HostingEnvironment") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("hosting_environment") ?? ""; } }
         public static string ServerNameList_Dev { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_Dev") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_dev") ?? ""; } }
         public static string ServerNameList_QA { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_QA") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_qa") ?? ""; } }
         public static string ServerNameList_Staging { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_Staging") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_stage") ?? ""; } }
@@ -28,6 +30,8 @@ namespace General.Environment
         #endregion
 
         #region WhereAmI
+
+        #region Shortcuts
         /// <summary>
 		/// Returns false if the current MachineName is in the list of Developement Servers or Stage Servers
 		/// </summary>
@@ -67,6 +71,7 @@ namespace General.Environment
         {
             return (WhereAmI() == EnvironmentContext.CustomEnv);
         }
+        #endregion
 
         #region AmIBeta
         /// <summary>
@@ -83,51 +88,62 @@ namespace General.Environment
         #endregion
 
 		/// <summary>
-		/// Returns an EnvironmentContext Enumeration based on the current server name compared to the list of Developement and Stage servers.
+		/// Returns an EnvironmentContext Enumeration based on the current server name compared to the list of Developement, QA and Stage servers.
 		/// </summary>
 		public static EnvironmentContext WhereAmI()
 		{
+
+            if(!String.IsNullOrEmpty(HostingEnvironment))
+            {
+                EnvironmentContext manualEnv = (EnvironmentContext) Enum.Parse(typeof(EnvironmentContext), HostingEnvironment, true);
+                return manualEnv;
+            }
+
 			string server_name = System.Environment.MachineName.ToUpperInvariant();
 
             string dev_list = ServerNameList_Dev.ToUpperInvariant();
-			if(dev_list == null)
-				dev_list = "";
             string qa_list = ServerNameList_QA.ToUpperInvariant();
-            if (qa_list == null)
-                qa_list = "";
             string stage_list = ServerNameList_Staging.ToUpperInvariant();
-			if(stage_list == null)
-				stage_list = "";
             string custom_list = ServerNameList_CustomEnv.ToUpperInvariant();
-            if (custom_list == null)
-                custom_list = "";
 
-			string[] list = dev_list.Split(',');	
-			for(int i=0; i<list.Length; i++)
-			{
-				if(list[i] == server_name)
-					return(EnvironmentContext.Dev);
-			}
-
-            list = qa_list.Split(',');
-            for (int i = 0; i < list.Length; i++)
+            if (!String.IsNullOrEmpty(dev_list))
             {
-                if (list[i] == server_name)
-                    return (EnvironmentContext.QA);
+                string[] list = dev_list.Split(',');
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if (list[i] == server_name)
+                        return (EnvironmentContext.Dev);
+                }
             }
 
-			list = stage_list.Split(',');	
-			for(int i=0; i<list.Length; i++)
-			{
-				if(list[i] == server_name)
-					return(EnvironmentContext.Stage);
-			}
-
-            list = custom_list.Split(',');
-            for (int i = 0; i < list.Length; i++)
+            if (!String.IsNullOrEmpty(qa_list))
             {
-                if (list[i] == server_name)
-                    return (EnvironmentContext.CustomEnv);
+                string[] list = qa_list.Split(',');
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if (list[i] == server_name)
+                        return (EnvironmentContext.QA);
+                }
+            }
+
+            if (!String.IsNullOrEmpty(stage_list))
+            {
+                string[] list = stage_list.Split(',');
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if (list[i] == server_name)
+                        return (EnvironmentContext.Stage);
+                }
+            }
+
+            if (!String.IsNullOrEmpty(custom_list))
+            {
+                string[] list = custom_list.Split(',');
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if (list[i] == server_name)
+                        return (EnvironmentContext.CustomEnv);
+                }
             }
 
 			return EnvironmentContext.Live;

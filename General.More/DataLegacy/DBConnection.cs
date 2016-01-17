@@ -56,21 +56,7 @@ namespace General.DAO
             string strSuffix = String.Empty;
 
             if (PickConnectionByDevLiveStage)
-            {
-                General.Environment.EnvironmentContext iAm = General.Environment.Current.WhereAmI();
-                if (iAm == General.Environment.EnvironmentContext.Dev)
-                {
-                    strSuffix = "_dev";
-                }
-                else if (iAm == General.Environment.EnvironmentContext.Stage)
-                {
-                    strSuffix = "_stage";
-                }
-                else
-                {
-                    strSuffix = "_live";
-                }
-            }
+                strSuffix = "_" + General.Environment.Current.WhereAmI().ToString().ToLower();
             #endregion
 
             if (GlobalConfiguration.GetFromAppConfig)
@@ -180,21 +166,7 @@ namespace General.DAO
             string strSuffix = String.Empty;
 
             if (PickConnectionByDevLiveStage)
-            {
-                General.Environment.EnvironmentContext iAm = General.Environment.Current.WhereAmI();
-                if (iAm == General.Environment.EnvironmentContext.Dev)
-                {
-                    strSuffix = "_dev";
-                }
-                else if (iAm == General.Environment.EnvironmentContext.Stage)
-                {
-                    strSuffix = "_stage";
-                }
-                else
-                {
-                    strSuffix = "_live";
-                }
-            }
+                strSuffix = "_" + General.Environment.Current.WhereAmI().ToString().ToLower();
             #endregion
 
             if (GlobalConfiguration.GetFromAppConfig)
@@ -257,21 +229,7 @@ namespace General.DAO
             string strSuffix = String.Empty;
 
             if (PickConnectionByDevLiveStage)
-            {
-                General.Environment.EnvironmentContext iAm = General.Environment.Current.WhereAmI();
-                if (iAm == General.Environment.EnvironmentContext.Dev)
-                {
-                    strSuffix = "_dev";
-                }
-                else if (iAm == General.Environment.EnvironmentContext.Stage)
-                {
-                    strSuffix = "_stage";
-                }
-                else
-                {
-                    strSuffix = "_live";
-                }
-            }
+                strSuffix = "_" + General.Environment.Current.WhereAmI().ToString().ToLower();
             #endregion
 
             if (GlobalConfiguration.GetFromAppConfig)
@@ -304,21 +262,7 @@ namespace General.DAO
             string strSuffix = String.Empty;
 
             if (PickConnectionByDevLiveStage)
-            {
-                General.Environment.EnvironmentContext iAm = General.Environment.Current.WhereAmI();
-                if (iAm == General.Environment.EnvironmentContext.Dev)
-                {
-                    strSuffix = "_dev";
-                }
-                else if (iAm == General.Environment.EnvironmentContext.Stage)
-                {
-                    strSuffix = "_stage";
-                }
-                else
-                {
-                    strSuffix = "_live";
-                }
-            }
+                strSuffix = "_" + General.Environment.Current.WhereAmI().ToString().ToLower();
             #endregion
 
             if (GlobalConfiguration.GetFromAppConfig)

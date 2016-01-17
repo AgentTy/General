@@ -209,9 +209,14 @@ namespace General.Mail {
 			{
                 foreach (EmailAddress objEmail in ToEmail) //IF YOU REMOVE THIS CONDITION THE SERVER WILL CRASH (INFINITE RECURSION)
                     if (objEmail == new EmailAddress(Debugging.Report.ErrorEmailTo))
-                        throw new Exception("Error sending email");
-					
-                SendEmail(Debugging.Report.ErrorEmailFrom,Debugging.Report.ErrorEmailTo,"Email Send Error",ex.ToString());
+                        throw new Exception("Error sending debug email", ex);
+
+                try
+                {
+                    SendEmail(Debugging.Report.ErrorEmailFrom, Debugging.Report.ErrorEmailTo, "Email Send Error", ex.ToString());
+                }
+                catch { }
+
 				throw;
 			}
 			return true;

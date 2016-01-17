@@ -157,8 +157,6 @@
     <Compile Include="Mail\MIMEEncoding.cs" />
     <Compile Include="Mail\PlainTextFromHTML.cs" />
     <Compile Include="OAuthBase.cs" />
-    <Compile Include="Social\SocialLink.cs" />
-    <Compile Include="SortableModelCollection.cs" />
     <Compile Include="Model\CreditCard.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -289,7 +287,6 @@
     <Compile Include="Utilities\Encryption\EncryptionTools.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IO\Bytes.cs" />
     <Compile Include="IO\CSVParser.cs">
       <SubType>Code</SubType>
     </Compile>

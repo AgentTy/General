@@ -55,6 +55,7 @@
     <Compile Include="Environment\HostApplicationState.cs" />
     <Compile Include="Environment\HostCache.cs" />
     <Compile Include="Environment\HostState.cs" />
+    <Compile Include="IO\Bytes.cs" />
     <Compile Include="Model\GPSCoordinate.cs" />
     <Compile Include="Model\JsonObject.cs" />
     <Compile Include="Model\JsonRectangle.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="More\RootFunctions.cs" />
     <Compile Include="More\TextLog.cs" />
     <Compile Include="Serialization\DataTableToJson.cs" />
+    <Compile Include="Social\SocialLink.cs" />
     <Compile Include="StringFunctions.cs" />
     <Compile Include="Model\URL.cs" />
     <Compile Include="Threading\BackgroundWorker.cs" />

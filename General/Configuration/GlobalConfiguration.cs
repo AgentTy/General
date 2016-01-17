@@ -57,12 +57,13 @@ namespace General.Configuration
                 }
                 else
                 {
-                    throw new System.IO.FileNotFoundException("General.config could not be loaded");
+                    objCol = null;
+                    //throw new System.IO.FileNotFoundException("General.config could not be loaded");
                 }
             }
             catch
             {
-                objCol = (NameValueCollection)null;
+                objCol = null;
             }
             return objCol;
 		}
@@ -394,7 +395,12 @@ namespace General.Configuration
                     else if (GetFromAppConfigFirst && System.Configuration.ConfigurationManager.AppSettings[Key] != null)
                         return System.Configuration.ConfigurationManager.AppSettings[Key];
                     else
-                        return GetGlobalSettings()[Key];
+                    {
+                        var settings = GetGlobalSettings();
+                        if (settings != null)
+                            return settings[Key];
+                        else return null;
+                    }
                 }
                 catch
                 {
@@ -444,10 +450,14 @@ namespace General.Configuration
         #endregion
 
         #region GetClientID
-        private static string ClientIDKey = "client_id";
+        private static string ClientIDKey1 = "ClientID";
+        private static string ClientIDKey2 = "client_id";
         public static int? GetClientID()
         {
-            var strClientID = GlobalSettings[ClientIDKey];
+            var strClientID = GlobalSettings[ClientIDKey1];
+            if (String.IsNullOrEmpty(strClientID))
+                strClientID = GlobalSettings[ClientIDKey2];
+
             if (!String.IsNullOrEmpty(strClientID))
             {
                 return int.Parse(strClientID);
@@ -460,7 +470,10 @@ namespace General.Configuration
 
         public static int? GetClientID(string strHost)
         {
-            var strClientID = GetHostSettings(strHost)[ClientIDKey];
+            var strClientID = GetHostSettings(strHost)[ClientIDKey1];
+            if (String.IsNullOrEmpty(strClientID))
+                strClientID = GetHostSettings(strHost)[ClientIDKey2];
+
             if (!String.IsNullOrEmpty(strClientID))
             {
                 return int.Parse(strClientID);
