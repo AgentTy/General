@@ -117,6 +117,20 @@ namespace General.Configuration
                 configMap.Add("mode", "sandbox");
 
             //This will check for PayPal_APISandBoxMode being explicitly set to use SandBox instead of Live
+            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["PayPal_APILiveModeOverride"]))
+            {
+                bool blnLiveOverride = bool.Parse(ConfigurationManager.AppSettings["PayPal_APILiveModeOverride"]);
+                if (blnLiveOverride)
+                    configMap["mode"] = "live";
+            }
+            else if (!String.IsNullOrEmpty(GlobalConfiguration.GlobalSettings["PayPal_APILiveModeOverride"]))
+            {
+                bool blnLiveOverride = bool.Parse(GlobalConfiguration.GlobalSettings["PayPal_APILiveModeOverride"]);
+                if (blnLiveOverride)
+                    configMap["mode"] = "live";
+            }
+
+            //This will check for PayPal_APISandBoxMode being explicitly set to use SandBox instead of Live
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["PayPal_APISandBoxMode"]))
             {
                 bool blnSandBoxOverride = bool.Parse(ConfigurationManager.AppSettings["PayPal_APISandBoxMode"]);

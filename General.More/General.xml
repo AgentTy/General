@@ -167,37 +167,6 @@
             Comparer class used to perform the sorting of the query parameters
             </summary>
         </member>
-        <member name="T:General.SortableModelCollection`1">
-            <summary>
-            Summary description for Collection.
-            </summary>
-        </member>
-        <member name="T:General.GenericComparer`1">
-            <summary>
-            This class is used to compare any
-            type(property) of a class for sorting.
-            This class automatically fetches the
-            type of the property and compares.
-            </summary>
-        </member>
-        <member name="M:General.GenericComparer`1.Compare(`0,`0)">
-            <summary>
-            Compare interface implementation
-            </summary>
-            <param name="x">custom Object</param>
-            <param name="y">custom Object</param>
-            <returns>int</returns>
-        </member>
-        <member name="P:General.GenericComparer`1.SortColumn">
-            <summary>
-            Column Name(public property of the class) to be sorted.
-            </summary>
-        </member>
-        <member name="P:General.GenericComparer`1.SortingOrder">
-            <summary>
-            Sorting order.
-            </summary>
-        </member>
         <member name="T:General.CreditCard">
             <summary>
             General definition for a Credit Card. Testing.. This has been changed 10/6/11
@@ -2152,234 +2121,234 @@
             </summary>
             <returns>object</returns>
         </member>
-        <member name="T:General.SqlConvert">
+        <member name="T:General.DAO.SqlConvert">
             <summary>
             Conversion functions that default values when catching DBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.#ctor">
+        <member name="M:General.DAO.SqlConvert.#ctor">
             <summary>
             Conversion functions that default values when catching DBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Object)">
             <summary>
             Convert an object into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Collections.ArrayList)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Collections.ArrayList)">
             <summary>
             Convert an XMLNameValueCollection into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.Model.PostalAddress)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.Model.PostalAddress)">
             <summary>
             Convert an XMLNameValueCollection into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.XMLNameValueCollection)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.XMLNameValueCollection)">
             <summary>
             Convert an XMLNameValueCollection into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.SimpleXMLNameValueCollection)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.SimpleXMLNameValueCollection)">
             <summary>
             Convert a SimpleXMLNameValueCollection into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.Model.PhoneNumber)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.Model.PhoneNumber)">
             <summary>
             Convert a string into a PhoneNumber object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.Model.EmailAddress)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.Model.EmailAddress)">
             <summary>
             Convert a string into a EmailAddress object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.Model.URL)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.Model.URL)">
             <summary>
             Convert a string into a URL object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.String)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.String)">
             <summary>
             Convert a string into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Int32)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Int32)">
             <summary>
             Convert an integer into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Int32,System.Int32)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Int32,System.Int32)">
             <summary>
             Convert an integer into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Int16)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Int16)">
             <summary>
             Convert an integer into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Int64)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Int64)">
             <summary>
             Convert an integer into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Double)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Double)">
             <summary>
             Convert a double into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Double,System.Double)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Double,System.Double)">
             <summary>
             Convert an double into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Decimal)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Decimal)">
             <summary>
             Convert a double into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Single)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Single)">
             <summary>
             Convert a double into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.Boolean)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.Boolean)">
             <summary>
             Convert an integer into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(General.ShortGuid)">
+        <member name="M:General.DAO.SqlConvert.ToSql(General.ShortGuid)">
             <summary>
             Convert a ShortGuid into a sql UniqueIdentifier object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSqlYesNo(System.Boolean)">
+        <member name="M:General.DAO.SqlConvert.ToSqlYesNo(System.Boolean)">
             <summary>
             Convert an integer into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.DateTime)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.DateTime)">
             <summary>
             Convert a DataTime into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSql(System.DateTime,System.DateTime)">
+        <member name="M:General.DAO.SqlConvert.ToSql(System.DateTime,System.DateTime)">
             <summary>
             Convert a DataTime into a sql object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.Parse(System.String)">
+        <member name="M:General.DAO.SqlConvert.Parse(System.String)">
             <summary>
             Fix quotes for sql query strings
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToShortGuid(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToShortGuid(System.Object)">
             <summary>
             Fix quotes for sql query strings
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToNumber(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToNumber(System.Object)">
             <summary>
             Fix quotes for sql query strings
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToInt64(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToInt64(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToInt32(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToInt32(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToInt16(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToInt16(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToString(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToString(System.Object)">
             <summary>
             Returns String.Empty if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToType(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToType(System.Object)">
             <summary>
             Returns System.Type
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToSingle(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToSingle(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToDouble(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToDouble(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToByte(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToByte(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToDecimal(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToDecimal(System.Object)">
             <summary>
             Returns 0 if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToDateTime(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToDateTime(System.Object)">
             <summary>
             Returns SqlConvert.ToDateTime(null) if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToBoolean(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToBoolean(System.Object)">
             <summary>
             Returns false if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToChar(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToChar(System.Object)">
             <summary>
             Returns new char() if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToPhoneNumber(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToPhoneNumber(System.Object)">
             <summary>
             Returns new PhoneNumber() if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToEmailAddress(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToEmailAddress(System.Object)">
             <summary>
             Returns new EmailAddress() if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToURL(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToURL(System.Object)">
             <summary>
             Returns new URL() if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToXML(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToXML(System.Object)">
             <summary>
             Returns new XmlDocument() if object IsDBNull
             </summary>
         </member>
-        <member name="M:General.SqlConvert.ToPostalAddress(System.Object)">
+        <member name="M:General.DAO.SqlConvert.ToPostalAddress(System.Object)">
             <summary>
             Returns PostalAddress from object
             </summary>
         </member>
-        <member name="M:General.SqlConvert.MinDate">
+        <member name="M:General.DAO.SqlConvert.MinDate">
             <summary>
             Returns the smallest DateTime that SQL Server can use.
             "1/1/1753 12:00:00 AM"
             </summary>
             <returns>DateTime</returns>
         </member>
-        <member name="M:General.SqlConvert.MaxDate">
+        <member name="M:General.DAO.SqlConvert.MaxDate">
             <summary>
             Returns the largest DateTime that SQL Server can use.
             "12/31/9999 11:59:59 PM"
