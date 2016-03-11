@@ -71,7 +71,7 @@ namespace General.Debugging
 		public static void SendError(string Subject,string Error)
 		{
             bool blnIsHtml = false;
-            if (Error.ToLower().Contains("<br"))
+            if (!String.IsNullOrEmpty(Error) && Error.ToLower().Contains("<br"))
                 blnIsHtml = true;
             General.Mail.MailTools.SendEmail(ErrorEmailFrom, ErrorEmailTo, Subject, Error, blnIsHtml);
 		}

@@ -76,6 +76,11 @@ namespace General.Web {
 		public static string GetRequestedUrl() 
 		{
 			try {
+                if (HttpContext.Current == null)
+                    return null;
+                if (HttpContext.Current.Request == null)
+                    return null;
+
 				string strProtocol = "http://";
 				string strRequestedUrl;
             

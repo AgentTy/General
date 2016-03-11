@@ -29,6 +29,11 @@ namespace General.Mail {
         protected static string MailServerDev_UserName { get { return GlobalConfiguration.GlobalSettings["MailServerDev_UserName"] ?? GlobalConfiguration.GlobalSettings["mail_server_username_dev"]; } }
         protected static string MailServerDev_Password { get { return GlobalConfiguration.GlobalSettings["MailServerDev_Password"] ?? GlobalConfiguration.GlobalSettings["mail_server_password_dev"]; } }
 
+        protected static string MailServerQA { get { return GlobalConfiguration.GlobalSettings["MailServerQA"] ?? GlobalConfiguration.GlobalSettings["mail_server_qa"]; } }
+        protected static string MailServerQA_Port { get { return GlobalConfiguration.GlobalSettings["MailServerQA_Port"] ?? GlobalConfiguration.GlobalSettings["mail_server_port_qa"]; } }
+        protected static string MailServerQA_UserName { get { return GlobalConfiguration.GlobalSettings["MailServerQA_UserName"] ?? GlobalConfiguration.GlobalSettings["mail_server_username_qa"]; } }
+        protected static string MailServerQA_Password { get { return GlobalConfiguration.GlobalSettings["MailServerQA_Password"] ?? GlobalConfiguration.GlobalSettings["mail_server_password_qa"]; } }
+
         protected static string MailServerStage { get { return GlobalConfiguration.GlobalSettings["MailServerStage"] ?? GlobalConfiguration.GlobalSettings["mail_server_stage"]; } }
         protected static string MailServerStage_Port { get { return GlobalConfiguration.GlobalSettings["MailServerStage_Port"] ?? GlobalConfiguration.GlobalSettings["mail_server_port_stage"]; } }
         protected static string MailServerStage_UserName { get { return GlobalConfiguration.GlobalSettings["MailServerStage_UserName"] ?? GlobalConfiguration.GlobalSettings["mail_server_username_stage"]; } }
@@ -281,6 +286,16 @@ namespace General.Mail {
                         strUserName = MailServerStage_UserName;
                     if (!StringFunctions.IsNullOrWhiteSpace(MailServerStage_Password))
                         strPassword = MailServerStage_Password;
+                }
+                else if (Environment.Current.AmIQA())
+                {
+                    strMailServer = MailServerQA;
+                    if (!StringFunctions.IsNullOrWhiteSpace(MailServerQA_Port))
+                        intPort = int.Parse(MailServerQA_Port);
+                    if (!StringFunctions.IsNullOrWhiteSpace(MailServerQA_UserName))
+                        strUserName = MailServerQA_UserName;
+                    if (!StringFunctions.IsNullOrWhiteSpace(MailServerQA_Password))
+                        strPassword = MailServerQA_Password;
                 }
                 else
                 {

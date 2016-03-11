@@ -58,6 +58,7 @@ namespace General.Model
 		private int? _intExtension;
 		private string _strCountryName;
 		private string _strAreaDescription;
+        private bool _blnFlaggedInvalid;
 
         [NonSerialized]
 		private static XmlDocument _Countries;
@@ -411,6 +412,7 @@ namespace General.Model
 
 		private void ParseNumber(Int64 Number, ParseArgument ParseAs)
 		{
+            _blnFlaggedInvalid = false;
 			switch(ParseAs)
 			{
 				case ParseArgument.NANP:
@@ -424,9 +426,12 @@ namespace General.Model
 
 		private void ParseNumber(string Number, ParseArgument ParseAs)
 		{
+            _blnFlaggedInvalid = false;
 			switch(ParseAs)
 			{
 				case ParseArgument.NANP:
+                    if (StringFunctions.ForceInteger(Number).StartsWith("0"))
+                        _blnFlaggedInvalid = true; //NANP numbers and dial strings don't start with zero
 					ParseNANPNumber(CleanNumber(Number));
 					break;
 				default:
@@ -443,13 +448,30 @@ namespace General.Model
 			if(intNumber != -1)
 			{
 				string strTemp = intNumber.ToString();
+
+                //HERE WE WILL CATCH ANY US/CANADIAN PHONE NUMBERS MISSING A COUNTRY CODE
+                if (strTemp.Length == 7 && !StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
+                {
+                    strTemp = DefaultUSAreaCode + strTemp;
+                }
+
 				if(strTemp.Length == 10 || (strTemp.Length == 11 && StringFunctions.StartsWith(strTemp,"1")))
 				{
 					if(strTemp.Length == 11)
-						strTemp = StringFunctions.Right(strTemp,10);
+						strTemp = StringFunctions.Right(strTemp, 10);
 					_intCountryCode = 1;
-					_intAreaCode = Convert.ToInt64(strTemp.Substring(0,3));
-					_intNumber = Convert.ToInt64(strTemp.Substring(3,7));
+					_intAreaCode = Convert.ToInt64(strTemp.Substring(0, 3));
+                    if (_intAreaCode.ToString() != strTemp.Substring(0, 3))
+                        _blnFlaggedInvalid = true; //Flaged because the area code starts with a zero
+					_intNumber = Convert.ToInt64(strTemp.Substring(3, 7));
+                    if (_intNumber.ToString() != strTemp.Substring(3, 7))
+                        _blnFlaggedInvalid = true; //Flaged because the area code starts with a zero
+				}
+                else if(strTemp.Length == 7)
+				{
+					_intCountryCode = 1;
+                    _intAreaCode = -1;
+                    _intNumber = intNumber;
 				}
 				else
 				{
@@ -717,6 +739,8 @@ namespace General.Model
 					if(StringFunctions.ForceInteger(strTemp) != "")
 					{
 						intTempNumber = Convert.ToInt64(StringFunctions.ForceInteger(strTemp));
+                        //if (intTempNumber.ToString() != StringFunctions.ForceInteger(strTemp))  //Leading zero in the phone number
+                            //_blnFlaggedInvalid = true;
 						return intTempNumber;
 					}
 					else
@@ -1210,7 +1234,11 @@ namespace General.Model
 		[DataMember]
         public bool Valid
 		{
-			get	{return ToString(PhoneNumber.Format.UnformattedNumber).Length >= 7 && (!Extension.HasValue || Extension.Value <= 32767);}
+            get { 
+                if (_blnFlaggedInvalid) 
+                    return false; 
+                return ToString(PhoneNumber.Format.UnformattedNumber).Length >= 7 && (!Extension.HasValue || Extension.Value <= 32767); 
+            }
 		}
 
 		/// <summary>

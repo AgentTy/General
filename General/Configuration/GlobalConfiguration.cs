@@ -90,8 +90,20 @@ namespace General.Configuration
 				if(Obj != null)
 				{
                     System.Web.Caching.Cache GlobalCache = System.Web.HttpRuntime.Cache;
-					System.Web.Caching.CacheDependency objDepend = new System.Web.Caching.CacheDependency(General.Environment.Current.GetBinDirectory() + "General.config");
-					GlobalCache.Add("General.Configuration.GlobalSettings",Obj,objDepend,DateTime.Now.AddMinutes(10),Cache.NoSlidingExpiration,CacheItemPriority.High,null);
+                    System.Web.Caching.CacheDependency objDepend = null;
+                    if (System.IO.File.Exists(General.Environment.Current.GetBinDirectory() + "General.config"))
+                    {
+                        objDepend = new System.Web.Caching.CacheDependency(General.Environment.Current.GetBinDirectory() + "General.config");
+                    }
+                    else if (System.IO.File.Exists(General.Environment.Current.GetAppDirectory() + "General.config"))
+                    {
+                        objDepend = new System.Web.Caching.CacheDependency(General.Environment.Current.GetAppDirectory() + "General.config");
+                    }
+
+                    if (objDepend != null)
+                        GlobalCache.Add("General.Configuration.GlobalSettings", Obj, objDepend, DateTime.Now.AddMinutes(10), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+                    else
+                        _objGlobalSettings = Obj;
 				}
 			}
 		}
@@ -254,8 +266,21 @@ namespace General.Configuration
                 if (Obj != null)
                 {
                     System.Web.Caching.Cache GlobalCache = System.Web.HttpRuntime.Cache;
-                    System.Web.Caching.CacheDependency objDepend = new System.Web.Caching.CacheDependency(General.Environment.Current.GetBinDirectory() + "General.config");
-                    GlobalCache.Add("General.Configuration.HostSettings." + host, Obj, objDepend, DateTime.Now.AddMinutes(10), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+
+                    System.Web.Caching.CacheDependency objDepend = null;
+                    if (System.IO.File.Exists(General.Environment.Current.GetBinDirectory() + "General.config"))
+                    {
+                        objDepend = new System.Web.Caching.CacheDependency(General.Environment.Current.GetBinDirectory() + "General.config");
+                    }
+                    else if (System.IO.File.Exists(General.Environment.Current.GetAppDirectory() + "General.config"))
+                    {
+                        objDepend = new System.Web.Caching.CacheDependency(General.Environment.Current.GetAppDirectory() + "General.config");
+                    }
+
+                    if (objDepend != null)
+                        GlobalCache.Add("General.Configuration.HostSettings." + host, Obj, objDepend, DateTime.Now.AddMinutes(10), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+                    else
+                        _objHostSettings = Obj;
                 }
             }
         }
