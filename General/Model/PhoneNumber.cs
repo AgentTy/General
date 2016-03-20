@@ -59,6 +59,7 @@ namespace General.Model
 		private string _strCountryName;
 		private string _strAreaDescription;
         private bool _blnFlaggedInvalid;
+        private ParseArgument _enuParseAs;
 
         [NonSerialized]
 		private static XmlDocument _Countries;
@@ -413,6 +414,8 @@ namespace General.Model
 		private void ParseNumber(Int64 Number, ParseArgument ParseAs)
 		{
             _blnFlaggedInvalid = false;
+            _enuParseAs = ParseAs;
+
 			switch(ParseAs)
 			{
 				case ParseArgument.NANP:
@@ -427,6 +430,8 @@ namespace General.Model
 		private void ParseNumber(string Number, ParseArgument ParseAs)
 		{
             _blnFlaggedInvalid = false;
+            _enuParseAs = ParseAs;
+
 			switch(ParseAs)
 			{
 				case ParseArgument.NANP:
@@ -1241,13 +1246,32 @@ namespace General.Model
             }
 		}
 
+        private int _intPropertiesLeftToPopulateObject = 2;
 		/// <summary>
 		/// Returns the original data use to create the PhoneNumber
 		/// </summary>
+        [DataMember]
 		public string Source
 		{
-			get	{return _strSource;}
+			get	{ return _strSource; }
+            set { _strSource = value; _intPropertiesLeftToPopulateObject--;
+            if (_intPropertiesLeftToPopulateObject <= 0)
+                ParseNumber(_strSource, _enuParseAs);
+            }
 		}
+
+        /// <summary>
+        /// Returns the original data use to create the PhoneNumber
+        /// </summary>
+        [DataMember]
+        public ParseArgument ParseAs
+        {
+            get { return _enuParseAs; }
+            set { _enuParseAs = value; _intPropertiesLeftToPopulateObject--;
+            if (_intPropertiesLeftToPopulateObject <= 0)
+                ParseNumber(_strSource, _enuParseAs);
+            }
+        }
 
         /// <summary>
         /// Returns the default output string
@@ -1257,6 +1281,37 @@ namespace General.Model
         {
             get { return ToString(); }
         }
+
+        /*
+        /// <summary>
+        /// Returns the default output string
+        /// </summary>
+        [DataMember]
+        public PhoneNumberSerializerModel SerializedValue
+        {
+            get
+            {
+                return new PhoneNumberSerializerModel
+                {
+                    Source = _strSource, 
+                    ParseAs = _enuParseAs
+                };
+            }
+            set
+            {
+                ParseNumber(value.Source, value.ParseAs);
+            }
+        }
+
+        [Serializable, DataContract]
+        public class PhoneNumberSerializerModel
+        {
+            [DataMember]
+            public string Source { get; set; }
+            [DataMember]
+            public ParseArgument ParseAs { get; set; }
+        }
+        */
 
 		/// <summary>
 		/// Returns the CountryCode

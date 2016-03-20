@@ -625,6 +625,7 @@ namespace General.Model
         public string Value
 		{
             get { return ToString(); }
+            set { SetURL(value); }
 		}
 
         private URLCheckExistsResult _exists = URLCheckExistsResult.Unknown;

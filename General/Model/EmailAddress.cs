@@ -168,6 +168,7 @@ namespace General.Model
         /// <summary>
         /// Gets or sets the Name linked with this EmailAddress
         /// </summary>
+        [DataMember]
         public string Name
         {
             get { return _strName; }
@@ -180,7 +181,7 @@ namespace General.Model
         [DataMember]
 		public bool Valid
 		{
-			get	{return _blnValid;}
+			get	{ return _blnValid; }
 		}
 
 		/// <summary>
@@ -189,7 +190,8 @@ namespace General.Model
         [DataMember]
 		public string Value
 		{
-			get	{return _strSource;}
+			get	{ return _strSource; }
+            set { _strSource = value; SetEmail(value); }
 		}
 
         /// <summary>

@@ -882,11 +882,13 @@ namespace General.DAO
                             }
                             else
                             {
-                                throw new Exception(ex.Message + " : " + o.ConnectionString, ex);
+                                throw;
+                                //throw new Exception(ex.Message + " : " + o.ConnectionString, ex);
                             }
                         }
                         else
-                            throw new Exception(ex.Message + " : " + o.ConnectionString, ex);
+                            throw;
+                            //throw new Exception(ex.Message + " : " + o.ConnectionString, ex);
                     }
 				    catch(System.Exception ex)
 				    {

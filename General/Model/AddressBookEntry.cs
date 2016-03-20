@@ -170,6 +170,8 @@ namespace General.Model
         {
             get
             {
+                if (Email == null)
+                    return "";
                 Email.Name = this.FullName;
                 return Email.GetEmailWithName;
             }
@@ -357,7 +359,7 @@ namespace General.Model
 		#region Private Functions
 		private string GetFullName() 
 		{
-			return _strFirstName + " " + _strLastName;
+			return (_strFirstName + " " + _strLastName).Trim();
 		}
 
         private void ReadFullName(string strFullName)
