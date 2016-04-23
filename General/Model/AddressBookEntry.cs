@@ -364,15 +364,24 @@ namespace General.Model
 
         private void ReadFullName(string strFullName)
         {
-            if (strFullName.Contains(" "))
+            if (!StringFunctions.IsNullOrWhiteSpace(strFullName))
             {
-                string[] aryNameParts = strFullName.Split(' ');
-                this.FirstName = aryNameParts[0];
-                this.LastName = StringFunctions.AllAfter(strFullName, " ");
-            }
-            else
-            {
-                this.FirstName = strFullName;
+                strFullName = strFullName.Trim();
+                if (strFullName.Contains(" "))
+                {
+                    string[] aryNameParts = strFullName.Split(' ');
+                    if (aryNameParts.Length == 1)
+                        this.FirstName = strFullName;
+                    else
+                    {
+                        this.LastName = StringFunctions.AllAfterReverse(strFullName, " ");
+                        this.FirstName = strFullName.Replace(this.LastName, "").Trim();
+                    }
+                }
+                else
+                {
+                    this.FirstName = strFullName;
+                }
             }
         }
 		#endregion

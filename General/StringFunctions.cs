@@ -194,6 +194,8 @@ namespace General
         /// </summary>
         public static bool IsNumeric(string input, bool decimalAllowed)
         {
+            if (input == null)
+                return false;
             if (decimalAllowed)
                 return (System.Text.RegularExpressions.Regex.IsMatch(input, "^[0-9.]+$"));
             return (System.Text.RegularExpressions.Regex.IsMatch(input, "^[0-9]+$"));

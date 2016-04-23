@@ -329,7 +329,7 @@ namespace General.Model
 			_strAreaDescription = "";
 			if(StringFunctions.IsNumeric(_strSource))
 				ParseNumber(Convert.ToInt64(_strSource),ParseArgument.Unknown);
-			else
+            else if (_strSource != null)
 				ParseNumber(_strSource,ParseArgument.Unknown);
 		}
 
@@ -349,7 +349,7 @@ namespace General.Model
 			_strAreaDescription = "";
 			if(StringFunctions.IsNumeric(_strSource))
 				ParseNumber(Convert.ToInt64(_strSource),ParseAs);
-			else
+            else if (_strSource != null)
 				ParseNumber(_strSource,ParseAs);
 		}
 
