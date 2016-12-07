@@ -377,12 +377,6 @@
             common uses of SqlClient
             </summary>
         </member>
-        <member name="M:General.DAO.SqlHelper.GetCommandSummary(System.Data.SqlClient.SqlCommand)">
-            <summary>
-            This method will return a string summarizing the command parameters for debugging purposes.
-            </summary>
-            <param name="cmd">A valid SqlCommand object</param>
-        </member>
         <member name="M:General.DAO.SqlHelper.GetQueryHashCode(System.Data.SqlClient.SqlCommand)">
             <summary>
             This method will return a string containing the command text and its parameters.

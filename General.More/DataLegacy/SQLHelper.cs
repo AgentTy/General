@@ -62,20 +62,6 @@ namespace General.DAO
 		}
 
 		/// <summary>
-		/// This method will return a string summarizing the command parameters for debugging purposes.
-		/// </summary>
-		/// <param name="cmd">A valid SqlCommand object</param>
-		private static string GetCommandSummary(SqlCommand cmd)
-		{
-			string strParamList = "";
-			foreach(SqlParameter arg in cmd.Parameters)
-			{
-				strParamList += arg.ParameterName + " = " + arg.Value + "\n";
-			}
-			return(strParamList);
-		}
-
-		/// <summary>
 		/// This method will return a string containing the command text and its parameters.
 		/// </summary>
 		/// <param name="cmd">A valid SqlCommand object</param>
@@ -293,14 +279,14 @@ namespace General.DAO
 			}
 			catch(SqlException ex)
 			{
-				string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
-				strErr += GetCommandSummary(cmd);
+				string strErr = "A SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
+				strErr += GetQueryString(cmd);
 				throw new Exception(strErr,ex);
 			}
 			catch(System.Exception ex)
 			{
 				string strErr = "An error occured while communicating with SQL Server (" + cmd.CommandText + ").\n";
-				strErr += GetCommandSummary(cmd);
+				strErr += GetQueryString(cmd);
 				throw new Exception(strErr,ex);
 			}
         		
@@ -347,10 +333,11 @@ namespace General.DAO
 			    }
 			    catch(SqlException ex) 
 			    {
-                    if ((int)ex.Class <= 10)
+                    if ((int)ex.Class <= 16)
                     {
-                        string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
-                        strErr += GetCommandSummary(cmd);
+                        string strErr = "A SQL Server error occurred while trying to execute the command: " + cmd.CommandText + "\n";
+                        strErr += ex.Message + "\n";
+                        strErr += GetQueryString(cmd) + "\n";
                         throw new Exception(strErr, ex);
                     }
                     else
@@ -359,7 +346,7 @@ namespace General.DAO
 			    /*catch(System.Exception ex)
 			    {
 				    string strErr = "An error occured while communicating with SQL Server (" + cmd.CommandText + ").\n";
-				    strErr += GetCommandSummary(cmd);
+				    strErr += GetQueryString(cmd);
 				    throw new Exception(strErr,ex);
 			    }*/
         		
@@ -408,13 +395,13 @@ namespace General.DAO
 			    catch(SqlException ex)
 			    {
 				    string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
-				    strErr += GetCommandSummary(cmd);
+                    strErr += GetQueryString(cmd);
 				    throw new Exception(strErr,ex);
 			    }
 			    catch(System.Exception ex)
 			    {
 				    string strErr = "An error occured while communicating with SQL Server (" + cmd.CommandText + ").\n";
-				    strErr += GetCommandSummary(cmd);
+                    strErr += GetQueryString(cmd);
 				    throw new Exception(strErr,ex);
 			    }
         			
@@ -863,11 +850,11 @@ namespace General.DAO
                     catch(SqlException ex)
                     {
                         StopDebuggingClock();
-                        if ((int)ex.Class <= 10)
+                        if ((int)ex.Class <= 16)
                         {
-                            string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
+                            string strErr = "A SQL Server error occurred while trying to execute the command: " + cmd.CommandText + "\n";
                             strErr += ex.Message + "\n";
-                            strErr += GetCommandSummary(cmd);
+                            strErr += GetQueryString(cmd) + "\n";
                             throw new Exception(strErr, ex);
                         }
                         else if (ex.Message.ToLower().Contains("a transport-level error has occurred"))
@@ -895,7 +882,7 @@ namespace General.DAO
 						StopDebuggingClock();
 					    string strErr = "An error occured while communicating with SQL Server (" + cmd.CommandText + ").\n";
                         strErr += ex.Message + "\n";
-					    strErr += GetCommandSummary(cmd);
+                        strErr += GetQueryString(cmd);
 					    throw new Exception(strErr,ex);
 				    }
     				
@@ -2766,17 +2753,32 @@ namespace General.DAO
 				if(arg.Value != null)
 				{
 					if(StringFunctions.IsNumeric(arg.Value.ToString()))
-						strParamList += arg.ParameterName + "=" + arg.Value + ",";
+						strParamList += arg.ParameterName + "=" + arg.Value + ",\n";
 					else
-						strParamList += arg.ParameterName + "='" + arg.Value + "',";
+						strParamList += arg.ParameterName + "='" + arg.Value + "',\n";
 				}
 			}
-			strParamList = StringFunctions.Shave(strParamList,1);
+			strParamList = StringFunctions.Shave(strParamList,2);
 			return(strParamList);
 		}
 
 		#endregion
 
+        /*
+        /// <summary>
+        /// This method will return a string summarizing the command parameters for debugging purposes.
+        /// </summary>
+        /// <param name="cmd">A valid SqlCommand object</param>
+        private static string GetCommandSummary(SqlCommand cmd)
+        {
+            string strParamList = "";
+            foreach (SqlParameter arg in cmd.Parameters)
+            {
+                strParamList += arg.ParameterName + " = " + arg.Value + "\n";
+            }
+            return (strParamList);
+        }
+        */
     }
 
 	/// <summary>

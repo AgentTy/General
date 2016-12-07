@@ -278,13 +278,15 @@ namespace General.Model
                 }
                 catch (WebException ex)
                 {
+                    _exists = URLCheckExistsResult.DoesNotExist;
                     if(ex.Message == "Too many automatic redirections were attempted.")
                         _exists = URLCheckExistsResult.Exists;
                     if (ex.Message.Contains("500")) //Error
                         _exists = URLCheckExistsResult.Unknown;
                     if (ex.Message.Contains("403")) //Forbidden
                         _exists = URLCheckExistsResult.Unknown;
-                    _exists = URLCheckExistsResult.DoesNotExist;
+                    if (ex.Message.Contains("407")) //Proxy
+                        _exists = URLCheckExistsResult.Unknown;
                 }
             }
             else

@@ -36,7 +36,10 @@ namespace General
 		public ShortGuid(string value)
 		{
 			_value = value;
-			_guid = Decode(value);
+            if (!String.IsNullOrEmpty(value))
+                _guid = Decode(value);
+            else
+                _guid = Guid.Empty;
 		}
 
 		/// <summary>

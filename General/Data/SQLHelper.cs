@@ -37,10 +37,10 @@ namespace General.Data
             }
             catch (SqlException ex)
             {
-                if ((int)ex.Class <= 10)
+                if ((int)ex.Class <= 16)
                 {
                     string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
-                    strErr += GetCommandSummary(cmd);
+                    strErr += GetQueryString(cmd);
                     throw new Exception(strErr, ex);
                 }
                 else
@@ -151,10 +151,10 @@ namespace General.Data
             }
             catch (SqlException ex)
             {
-                if ((int)ex.Class <= 10)
+                if ((int)ex.Class <= 16)
                 {
                     string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
-                    strErr += GetCommandSummary(cmd);
+                    strErr += GetQueryString(cmd);
                     throw new Exception(strErr, ex);
                 }
                 else
@@ -263,11 +263,11 @@ namespace General.Data
                 }
                 catch (SqlException ex)
                 {
-                    if ((int)ex.Class <= 10)
+                    if ((int)ex.Class <= 16)
                     {
-                        string strErr = "An SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
+                        string strErr = "A SQL Server error occurred while trying to execute the command (" + cmd.CommandText + ").\n";
                         strErr += ex.Message + "\n";
-                        strErr += GetCommandSummary(cmd);
+                        strErr += GetQueryString(cmd);
                         throw new Exception(strErr, ex);
                     }
                     else if (ex.Message.ToLower().Contains("a transport-level error has occurred"))
@@ -281,7 +281,7 @@ namespace General.Data
                 {
                     string strErr = "An error occured while communicating with SQL Server (" + cmd.CommandText + ").\n";
                     strErr += ex.Message + "\n";
-                    strErr += GetCommandSummary(cmd);
+                    strErr += GetQueryString(cmd);
                     throw new Exception(strErr, ex);
                 }
 
@@ -307,17 +307,18 @@ namespace General.Data
                 if (arg.Value != null)
                 {
                     if (StringFunctions.IsNumeric(arg.Value.ToString()))
-                        strParamList += arg.ParameterName + "=" + arg.Value + ",";
+                        strParamList += arg.ParameterName + "=" + arg.Value + ",\n";
                     else
-                        strParamList += arg.ParameterName + "='" + arg.Value + "',";
+                        strParamList += arg.ParameterName + "='" + arg.Value + "',\n";
                 }
             }
-            strParamList = StringFunctions.Shave(strParamList, 1);
+            strParamList = StringFunctions.Shave(strParamList, 2);
             return (strParamList);
         }
         #endregion
 
         #region GetCommandSummary
+        /*
         /// <summary>
         /// This method will return a string summarizing the command parameters for debugging purposes.
         /// </summary>
@@ -331,6 +332,7 @@ namespace General.Data
             }
             return (strParamList);
         }
+        */
         #endregion
 
     }

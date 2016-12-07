@@ -164,7 +164,7 @@ namespace General.Model
 
 			return(sb.ToString());
 		}
-
+        [DataMember]
         public string GetLocationString
         {
             get

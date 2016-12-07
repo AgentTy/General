@@ -772,8 +772,6 @@ namespace General.Model
         /// 2 = ToInternationalDialString
         /// 3 = ToUSDialString
         /// 4 = ToUnformattedNumber	
-        /// 
-        /// TODO: Change the input parameter to an enumeration.
         /// </summary>
         public enum Format
         {
@@ -809,7 +807,6 @@ namespace General.Model
         /// 2 = ToInternationalDialString
         /// 3 = ToUSDialString
         /// 4 = ToUnformattedNumber	
-		/// TODO: Change the input parameter to an enumeration.
 		/// </summary>
         public string ToString(Format enuFormat)
         {
@@ -1280,6 +1277,15 @@ namespace General.Model
         public string Value
         {
             get { return ToString(); }
+        }
+
+        /// <summary>
+        /// Returns the international dialing format
+        /// </summary>
+        [DataMember]
+        public string InternationalDialString
+        {
+            get { return ToInternationalDialString(); }
         }
 
         /*
