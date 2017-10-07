@@ -7,7 +7,16 @@ namespace General.IO
 {
     public class Bytes
     {
-        
+
+        #region GetStringFromBytes
+        public static string GetStringFromBytes(byte[] src, long startIndex, long endIndex, Encoding objEncoder)
+        {
+            byte[] ret = new byte[endIndex - startIndex];
+            Array.Copy(src, startIndex, ret, 0, endIndex - startIndex);
+            return objEncoder.GetString(ret);
+        }
+        #endregion
+
         #region FindBytesBasic (Normal)
         public static int FindBytesBasic(byte[] src, byte[] find)
         {
@@ -66,7 +75,17 @@ namespace General.IO
             while (objLastResult.Index > -1)
             {
                 objLastResult = FindBytesOnce(src, objLastResult.Index + 1, strFindStart, objEncoder);
-                var objEndResult = FindBytesOnce(src, objLastResult.Index + 1, strFindEnd, objEncoder);
+                var objEndResult = FindBytesOnce(src, objLastResult.Index + objLastResult.Length, strFindEnd, objEncoder);
+                if(!objEndResult.Found && strFindEnd == "\r\n")
+                {
+                    //If end of line is what i'm looking for, understand that the end of the file is also acceptable
+                    if (objLastResult.Index + objLastResult.Length + 2 == src.LongLength) //If I'm at end of file
+                    {
+                        objEndResult.Index = src.Length;
+                        objEndResult.Length = 0;
+                    }
+
+                }
                 if (objLastResult.Index > -1 && objEndResult.Index > -1)
                 {
                     objLastResult.Index = objLastResult.Index + objLastResult.Length;
@@ -104,13 +123,15 @@ namespace General.IO
             return FindBytesOnce(strOptionalKey, src, 0, strFind, objEncoder);
         }
 
-        public static ByteFinderResult FindBytesOnce(byte[] src, int intStartIndex, string strFind, Encoding objEncoder)
+        public static ByteFinderResult FindBytesOnce(byte[] src, int intStartIndex, string strFind, Encoding objEncoder, int intEndIndex = -1)
         {
-            return FindBytesOnce(String.Empty, src, intStartIndex, strFind, objEncoder);
+            return FindBytesOnce(String.Empty, src, intStartIndex, strFind, objEncoder, intEndIndex);
         }
 
-        public static ByteFinderResult FindBytesOnce(string strOptionalKey, byte[] src, int intStartIndex, string strFind, Encoding objEncoder)
+        public static ByteFinderResult FindBytesOnce(string strOptionalKey, byte[] src, int intStartIndex, string strFind, Encoding objEncoder, int intEndIndex = -1)
         {
+            if (intEndIndex < 1)
+                intEndIndex = src.Length - 1;
             ByteFinderResult objResult = new ByteFinderResult();
             byte[] find = objEncoder.GetBytes(strFind);
             objResult.Length = find.Length;
@@ -119,7 +140,7 @@ namespace General.IO
             int index = -1;
             int matchIndex = 0;
             // handle the complete source array
-            for (int i = intStartIndex; i < src.Length; i++)
+            for (int i = intStartIndex; i <= intEndIndex; i++)
             {
                 if (src[i] == find[matchIndex])
                 {
@@ -133,6 +154,54 @@ namespace General.IO
                 else
                 {
                     matchIndex = 0;
+                }
+
+            }
+            objResult.Index = index;
+            return objResult;
+        }
+        #endregion
+
+        #region FindBytesOnceFromEnd
+        public static ByteFinderResult FindBytesOnceFromEnd(byte[] src, string strFind, Encoding objEncoder)
+        {
+            return FindBytesOnceFromEnd(src, src.Length - 1, strFind, objEncoder);
+        }
+
+        public static ByteFinderResult FindBytesOnceFromEnd(string strOptionalKey, byte[] src, string strFind, Encoding objEncoder)
+        {
+            return FindBytesOnceFromEnd(strOptionalKey, src, src.Length - 1, strFind, objEncoder);
+        }
+
+        public static ByteFinderResult FindBytesOnceFromEnd(byte[] src, int intStartIndex, string strFind, Encoding objEncoder, int intEndIndex = 0)
+        {
+            return FindBytesOnceFromEnd(String.Empty, src, intStartIndex, strFind, objEncoder, intEndIndex);
+        }
+
+        public static ByteFinderResult FindBytesOnceFromEnd(string strOptionalKey, byte[] src, int intStartIndex, string strFind, Encoding objEncoder, int intEndIndex = 0)
+        {
+            ByteFinderResult objResult = new ByteFinderResult();
+            byte[] find = objEncoder.GetBytes(strFind);
+            objResult.Length = find.Length;
+            objResult.Key = strOptionalKey;
+
+            int index = -1;
+            int matchIndex = find.Length - 1;
+            // handle the complete source array
+            for (int i = intStartIndex; i >= intEndIndex; i--)
+            {
+                if (src[i] == find[matchIndex])
+                {
+                    if (matchIndex == 0)
+                    {
+                        index = i;
+                        break;
+                    }
+                    matchIndex--;
+                }
+                else
+                {
+                    matchIndex = find.Length - 1;
                 }
 
             }
@@ -303,14 +372,37 @@ namespace General.IO
         #endregion
 
         #region InsertBytes
-        /*
-         * Adds bytes to beginning of a byte array
-        */
+        /// <summary>
+        /// Adds bytes to beginning of a byte array
+        /// </summary>
+        /// <param name="body">Source byte array</param>
+        /// <param name="insert">Bytes to add</param>
+        /// <returns></returns>
         public static byte[] InsertBytes(byte[] body, byte[] insert)
         {
             byte[] newBody = new byte[body.Length + insert.Length];
             body.CopyTo(newBody, insert.Length);
             insert.CopyTo(newBody, 0);
+            return newBody;
+        }
+
+        /// <summary>
+        ///  Add bytes to a specified location in a byte array
+        /// </summary>
+        /// <param name="body">Source byte array</param>
+        /// <param name="insert">Bytes to add</param>
+        /// <param name="index">Where to insert the new bytes</param>
+        /// <returns></returns>
+        public static byte[] InsertBytes(byte[] body, byte[] insert, long index)
+        {
+            if (index == 0)
+                return InsertBytes(body, insert);
+
+            byte[] newBody = new byte[body.Length + insert.Length];
+            Array.Copy(body, 0, newBody, 0, index);
+            insert.CopyTo(newBody, index);
+            if (body.Length - index > 0)
+                Array.Copy(body, index, newBody, index + insert.Length, body.Length - index);
             return newBody;
         }
         #endregion
@@ -384,7 +476,10 @@ namespace General.IO
                     //This might happen when there is a marker inside a MIME Header like Subject in an email file
                     if (this[i + 1].Index + this[i + 1].Length > objOp.Index) //If the next operation envelopes the current operation
                     {
-                        int offset = objOp.ReplacementValue.Length - objOp.Length;
+                        int replacementLength = 0;
+                        if (objOp.ReplacementValue != null)
+                            replacementLength = objOp.ReplacementValue.Length;
+                        int offset = replacementLength - objOp.Length;
                         this[i + 1].OneTimeLength = this[i + 1].Length + offset; //Adjust the next operation just this once
                     }
                 }

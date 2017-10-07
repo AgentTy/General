@@ -18,6 +18,34 @@ namespace General.Mail
     public class MIMEEncoding
     {
 
+        #region Encode/Decode
+        public static string Decode(string content, TransferEncoding transferEncoding, System.Text.Encoding binaryEncoding = null)
+        {
+            if (binaryEncoding == null)
+                binaryEncoding = System.Text.Encoding.UTF8;
+
+            switch (transferEncoding)
+            {
+                case TransferEncoding.QuotedPrintable: return QuotedPrintableDecode(content);
+                case TransferEncoding.Base64: return Base64Decode(content, binaryEncoding);
+                default: return content;
+            }
+        }
+
+        public static string Encode(string content, TransferEncoding transferEncoding, System.Text.Encoding binaryEncoding = null)
+        {
+            if (binaryEncoding == null)
+                binaryEncoding = System.Text.Encoding.UTF8;
+
+            switch (transferEncoding)
+            {
+                case TransferEncoding.QuotedPrintable: return QuotedPrintableEncode(content);
+                case TransferEncoding.Base64: return Base64Encode(content, binaryEncoding);
+                default: return content;
+            }
+        }
+        #endregion
+
         #region GetEncodingFromString
         public static General.Mail.TransferEncoding GetEncodingFromString(string strContentType, string strEncoding)
         {
@@ -162,6 +190,20 @@ namespace General.Mail
             next: bool GoingToNext = true;
             }
             return ReturnString.ToString();
+        }
+        #endregion
+
+        #region Base64Encode
+        public static string Base64Encode(string input, System.Text.Encoding binaryEncoding)
+        {
+            return Convert.ToBase64String(binaryEncoding.GetBytes(input));
+        }
+        #endregion
+
+        #region Base64Decode
+        public static string Base64Decode(string input, System.Text.Encoding binaryEncoding)
+        {
+            return binaryEncoding.GetString(Convert.FromBase64String(input));
         }
         #endregion
 
