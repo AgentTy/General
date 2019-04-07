@@ -106,6 +106,8 @@ namespace General.Model
         {
             get
             {
+                if (_strCompany == null)
+                    return null;
                 return StringFunctions.MakeNameURLSafe(_strCompany);
             }
         }

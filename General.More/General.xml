@@ -33,6 +33,12 @@
             </summary>
             <returns>IEnumerator</returns>
         </member>
+        <member name="P:General.CollectionBase.Current">
+            <summary>
+            Gets the current object
+            </summary>
+            <returns>object</returns>
+        </member>
         <member name="M:General.CollectionBase.Reset">
             <summary>
             Resets the enumeration index
@@ -43,12 +49,6 @@
             Moves to the next object in the enumeration
             </summary>
             <returns>bool</returns>
-        </member>
-        <member name="P:General.CollectionBase.Current">
-            <summary>
-            Gets the current object
-            </summary>
-            <returns>object</returns>
         </member>
         <member name="M:General.Debug.Trace(System.String)">
             <summary>
@@ -65,107 +65,49 @@
             Attempts to write a trace line
             </summary>
         </member>
-        <member name="M:OAuth.OAuthBase.ComputeHash(System.Security.Cryptography.HashAlgorithm,System.String)">
+        <member name="T:General.GPS.GPSCoordinate">
             <summary>
-            Helper function to compute a hash value
-            </summary>
-            <param name="hashAlgorithm">The hashing algoirhtm used. If that algorithm needs some initialization, like HMAC and its derivatives, they should be initialized prior to passing it to this function</param>
-            <param name="data">The data to hash</param>
-            <returns>a Base64 string of the hash value</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GetQueryParameters(System.String)">
-            <summary>
-            Internal function to cut out all non oauth query string parameters (all parameters not begining with "oauth_")
-            </summary>
-            <param name="parameters">The query string part of the Url</param>
-            <returns>A list of QueryParameter each containing the parameter name and value</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.UrlEncode(System.String)">
-            <summary>
-            This is a different Url Encode implementation since the default .NET one outputs the percent encoding in lower case.
-            While this is not a problem with the percent encoding spec, it is used in upper case throughout OAuth
-            </summary>
-            <param name="value">The value to Url encode</param>
-            <returns>Returns a Url encoded string</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.NormalizeRequestParameters(System.Collections.Generic.IList{OAuth.OAuthBase.QueryParameter})">
-            <summary>
-            Normalizes the request parameters according to the spec
-            </summary>
-            <param name="parameters">The list of parameters already sorted</param>
-            <returns>a string representing the normalized parameters</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GenerateSignatureBase(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String@,System.String@)">
-            <summary>
-            Generate the signature base that is used to produce the signature
-            </summary>
-            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
-            <param name="consumerKey">The consumer key</param>        
-            <param name="token">The token, if available. If not available pass null or an empty string</param>
-            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
-            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
-            <param name="signatureType">The signature type. To use the default values use <see cref="T:OAuth.OAuthBase.SignatureTypes">OAuthBase.SignatureTypes</see>.</param>
-            <returns>The signature base</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GenerateSignatureUsingHash(System.String,System.Security.Cryptography.HashAlgorithm)">
-            <summary>
-            Generate the signature value based on the given signature base and hash algorithm
-            </summary>
-            <param name="signatureBase">The signature based as produced by the GenerateSignatureBase method or by any other means</param>
-            <param name="hash">The hash algorithm used to perform the hashing. If the hashing algorithm requires initialization or a key it should be set prior to calling this method</param>
-            <returns>A base64 string of the hash value</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GenerateSignature(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String@,System.String@)">
-            <summary>
-            Generates a signature using the HMAC-SHA1 algorithm
-            </summary>		
-            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
-            <param name="consumerKey">The consumer key</param>
-            <param name="consumerSecret">The consumer seceret</param>
-            <param name="token">The token, if available. If not available pass null or an empty string</param>
-            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
-            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
-            <returns>A base64 string of the hash value</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GenerateSignature(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String,System.String,OAuth.OAuthBase.SignatureTypes,System.String@,System.String@)">
-            <summary>
-            Generates a signature using the specified signatureType 
-            </summary>		
-            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
-            <param name="consumerKey">The consumer key</param>
-            <param name="consumerSecret">The consumer seceret</param>
-            <param name="token">The token, if available. If not available pass null or an empty string</param>
-            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
-            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
-            <param name="signatureType">The type of signature to use</param>
-            <returns>A base64 string of the hash value</returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GenerateTimeStamp">
-            <summary>
-            Generate the timestamp for the signature        
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OAuth.OAuthBase.GenerateNonce">
-            <summary>
-            Generate a nonce
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:OAuth.OAuthBase.SignatureTypes">
-            <summary>
-            Provides a predefined set of algorithms that are supported officially by the protocol
+            Contains information about a GPS Coordinate
+            Longitude, Latitude, and Altitude
             </summary>
         </member>
-        <member name="T:OAuth.OAuthBase.QueryParameter">
+        <member name="M:General.GPS.GPSCoordinate.ToString">
             <summary>
-            Provides an internal structure to sort the query parameter
+            Output class data in string format
             </summary>
         </member>
-        <member name="T:OAuth.OAuthBase.QueryParameterComparer">
+        <member name="M:General.GPS.GPSCoordinate.ToString(System.String)">
             <summary>
-            Comparer class used to perform the sorting of the query parameters
+            Output class data in string format
             </summary>
+        </member>
+        <member name="M:General.GPS.GPSCoordinate.op_Equality(General.GPS.GPSCoordinate,General.GPS.GPSCoordinate)">
+            <summary>
+            Compares two GPSCoordinate objects
+            </summary>
+        </member>
+        <member name="M:General.GPS.GPSCoordinate.op_Inequality(General.GPS.GPSCoordinate,General.GPS.GPSCoordinate)">
+            <summary>
+            Compares two GPSCoordinate objects
+            </summary>
+        </member>
+        <member name="M:General.GPS.GPSCoordinate.op_Implicit(General.GPS.GPSCoordinate)~System.String">
+            <summary>
+            Casts an GPSCoordinate as a string
+            </summary>
+        </member>
+        <member name="M:General.GPS.GPSCoordinate.Equals(System.Object)">
+            <summary>
+            Compares two GPSCoordinate objects
+            </summary>
+        </member>
+        <member name="M:General.GPS.GPSCoordinate.GetDistance(General.GPS.GPSCoordinate,General.GPS.GPSCoordinate)">
+            <summary>
+            Calculates the distance between two GPS points, and returns a Distance object.
+            </summary>
+            <param name="objStart">Coordinate 1</param>
+            <param name="objEnd">Coordinate 2</param>
+            <returns>Distance</returns>
         </member>
         <member name="T:General.CreditCard">
             <summary>
@@ -814,6 +756,18 @@
             <param name="parameterValues">An array of objects to be assigned as the input values of the stored procedure</param>
             <returns>A SqlDataReader containing the resultset generated by the command</returns>
         </member>
+        <member name="T:General.DAO.SqlHelper.SqlConnectionOwnership">
+            <summary>
+            This enum is used to indicate whether the connection was provided by the caller, or created by SqlHelper, so that
+            we can set the appropriate CommandBehavior when calling ExecuteReader()
+            </summary>
+        </member>
+        <member name="F:General.DAO.SqlHelper.SqlConnectionOwnership.Internal">
+            <summary>Connection is owned and managed by SqlHelper</summary>
+        </member>
+        <member name="F:General.DAO.SqlHelper.SqlConnectionOwnership.External">
+            <summary>Connection is owned and managed by the caller</summary>
+        </member>
         <member name="M:General.DAO.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlCommand,System.Boolean)">
             <summary>
             Execute a SqlCommand (that returns a 1x1 resultset) against the specified SqlConnection 
@@ -1442,18 +1396,6 @@
             </summary>
             <param name="cmd">A valid SqlCommand object</param>
         </member>
-        <member name="T:General.DAO.SqlHelper.SqlConnectionOwnership">
-            <summary>
-            This enum is used to indicate whether the connection was provided by the caller, or created by SqlHelper, so that
-            we can set the appropriate CommandBehavior when calling ExecuteReader()
-            </summary>
-        </member>
-        <member name="F:General.DAO.SqlHelper.SqlConnectionOwnership.Internal">
-            <summary>Connection is owned and managed by SqlHelper</summary>
-        </member>
-        <member name="F:General.DAO.SqlHelper.SqlConnectionOwnership.External">
-            <summary>Connection is owned and managed by the caller</summary>
-        </member>
         <member name="T:General.DAO.SqlHelperParameterCache">
             <summary>
             SqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the
@@ -1577,16 +1519,6 @@
             OnCacheRemoveCallback
             </summary>
         </member>
-        <member name="M:General.DAO.SQLMemoryCache.ClearCache">
-            <summary>
-            Clears all DataSet objects from the SQL Cache
-            </summary>
-        </member>
-        <member name="M:General.DAO.SQLMemoryCache.ClearCache(System.Data.SqlClient.SqlCommand)">
-            <summary>
-            Clears the specified DataSet object from the SQL Cache
-            </summary>
-        </member>
         <member name="P:General.DAO.SQLMemoryCache.CacheCount">
             <summary>
             Returns the number of DataSet objects in the SQL Cache
@@ -1595,6 +1527,16 @@
         <member name="P:General.DAO.SQLMemoryCache.CacheSummary">
             <summary>
             Returns a summary of the DataSet objects in the SQL Cache
+            </summary>
+        </member>
+        <member name="M:General.DAO.SQLMemoryCache.ClearCache">
+            <summary>
+            Clears all DataSet objects from the SQL Cache
+            </summary>
+        </member>
+        <member name="M:General.DAO.SQLMemoryCache.ClearCache(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Clears the specified DataSet object from the SQL Cache
             </summary>
         </member>
         <member name="T:General.DAO.SQLOptions">
@@ -1651,469 +1593,6 @@
             <summary>
             Gets the Activity Log
             </summary>
-        </member>
-        <member name="T:General.DelegateUserControl">
-            <summary>
-            Summary description for DelegateUserControl.
-            </summary>
-        </member>
-        <member name="T:General.Err">
-            <summary>
-            CUSTOM ERROR CLASS
-            </summary>
-        </member>
-        <member name="M:General.Err.#ctor">
-            <summary>
-            Create a new Err Object
-            </summary>
-        </member>
-        <member name="M:General.Err.#ctor(System.String)">
-            <summary>
-            Create a new Err Object
-            </summary>
-        </member>
-        <member name="M:General.Err.#ctor(System.String,System.Exception)">
-            <summary>
-            Create a new Err Object
-            </summary>
-        </member>
-        <member name="M:General.Err.ProcessError(System.Exception)">
-            <summary>
-            For Web Applications only, processes ASP.Net Error
-            </summary>
-        </member>
-        <member name="M:General.Err.ProcessError(General.Err)">
-            <summary>
-            For Web Applications only, processes ASP.Net Error
-            </summary>
-        </member>
-        <member name="M:General.Err.Process404(System.Exception)">
-            <summary>
-            For Web Applications only, processes ASP.Net Error
-            </summary>
-        </member>
-        <member name="M:General.Err.ProcessDefault(System.Exception)">
-            <summary>
-            For Web Applications only, processes ASP.Net Error
-            </summary>
-        </member>
-        <member name="M:General.Err.GetURL(System.String,System.Collections.Hashtable)">
-            <summary>
-            Constructs and returns a url string
-            </summary>
-        </member>
-        <member name="M:General.Err.ParseQueryString(System.String)">
-            <summary>
-            Reads a query string and returns a HashTable
-            </summary>
-        </member>
-        <member name="M:General.Err.FindPage(System.String)">
-            <summary>
-            Returns a corrected page from a list of page redirects
-            </summary>
-        </member>
-        <member name="M:General.Err.FindParam(System.String)">
-            <summary>
-            Returns a corrected param from a list of param overrides
-            </summary>
-        </member>
-        <member name="F:General.Err._obj_pages">
-            <summary>
-            A list of pages to redirect
-            </summary>
-        </member>
-        <member name="M:General.Err._LoadPages">
-            <summary>
-            Populate page reference
-            </summary>
-        </member>
-        <member name="F:General.Err._obj_params">
-            <summary>
-            A list of params to override
-            </summary>
-        </member>
-        <member name="M:General.Err._LoadParams">
-            <summary>
-            Populate param reference
-            </summary>
-        </member>
-        <member name="T:General.Exceptions.RecordExistsException">
-            <summary>
-            CUSTOM ERROR CLASS
-            </summary>
-        </member>
-        <member name="M:General.Exceptions.RecordExistsException.#ctor(System.String)">
-            <summary>
-            Create a new Err Object
-            </summary>
-        </member>
-        <member name="M:General.Exceptions.RecordExistsException.#ctor(System.String,System.Exception)">
-            <summary>
-            Create a new Err Object
-            </summary>
-        </member>
-        <member name="T:ExtendedControls.RepeaterExtended">
-            <summary>
-            Extends the normal Repeater so we can determine do cool things like find elements inside it.
-            </summary>
-        </member>
-        <member name="T:ExtendedControls.LinkButtonExtended">
-            <summary>
-            Extends the normal LinkButton so we can determine do cool things like add a confirm dialogue.
-            </summary>
-        </member>
-        <member name="T:ExtendedControls.DumbMenu">
-            <summary>
-            This is a custom ASP:Menu control that disables the javascript
-            </summary>
-        </member>
-        <member name="T:General.GPS.GPSCoordinate">
-            <summary>
-            Contains information about a GPS Coordinate
-            Longitude, Latitude, and Altitude
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.ToString">
-            <summary>
-            Output class data in string format
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.ToString(System.String)">
-            <summary>
-            Output class data in string format
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.op_Equality(General.GPS.GPSCoordinate,General.GPS.GPSCoordinate)">
-            <summary>
-            Compares two GPSCoordinate objects
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.op_Inequality(General.GPS.GPSCoordinate,General.GPS.GPSCoordinate)">
-            <summary>
-            Compares two GPSCoordinate objects
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.op_Implicit(General.GPS.GPSCoordinate)~System.String">
-            <summary>
-            Casts an GPSCoordinate as a string
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.Equals(System.Object)">
-            <summary>
-            Compares two GPSCoordinate objects
-            </summary>
-        </member>
-        <member name="M:General.GPS.GPSCoordinate.GetDistance(General.GPS.GPSCoordinate,General.GPS.GPSCoordinate)">
-            <summary>
-            Calculates the distance between two GPS points, and returns a Distance object.
-            </summary>
-            <param name="objStart">Coordinate 1</param>
-            <param name="objEnd">Coordinate 2</param>
-            <returns>Distance</returns>
-        </member>
-        <member name="T:General.HierarchicalModelCollection">
-            <summary>
-            Summary description for HierarchicalModelCollection.
-            </summary>
-        </member>
-        <member name="T:General.GenericNameValueCollection`1">
-            <typeparam name="valueT">Value type.</typeparam>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.#ctor">
-            <summary>
-            Cretaes an empty collection.
-            </summary>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.#ctor(System.Collections.IDictionary,System.Boolean)">
-            <summary>
-            Creates a collection from the IDictionary elements.
-            </summary>
-            <param name="dic">IDictionary object.</param>
-            <param name="readOnly">Use TRUE to create a read-only collection.</param>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsInteger(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as an Integer.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsDouble(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as a Double.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsBoolean(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as a Boolean.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsDateTime(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as a DateTime.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsPhoneNumber(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as a PhoneNumber.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsEmailAddress(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as an EmailAddress.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetAsURL(System.String)">
-            <summary>
-            Gets a value for the given key, and casts as a URL.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.Add(System.String,`0)">
-            <summary>
-            Adds an entry to the collection.
-            </summary>
-            <param name="key"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.Remove(System.String)">
-            <summary>
-            Removes an entry with the specified key from the collection.
-            </summary>
-            <param name="key"></param>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.Remove(System.Int32)">
-            <summary>
-            Removes an entry in the specified index from the collection.
-            </summary>
-            <param name="index"></param>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.Clear">
-            <summary>
-            Clears all the elements in the collection.
-            </summary>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.GetEnumerator">
-            <summary>
-            Gets the Enumerator object
-            </summary>
-            <returns>IEnumerator</returns>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.Reset">
-            <summary>
-            Resets the enumeration index
-            </summary>
-        </member>
-        <member name="M:General.GenericNameValueCollection`1.MoveNext">
-            <summary>
-            Moves to the next object in the enumeration
-            </summary>
-            <returns>bool</returns>
-        </member>
-        <member name="P:General.GenericNameValueCollection`1.Item(System.Int32)">
-            <summary>
-            Gets a value using an index.
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
-        </member>
-        <member name="P:General.GenericNameValueCollection`1.Item(System.String)">
-            <summary>
-            Gets or sets a value for the given key.
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="P:General.GenericNameValueCollection`1.AllKeys">
-            <summary>
-            Gets an array containing all the keys in the collection.
-            </summary>
-        </member>
-        <member name="P:General.GenericNameValueCollection`1.AllValues">
-            <summary>
-            Gets an object array that contains all the values in the collection.
-            </summary>
-        </member>
-        <member name="P:General.GenericNameValueCollection`1.HasKeys">
-            <summary>
-            Gets a value indicating if the collection contains keys that are not null.
-            </summary>
-        </member>
-        <member name="P:General.GenericNameValueCollection`1.Current">
-            <summary>
-            Gets the current object
-            </summary>
-            <returns>object</returns>
-        </member>
-        <member name="T:General.PaginationManager">
-            <summary>
-            General::PaginationManager
-            Object facilitates Pagination of a DataTable object
-            Use with PagingCollectionBase for Pagination of a Collection
-            </summary>
-        </member>
-        <member name="F:General.PaginationManager.NotifyPageChange">
-            <summary>
-            += to this property to add more PageChange listeners
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.GoToNextPage">
-            <summary>
-            Move to the next page
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.GoToPreviousPage">
-            <summary>
-            Move to the previous page
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.GoToFirstPage">
-            <summary>
-            Move to the first page
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.GoToLastPage">
-            <summary>
-            Move to the last page
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.GoToPage(System.Int16)">
-            <summary>
-            Move to specified page
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.#ctor(System.Data.DataTable)">
-            <summary>
-            Construct a PaginationManager object 
-            Defaults to first page
-            Does not impliment PageChangeDelegate
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.#ctor(System.Data.DataTable,System.Int16,System.Int16)">
-            <summary>
-            Construct a PaginationManager object 
-            Starts at specified page
-            Does not impliment PageChangeDelegate
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.#ctor(System.Data.DataTable,System.Int16,System.Int16,General.PaginationManager.PageChangeDelegate)">
-            <summary>
-            Construct a PaginationManager object 
-            Starts at specified page
-            Fires PageChangeDelegate on parent object
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.ToString">
-            <summary>
-            ToString assumes HTML line break
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.ToString(System.String)">
-            <summary>
-            ToString with specified line break
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.ToDebuggingString">
-            <summary>
-            ToString assumes HTML line break
-            </summary>
-        </member>
-        <member name="M:General.PaginationManager.ToDebuggingString(System.String)">
-            <summary>
-            ToString with specified line break
-            </summary>
-        </member>
-        <member name="P:General.PaginationManager.URL">
-            <summary>
-            Optional property for storing a URL with a PaginationManager object
-            </summary>
-        </member>
-        <member name="P:General.PaginationManager.CurrentPage">
-            <summary>
-            Current page index
-            </summary>
-        </member>
-        <member name="P:General.PaginationManager.RowsPerPage">
-            <summary>
-            Rows Per Page
-            </summary>
-        </member>
-        <member name="P:General.PaginationManager.TotalPages">
-            <summary>
-            Number of pages
-            </summary>
-        </member>
-        <member name="P:General.PaginationManager.CurrentPageData">
-            <summary>
-            DataTable object with rows from current page
-            </summary>
-        </member>
-        <member name="P:General.PaginationManager.SourceData">
-            <summary>
-            Original DataTable
-            </summary>
-        </member>
-        <member name="T:General.PaginationManager.PageChangeDelegate">
-            <summary>
-            Delegate used to notify a higher object of a page change
-            </summary>
-        </member>
-        <member name="T:General.PagingCollectionBase">
-            <summary>
-            Summary description for PagingCollectionBase.
-            </summary>
-        </member>
-        <member name="M:General.PagingCollectionBase.GetCache">
-            <summary>
-            This method returns an ArrayList so that other private methods
-            can use it. We may want to change this later, but for now everything
-            is using an ArrayList and processing it in its own way on the object
-            side.
-            </summary>
-            <returns>ArrayList</returns>
-        </member>
-        <member name="M:General.PagingCollectionBase.SetCache">
-            <summary>
-            This method returns an ArrayList so that other private methods
-            can use it. We may want to change this later, but for now everything
-            is using an ArrayList and processing it in its own way on the object
-            side.
-            </summary>
-            <returns>ArrayList</returns>
-        </member>
-        <member name="M:General.PagingCollectionBase.GetEnumerator">
-            <summary>
-            Gets the Enumerator object
-            </summary>
-            <returns>IEnumerator</returns>
-        </member>
-        <member name="M:General.PagingCollectionBase.Reset">
-            <summary>
-            Resets the enumeration index
-            </summary>
-        </member>
-        <member name="M:General.PagingCollectionBase.MoveNext">
-            <summary>
-            Moves to the next object in the enumeration
-            </summary>
-            <returns>bool</returns>
-        </member>
-        <member name="P:General.PagingCollectionBase.Current">
-            <summary>
-            Gets the current object
-            </summary>
-            <returns>object</returns>
         </member>
         <member name="T:General.DAO.SqlConvert">
             <summary>
@@ -2349,6 +1828,408 @@
             </summary>
             <returns>DateTime</returns>
         </member>
+        <member name="T:General.DelegateUserControl">
+            <summary>
+            Summary description for DelegateUserControl.
+            </summary>
+        </member>
+        <member name="T:General.Err">
+            <summary>
+            CUSTOM ERROR CLASS
+            </summary>
+        </member>
+        <member name="M:General.Err.#ctor">
+            <summary>
+            Create a new Err Object
+            </summary>
+        </member>
+        <member name="M:General.Err.#ctor(System.String)">
+            <summary>
+            Create a new Err Object
+            </summary>
+        </member>
+        <member name="M:General.Err.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new Err Object
+            </summary>
+        </member>
+        <member name="M:General.Err.ProcessError(System.Exception)">
+            <summary>
+            For Web Applications only, processes ASP.Net Error
+            </summary>
+        </member>
+        <member name="M:General.Err.ProcessError(General.Err)">
+            <summary>
+            For Web Applications only, processes ASP.Net Error
+            </summary>
+        </member>
+        <member name="M:General.Err.Process404(System.Exception)">
+            <summary>
+            For Web Applications only, processes ASP.Net Error
+            </summary>
+        </member>
+        <member name="M:General.Err.ProcessDefault(System.Exception)">
+            <summary>
+            For Web Applications only, processes ASP.Net Error
+            </summary>
+        </member>
+        <member name="M:General.Err.GetURL(System.String,System.Collections.Hashtable)">
+            <summary>
+            Constructs and returns a url string
+            </summary>
+        </member>
+        <member name="M:General.Err.ParseQueryString(System.String)">
+            <summary>
+            Reads a query string and returns a HashTable
+            </summary>
+        </member>
+        <member name="M:General.Err.FindPage(System.String)">
+            <summary>
+            Returns a corrected page from a list of page redirects
+            </summary>
+        </member>
+        <member name="M:General.Err.FindParam(System.String)">
+            <summary>
+            Returns a corrected param from a list of param overrides
+            </summary>
+        </member>
+        <member name="F:General.Err._obj_pages">
+            <summary>
+            A list of pages to redirect
+            </summary>
+        </member>
+        <member name="M:General.Err._LoadPages">
+            <summary>
+            Populate page reference
+            </summary>
+        </member>
+        <member name="F:General.Err._obj_params">
+            <summary>
+            A list of params to override
+            </summary>
+        </member>
+        <member name="M:General.Err._LoadParams">
+            <summary>
+            Populate param reference
+            </summary>
+        </member>
+        <member name="T:General.Exceptions.RecordExistsException">
+            <summary>
+            CUSTOM ERROR CLASS
+            </summary>
+        </member>
+        <member name="M:General.Exceptions.RecordExistsException.#ctor(System.String)">
+            <summary>
+            Create a new Err Object
+            </summary>
+        </member>
+        <member name="M:General.Exceptions.RecordExistsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create a new Err Object
+            </summary>
+        </member>
+        <member name="T:General.HierarchicalModelCollection">
+            <summary>
+            Summary description for HierarchicalModelCollection.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:General.GenericNameValueCollection`1" -->
+        <member name="M:General.GenericNameValueCollection`1.#ctor">
+            <summary>
+            Cretaes an empty collection.
+            </summary>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.#ctor(System.Collections.IDictionary,System.Boolean)">
+            <summary>
+            Creates a collection from the IDictionary elements.
+            </summary>
+            <param name="dic">IDictionary object.</param>
+            <param name="readOnly">Use TRUE to create a read-only collection.</param>
+        </member>
+        <member name="P:General.GenericNameValueCollection`1.Item(System.Int32)">
+            <summary>
+            Gets a value using an index.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:General.GenericNameValueCollection`1.Item(System.String)">
+            <summary>
+            Gets or sets a value for the given key.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsInteger(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as an Integer.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsDouble(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as a Double.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsBoolean(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as a Boolean.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsDateTime(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as a DateTime.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsPhoneNumber(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as a PhoneNumber.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsEmailAddress(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as an EmailAddress.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetAsURL(System.String)">
+            <summary>
+            Gets a value for the given key, and casts as a URL.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:General.GenericNameValueCollection`1.AllKeys">
+            <summary>
+            Gets an array containing all the keys in the collection.
+            </summary>
+        </member>
+        <member name="P:General.GenericNameValueCollection`1.AllValues">
+            <summary>
+            Gets an object array that contains all the values in the collection.
+            </summary>
+        </member>
+        <member name="P:General.GenericNameValueCollection`1.HasKeys">
+            <summary>
+            Gets a value indicating if the collection contains keys that are not null.
+            </summary>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.Add(System.String,`0)">
+            <summary>
+            Adds an entry to the collection.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.Remove(System.String)">
+            <summary>
+            Removes an entry with the specified key from the collection.
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.Remove(System.Int32)">
+            <summary>
+            Removes an entry in the specified index from the collection.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.Clear">
+            <summary>
+            Clears all the elements in the collection.
+            </summary>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.GetEnumerator">
+            <summary>
+            Gets the Enumerator object
+            </summary>
+            <returns>IEnumerator</returns>
+        </member>
+        <member name="P:General.GenericNameValueCollection`1.Current">
+            <summary>
+            Gets the current object
+            </summary>
+            <returns>object</returns>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.Reset">
+            <summary>
+            Resets the enumeration index
+            </summary>
+        </member>
+        <member name="M:General.GenericNameValueCollection`1.MoveNext">
+            <summary>
+            Moves to the next object in the enumeration
+            </summary>
+            <returns>bool</returns>
+        </member>
+        <member name="T:General.PaginationManager">
+            <summary>
+            General::PaginationManager
+            Object facilitates Pagination of a DataTable object
+            Use with PagingCollectionBase for Pagination of a Collection
+            </summary>
+        </member>
+        <member name="T:General.PaginationManager.PageChangeDelegate">
+            <summary>
+            Delegate used to notify a higher object of a page change
+            </summary>
+        </member>
+        <member name="F:General.PaginationManager.NotifyPageChange">
+            <summary>
+            += to this property to add more PageChange listeners
+            </summary>
+        </member>
+        <member name="P:General.PaginationManager.URL">
+            <summary>
+            Optional property for storing a URL with a PaginationManager object
+            </summary>
+        </member>
+        <member name="P:General.PaginationManager.CurrentPage">
+            <summary>
+            Current page index
+            </summary>
+        </member>
+        <member name="P:General.PaginationManager.RowsPerPage">
+            <summary>
+            Rows Per Page
+            </summary>
+        </member>
+        <member name="P:General.PaginationManager.TotalPages">
+            <summary>
+            Number of pages
+            </summary>
+        </member>
+        <member name="P:General.PaginationManager.CurrentPageData">
+            <summary>
+            DataTable object with rows from current page
+            </summary>
+        </member>
+        <member name="P:General.PaginationManager.SourceData">
+            <summary>
+            Original DataTable
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.GoToNextPage">
+            <summary>
+            Move to the next page
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.GoToPreviousPage">
+            <summary>
+            Move to the previous page
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.GoToFirstPage">
+            <summary>
+            Move to the first page
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.GoToLastPage">
+            <summary>
+            Move to the last page
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.GoToPage(System.Int16)">
+            <summary>
+            Move to specified page
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.#ctor(System.Data.DataTable)">
+            <summary>
+            Construct a PaginationManager object 
+            Defaults to first page
+            Does not impliment PageChangeDelegate
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.#ctor(System.Data.DataTable,System.Int16,System.Int16)">
+            <summary>
+            Construct a PaginationManager object 
+            Starts at specified page
+            Does not impliment PageChangeDelegate
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.#ctor(System.Data.DataTable,System.Int16,System.Int16,General.PaginationManager.PageChangeDelegate)">
+            <summary>
+            Construct a PaginationManager object 
+            Starts at specified page
+            Fires PageChangeDelegate on parent object
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.ToString">
+            <summary>
+            ToString assumes HTML line break
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.ToString(System.String)">
+            <summary>
+            ToString with specified line break
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.ToDebuggingString">
+            <summary>
+            ToString assumes HTML line break
+            </summary>
+        </member>
+        <member name="M:General.PaginationManager.ToDebuggingString(System.String)">
+            <summary>
+            ToString with specified line break
+            </summary>
+        </member>
+        <member name="T:General.PagingCollectionBase">
+            <summary>
+            Summary description for PagingCollectionBase.
+            </summary>
+        </member>
+        <member name="M:General.PagingCollectionBase.GetCache">
+            <summary>
+            This method returns an ArrayList so that other private methods
+            can use it. We may want to change this later, but for now everything
+            is using an ArrayList and processing it in its own way on the object
+            side.
+            </summary>
+            <returns>ArrayList</returns>
+        </member>
+        <member name="M:General.PagingCollectionBase.SetCache">
+            <summary>
+            This method returns an ArrayList so that other private methods
+            can use it. We may want to change this later, but for now everything
+            is using an ArrayList and processing it in its own way on the object
+            side.
+            </summary>
+            <returns>ArrayList</returns>
+        </member>
+        <member name="M:General.PagingCollectionBase.GetEnumerator">
+            <summary>
+            Gets the Enumerator object
+            </summary>
+            <returns>IEnumerator</returns>
+        </member>
+        <member name="P:General.PagingCollectionBase.Current">
+            <summary>
+            Gets the current object
+            </summary>
+            <returns>object</returns>
+        </member>
+        <member name="M:General.PagingCollectionBase.Reset">
+            <summary>
+            Resets the enumeration index
+            </summary>
+        </member>
+        <member name="M:General.PagingCollectionBase.MoveNext">
+            <summary>
+            Moves to the next object in the enumeration
+            </summary>
+            <returns>bool</returns>
+        </member>
         <member name="T:General.Utilities.Array.ArrayTools">
             <summary>
             Array Tools
@@ -2422,6 +2303,21 @@
             Contains static methods for generating barcode image files.
             </summary>
         </member>
+        <member name="P:General.Utilities.Barcode.BarcodeGenerator.BackgroundColor">
+            <summary>
+            Modify the barcode background color
+            </summary>
+        </member>
+        <member name="P:General.Utilities.Barcode.BarcodeGenerator.FontColor">
+            <summary>
+            Modify the barcode font color
+            </summary>
+        </member>
+        <member name="P:General.Utilities.Barcode.BarcodeGenerator.FontSize">
+            <summary>
+            Modify the barcode font size
+            </summary>
+        </member>
         <member name="M:General.Utilities.Barcode.BarcodeGenerator.Generate(System.String,System.String,System.String)">
             <summary>
             Creates a barcode of the specified type in the specified file.
@@ -2440,21 +2336,6 @@
         <member name="M:General.Utilities.Barcode.BarcodeGenerator.Generate(System.String,General.Utilities.Barcode.BarcodeType,System.IO.Stream)">
             <summary>
             Outputs a barcode of the specified type to a Stream object.
-            </summary>
-        </member>
-        <member name="P:General.Utilities.Barcode.BarcodeGenerator.BackgroundColor">
-            <summary>
-            Modify the barcode background color
-            </summary>
-        </member>
-        <member name="P:General.Utilities.Barcode.BarcodeGenerator.FontColor">
-            <summary>
-            Modify the barcode font color
-            </summary>
-        </member>
-        <member name="P:General.Utilities.Barcode.BarcodeGenerator.FontSize">
-            <summary>
-            Modify the barcode font size
             </summary>
         </member>
         <member name="T:General.Utilities.Barcode.BarcodeType">
@@ -3126,11 +3007,29 @@
             Creates a Months collection.
             </summary>
         </member>
+        <member name="P:General.Utilities.Date.Holidays.Count">
+            <summary>
+            Returns the number of items in the collection
+            </summary>
+            <returns>int</returns>
+        </member>
+        <member name="P:General.Utilities.Date.Holidays.Item(System.Int32)">
+            <summary>
+            Returns the Month at the specified index
+            </summary>
+            <returns>Month</returns>
+        </member>
         <member name="M:General.Utilities.Date.Holidays.GetEnumerator">
             <summary>
             Gets the Enumerator object
             </summary>
             <returns>IEnumerator</returns>
+        </member>
+        <member name="P:General.Utilities.Date.Holidays.Current">
+            <summary>
+            Gets the current object
+            </summary>
+            <returns>object</returns>
         </member>
         <member name="M:General.Utilities.Date.Holidays.Reset">
             <summary>
@@ -3263,24 +3162,6 @@
             Returs true if the given date is Columbus Day
             </summary>
         </member>
-        <member name="P:General.Utilities.Date.Holidays.Count">
-            <summary>
-            Returns the number of items in the collection
-            </summary>
-            <returns>int</returns>
-        </member>
-        <member name="P:General.Utilities.Date.Holidays.Item(System.Int32)">
-            <summary>
-            Returns the Month at the specified index
-            </summary>
-            <returns>Month</returns>
-        </member>
-        <member name="P:General.Utilities.Date.Holidays.Current">
-            <summary>
-            Gets the current object
-            </summary>
-            <returns>object</returns>
-        </member>
         <member name="T:General.Utilities.Date.Holiday">
             <summary>
             Represents an individual Holiday.
@@ -3304,23 +3185,6 @@
             Creates a Months collection.
             </summary>
         </member>
-        <member name="M:General.Utilities.Date.Months.GetEnumerator">
-            <summary>
-            Gets the Enumerator object
-            </summary>
-            <returns>IEnumerator</returns>
-        </member>
-        <member name="M:General.Utilities.Date.Months.Reset">
-            <summary>
-            Resets the enumeration index
-            </summary>
-        </member>
-        <member name="M:General.Utilities.Date.Months.MoveNext">
-            <summary>
-            Moves to the next object in the enumeration
-            </summary>
-            <returns>bool</returns>
-        </member>
         <member name="P:General.Utilities.Date.Months.Count">
             <summary>
             Returns the number of items in the collection
@@ -3333,11 +3197,28 @@
             </summary>
             <returns>Month</returns>
         </member>
+        <member name="M:General.Utilities.Date.Months.GetEnumerator">
+            <summary>
+            Gets the Enumerator object
+            </summary>
+            <returns>IEnumerator</returns>
+        </member>
         <member name="P:General.Utilities.Date.Months.Current">
             <summary>
             Gets the current object
             </summary>
             <returns>object</returns>
+        </member>
+        <member name="M:General.Utilities.Date.Months.Reset">
+            <summary>
+            Resets the enumeration index
+            </summary>
+        </member>
+        <member name="M:General.Utilities.Date.Months.MoveNext">
+            <summary>
+            Moves to the next object in the enumeration
+            </summary>
+            <returns>bool</returns>
         </member>
         <member name="T:General.Utilities.Date.Month">
             <summary>
@@ -3375,23 +3256,6 @@
             Creates a Years collection.
             </summary>
         </member>
-        <member name="M:General.Utilities.Date.Years.GetEnumerator">
-            <summary>
-            Gets the Enumerator object
-            </summary>
-            <returns>IEnumerator</returns>
-        </member>
-        <member name="M:General.Utilities.Date.Years.Reset">
-            <summary>
-            Resets the enumeration index
-            </summary>
-        </member>
-        <member name="M:General.Utilities.Date.Years.MoveNext">
-            <summary>
-            Moves to the next object in the enumeration
-            </summary>
-            <returns>bool</returns>
-        </member>
         <member name="P:General.Utilities.Date.Years.Count">
             <summary>
             Returns the number of items in the collection
@@ -3404,11 +3268,28 @@
             </summary>
             <returns>Month</returns>
         </member>
+        <member name="M:General.Utilities.Date.Years.GetEnumerator">
+            <summary>
+            Gets the Enumerator object
+            </summary>
+            <returns>IEnumerator</returns>
+        </member>
         <member name="P:General.Utilities.Date.Years.Current">
             <summary>
             Gets the current object
             </summary>
             <returns>object</returns>
+        </member>
+        <member name="M:General.Utilities.Date.Years.Reset">
+            <summary>
+            Resets the enumeration index
+            </summary>
+        </member>
+        <member name="M:General.Utilities.Date.Years.MoveNext">
+            <summary>
+            Moves to the next object in the enumeration
+            </summary>
+            <returns>bool</returns>
         </member>
         <member name="T:General.Utilities.Date.Year">
             <summary>
@@ -3421,46 +3302,6 @@
             </summary>
             <param name="intValue">string - The two digit month value</param>
             <returns>Year</returns>
-        </member>
-        <member name="T:General.Debugging.CacheReporting">
-            <summary>
-            Contains static methods that report the contents of the Web Cache
-            </summary>
-        </member>
-        <member name="M:General.Debugging.CacheReporting.GetCacheReport">
-            <summary>
-            Returns an HTML Table listing all the objects in the Cache.
-            </summary>
-        </member>
-        <member name="M:General.Debugging.CacheReporting.GetCacheReport(System.Boolean)">
-            <summary>
-            Returns an HTML Table listing all the objects in the Cache, and when requested their bytesize in memory.
-            </summary>
-        </member>
-        <member name="M:General.Debugging.CacheReporting.#ctor">
-            <summary>
-            Contains static methods that report the contents of the Web Cache
-            </summary>
-        </member>
-        <member name="T:General.Debugging.ControlCrawler">
-            <summary>
-            Summary description for ControlCrawler.
-            </summary>
-        </member>
-        <member name="T:General.Debugging.DeathChecker">
-            <summary>
-            Summary description for DeathChecker.
-            </summary>
-        </member>
-        <member name="T:General.Debugging.LoadTester">
-            <summary>
-            Summary description for LoadTester.
-            </summary>
-        </member>
-        <member name="T:General.Debugging.Time">
-            <summary>
-            Summary description for Time.
-            </summary>
         </member>
         <member name="T:General.Utilities.Drawing.ColorTools">
             <summary>
@@ -4010,29 +3851,52 @@
             Web Service Client
             </summary>
         </member>
+        <member name="T:General.Debugging.CacheReporting">
+            <summary>
+            Contains static methods that report the contents of the Web Cache
+            </summary>
+        </member>
+        <member name="M:General.Debugging.CacheReporting.GetCacheReport">
+            <summary>
+            Returns an HTML Table listing all the objects in the Cache.
+            </summary>
+        </member>
+        <member name="M:General.Debugging.CacheReporting.GetCacheReport(System.Boolean)">
+            <summary>
+            Returns an HTML Table listing all the objects in the Cache, and when requested their bytesize in memory.
+            </summary>
+        </member>
+        <member name="M:General.Debugging.CacheReporting.#ctor">
+            <summary>
+            Contains static methods that report the contents of the Web Cache
+            </summary>
+        </member>
+        <member name="T:General.Debugging.ControlCrawler">
+            <summary>
+            Summary description for ControlCrawler.
+            </summary>
+        </member>
+        <member name="T:General.Debugging.DeathChecker">
+            <summary>
+            Summary description for DeathChecker.
+            </summary>
+        </member>
+        <member name="T:General.Debugging.LoadTester">
+            <summary>
+            Summary description for LoadTester.
+            </summary>
+        </member>
+        <member name="T:General.Debugging.Time">
+            <summary>
+            Summary description for Time.
+            </summary>
+        </member>
         <member name="T:General.WordpressFunctions">
             <summary>
             Summary description for WordpressFunctions
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:General.WordpressFunctions.wpautop(System.String)" -->
-        <member name="M:General.SimpleXMLNameValueCollection.GetEnumerator">
-            <summary>
-            Gets the Enumerator object
-            </summary>
-            <returns>IEnumerator</returns>
-        </member>
-        <member name="M:General.SimpleXMLNameValueCollection.Reset">
-            <summary>
-            Resets the enumeration index
-            </summary>
-        </member>
-        <member name="M:General.SimpleXMLNameValueCollection.MoveNext">
-            <summary>
-            Moves to the next object in the enumeration
-            </summary>
-            <returns>bool</returns>
-        </member>
         <member name="P:General.SimpleXMLNameValueCollection.Item(System.Int32)">
             <summary>
             Gets a value using an index.
@@ -4047,11 +3911,145 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:General.SimpleXMLNameValueCollection.GetEnumerator">
+            <summary>
+            Gets the Enumerator object
+            </summary>
+            <returns>IEnumerator</returns>
+        </member>
         <member name="P:General.SimpleXMLNameValueCollection.Current">
             <summary>
             Gets the current object
             </summary>
             <returns>object</returns>
+        </member>
+        <member name="M:General.SimpleXMLNameValueCollection.Reset">
+            <summary>
+            Resets the enumeration index
+            </summary>
+        </member>
+        <member name="M:General.SimpleXMLNameValueCollection.MoveNext">
+            <summary>
+            Moves to the next object in the enumeration
+            </summary>
+            <returns>bool</returns>
+        </member>
+        <member name="T:OAuth.OAuthBase.SignatureTypes">
+            <summary>
+            Provides a predefined set of algorithms that are supported officially by the protocol
+            </summary>
+        </member>
+        <member name="T:OAuth.OAuthBase.QueryParameter">
+            <summary>
+            Provides an internal structure to sort the query parameter
+            </summary>
+        </member>
+        <member name="T:OAuth.OAuthBase.QueryParameterComparer">
+            <summary>
+            Comparer class used to perform the sorting of the query parameters
+            </summary>
+        </member>
+        <member name="M:OAuth.OAuthBase.ComputeHash(System.Security.Cryptography.HashAlgorithm,System.String)">
+            <summary>
+            Helper function to compute a hash value
+            </summary>
+            <param name="hashAlgorithm">The hashing algoirhtm used. If that algorithm needs some initialization, like HMAC and its derivatives, they should be initialized prior to passing it to this function</param>
+            <param name="data">The data to hash</param>
+            <returns>a Base64 string of the hash value</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GetQueryParameters(System.String)">
+            <summary>
+            Internal function to cut out all non oauth query string parameters (all parameters not begining with "oauth_")
+            </summary>
+            <param name="parameters">The query string part of the Url</param>
+            <returns>A list of QueryParameter each containing the parameter name and value</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.UrlEncode(System.String)">
+            <summary>
+            This is a different Url Encode implementation since the default .NET one outputs the percent encoding in lower case.
+            While this is not a problem with the percent encoding spec, it is used in upper case throughout OAuth
+            </summary>
+            <param name="value">The value to Url encode</param>
+            <returns>Returns a Url encoded string</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.NormalizeRequestParameters(System.Collections.Generic.IList{OAuth.OAuthBase.QueryParameter})">
+            <summary>
+            Normalizes the request parameters according to the spec
+            </summary>
+            <param name="parameters">The list of parameters already sorted</param>
+            <returns>a string representing the normalized parameters</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GenerateSignatureBase(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String@,System.String@)">
+            <summary>
+            Generate the signature base that is used to produce the signature
+            </summary>
+            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
+            <param name="consumerKey">The consumer key</param>        
+            <param name="token">The token, if available. If not available pass null or an empty string</param>
+            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
+            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
+            <param name="signatureType">The signature type. To use the default values use <see cref="T:OAuth.OAuthBase.SignatureTypes">OAuthBase.SignatureTypes</see>.</param>
+            <returns>The signature base</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GenerateSignatureUsingHash(System.String,System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            Generate the signature value based on the given signature base and hash algorithm
+            </summary>
+            <param name="signatureBase">The signature based as produced by the GenerateSignatureBase method or by any other means</param>
+            <param name="hash">The hash algorithm used to perform the hashing. If the hashing algorithm requires initialization or a key it should be set prior to calling this method</param>
+            <returns>A base64 string of the hash value</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GenerateSignature(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String@,System.String@)">
+            <summary>
+            Generates a signature using the HMAC-SHA1 algorithm
+            </summary>		
+            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
+            <param name="consumerKey">The consumer key</param>
+            <param name="consumerSecret">The consumer seceret</param>
+            <param name="token">The token, if available. If not available pass null or an empty string</param>
+            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
+            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
+            <returns>A base64 string of the hash value</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GenerateSignature(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String,System.String,OAuth.OAuthBase.SignatureTypes,System.String@,System.String@)">
+            <summary>
+            Generates a signature using the specified signatureType 
+            </summary>		
+            <param name="url">The full url that needs to be signed including its non OAuth url parameters</param>
+            <param name="consumerKey">The consumer key</param>
+            <param name="consumerSecret">The consumer seceret</param>
+            <param name="token">The token, if available. If not available pass null or an empty string</param>
+            <param name="tokenSecret">The token secret, if available. If not available pass null or an empty string</param>
+            <param name="httpMethod">The http method used. Must be a valid HTTP method verb (POST,GET,PUT, etc)</param>
+            <param name="signatureType">The type of signature to use</param>
+            <returns>A base64 string of the hash value</returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GenerateTimeStamp">
+            <summary>
+            Generate the timestamp for the signature        
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OAuth.OAuthBase.GenerateNonce">
+            <summary>
+            Generate a nonce
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ExtendedControls.RepeaterExtended">
+            <summary>
+            Extends the normal Repeater so we can determine do cool things like find elements inside it.
+            </summary>
+        </member>
+        <member name="T:ExtendedControls.LinkButtonExtended">
+            <summary>
+            Extends the normal LinkButton so we can determine do cool things like add a confirm dialogue.
+            </summary>
+        </member>
+        <member name="T:ExtendedControls.DumbMenu">
+            <summary>
+            This is a custom ASP:Menu control that disables the javascript
+            </summary>
         </member>
     </members>
 </doc>
