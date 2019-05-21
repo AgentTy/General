@@ -12,36 +12,31 @@ namespace General.Debugging
       
 		#region GetErrorReport
 		public static StringBuilder GetErrorReport(Exception e, string strLineBreak) {
-			HttpContext _context = HttpContext.Current;
+			
 			StringBuilder sb = new StringBuilder();
-			sb.Append(DateTime.Now.ToString() + strLineBreak);
+			sb.Append("TIME: " + DateTimeOffset.UtcNow.ToString() + strLineBreak);
 
-			if(_context != null)
+#if NET472 || NET471 || NET47 || NET462 || NET461 || NET46 || NET452 || NET451 || NET45 || NET40 || NET35 || NET20
+            HttpContext _context = HttpContext.Current;
+            if (_context != null)
 				sb.Append("URL: " + General.Web.WebTools.GetRequestedUrl() + strLineBreak);
+#endif
+
+            sb.Append("SOURCE: " + e.Source + strLineBreak);
+            sb.Append("MESSAGE: " + SanitizeString(e.Message) + strLineBreak + strLineBreak);
 
             sb.Append("BASE EXCEPTION: " + e.GetBaseException() + strLineBreak);
-			sb.Append("SOURCE: " +e.Source + strLineBreak);
-			sb.Append("MESSAGE: " + SanitizeString(e.Message) + strLineBreak);
             if (e.InnerException != null && e.InnerException.ToString() != e.GetBaseException().ToString())
-                sb.Append("INNER ERROR: " + SanitizeString(e.InnerException.ToString()) + strLineBreak);
-			//sb.Append("TARGET SITE NAME: " + e.TargetSite.Name.ToString() + strLineBreak);
-            if (!StringFunctions.IsNullOrWhiteSpace(e.StackTrace))
+                sb.Append("INNER EXCEPTION: " + SanitizeString(e.InnerException.ToString()) + strLineBreak);
+
+            //Pretty sure this is a waste of CPU
+            if (!StringFunctions.IsNullOrWhiteSpace(e.StackTrace) && !sb.ToString().Contains(e.StackTrace))
                 sb.Append("STACK TRACE: " + SanitizeString(e.StackTrace) + strLineBreak);
+
 			sb.Append("" + strLineBreak);			
 			sb.Append("" + strLineBreak);
 
-			#region DATABASE CALLS
-            /*
-			sb.Append("DATABASE CALLS:" + strLineBreak);
-			if (_context != null) {
-				string strDataHistory = DAO.SQLCache.GetTransactionHistory(strLineBreak);
-				sb.Append(strDataHistory + strLineBreak);
-			} else {
-				sb.Append("Unavailable" + strLineBreak);
-			}
-            */
-			#endregion
-
+#if NET472 || NET471 || NET47 || NET462 || NET461 || NET46 || NET452 || NET451 || NET45 || NET40 || NET35 || NET20
 			if (_context != null) {
                 try
                 {
@@ -56,13 +51,14 @@ namespace General.Debugging
                     sb.Append("" + strLineBreak);
                 }
 			}
+#endif
 
 			return sb;
 		}
     
-		#endregion
+#endregion
 
-		#region GetContextReport
+#region GetContextReport
 		public static string GetContextReport() {
 			return GetContextReport("<br>\r\n");
 		}
@@ -71,7 +67,7 @@ namespace General.Debugging
 			HttpContext _context = HttpContext.Current;
 			StringBuilder sb = new StringBuilder();
 
-			#region HTTP REQUEST
+#region HTTP REQUEST
             try
             {
                 if (_context.Request != null)
@@ -91,7 +87,7 @@ namespace General.Debugging
                         sb.Append("Couldn't dump REQUEST." + strLineBreak + ex.ToString());
                     }
 
-                    #region HTTP COOKIES
+#region HTTP COOKIES
                     sb.Append("COOKIES DUMP (EXCLUDING BINARY OBJECTS):" + strLineBreak);
                     if (_context.Request.Cookies != null)
                     {
@@ -109,9 +105,9 @@ namespace General.Debugging
                         }
                     }
                     sb.Append(strLineBreak);
-                    #endregion
+#endregion
 
-                    #region SERVER VARIABLES
+#region SERVER VARIABLES
                     sb.Append("SERVER VARIABLES:" + strLineBreak);
                     if (_context.Request.ServerVariables != null)
                     {
@@ -139,14 +135,14 @@ namespace General.Debugging
                         }
                     }
                     sb.Append(strLineBreak);
-                    #endregion
+#endregion
                 }
             }
             catch(Exception ex)
             { sb.Append("REQUEST DUMP: " + ex.Message + strLineBreak); }
-			#endregion
+#endregion
 
-			#region ASP.NET SESSION
+#region ASP.NET SESSION
             try
             {
                 if (_context.Session != null)
@@ -171,13 +167,13 @@ namespace General.Debugging
             }
             catch (Exception ex)
             { sb.Append("SESSION DUMP: " + ex.Message + strLineBreak); }
-			#endregion
+#endregion
 
             return SanitizeString(sb.ToString());
 		}
-		#endregion
+#endregion
 
-        #region SanitizeString
+#region SanitizeString
         private static System.Text.RegularExpressions.Regex rgxEncapsulatedPassword = new System.Text.RegularExpressions.Regex(@"PASSWORD=[""'].*[""']|PWD=[""'].*[""']|PASS=[""'].*[""']", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.Singleline);
         private static System.Text.RegularExpressions.Regex rgxSQLPassword = new System.Text.RegularExpressions.Regex(@"PASSWORD=[^;\n\r]*|PWD=[^;\n\r]*", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.Singleline);
         private static System.Text.RegularExpressions.Regex rgxFinalPassword = new System.Text.RegularExpressions.Regex(@"PASSWORD[^;\n\r]*|PWD[^;\n\r]*|PASS[^;\n\r]*", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.Singleline);
@@ -192,7 +188,7 @@ namespace General.Debugging
             sClean = rgxFinalPassword.Replace(sClean, "REDACTED");
             return sClean;
         }
-        #endregion
+#endregion
 
     }
 }

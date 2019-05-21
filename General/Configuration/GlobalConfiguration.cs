@@ -18,9 +18,10 @@ namespace General.Configuration
         private static System.Collections.Specialized.NameValueCollection _objHostSettings;
         private static GlobalSettingsContainer _objGlobalSettingsContainer = new GlobalSettingsContainer();
         private static HostSettingsContainer _objHostSettingsContainer = new HostSettingsContainer();
-		#endregion
+        #endregion
 
-		#region Global Settings
+        #region Global Settings
+        /*
 		private static NameValueCollection GetGlobalSettings()
 		{
             object objCache = GetGlobalSettingsFromCache();
@@ -35,7 +36,7 @@ namespace General.Configuration
 				return objCol;
 			}
 		}
-
+        
 		private static NameValueCollection LoadGlobalSettings()
 		{
 			NameValueCollection objCol;
@@ -107,7 +108,8 @@ namespace General.Configuration
 				}
 			}
 		}
-		#endregion
+        */
+        #endregion
 
         #region Host Settings
 
@@ -145,8 +147,8 @@ namespace General.Configuration
                 if (System.Web.HttpContext.Current == null && StringFunctions.IsNullOrWhiteSpace(HostWhenNull) && !(!String.IsNullOrEmpty(System.Threading.Thread.CurrentThread.Name) && General.Environment.Host.HostCache.IsHostKey(System.Threading.Thread.CurrentThread.Name)))
                     throw new Exception("In a Live environment I will encounter an error here, System.Web.HttpContext.Current will be null.");
 
-                if (!StringFunctions.IsNullOrWhiteSpace(GlobalSettings.GetGlobalOnly("spoof_host")) && !General.Environment.Current.AmILive())
-                    strCurrentHost = GlobalSettings.GetGlobalOnly("spoof_host").ToString().ToLower();
+                if (!StringFunctions.IsNullOrWhiteSpace(GlobalSettings.GetAppSettingOrEnvironmentalVariable("spoof_host")) && !General.Environment.Current.AmILive())
+                    strCurrentHost = GlobalSettings.GetAppSettingOrEnvironmentalVariable("spoof_host").ToString().ToLower();
                 else if (System.Web.HttpContext.Current != null)
                     strCurrentHost = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_HOST"].ToLower();
                 else if (!String.IsNullOrEmpty(System.Threading.Thread.CurrentThread.Name) && General.Environment.Host.HostCache.IsHostKey(System.Threading.Thread.CurrentThread.Name))
@@ -287,8 +289,9 @@ namespace General.Configuration
         #endregion
 
 		#region Public Properties
-        public static bool GetFromAppConfig { get; set; }
+        //public static bool GetFromAppConfig { get; set; }
         public static string DefaultConnectionStringName { get; set; }
+        public static string ExplicitRuntimeConnectionString { get; set; }
 
         private static bool _blnGetFromAppConfigFirst = true;
         public static bool GetFromAppConfigFirst
@@ -309,7 +312,7 @@ namespace General.Configuration
                 return _objGlobalSettingsContainer;
 			}
 		}
-
+        /*
 		/// <summary>
 		/// This static object will return an object from a specified key directly from the global config file (/bin/General.config)
 		/// </summary>
@@ -320,7 +323,7 @@ namespace General.Configuration
 				return GetGlobalSettings();
 			}
 		}
-
+        */
         /// <summary>
         /// This static object will return an object from a specified key, it will look first in the applications config file (Web.config), then if not found it will look in the global config file (/bin/General.config)
         /// </summary>
@@ -366,15 +369,17 @@ namespace General.Configuration
 			{
 				get
 				{
+                    return GetAppSettingOrEnvironmentalVariable(Key);
+                    /*
                     if (GetFromAppConfig)
                     {
                         if (!StringFunctions.IsNullOrWhiteSpace(AppConfigBranch))
                             return ((NameValueCollection)System.Configuration.ConfigurationManager.GetSection(AppConfigBranch))[Key];
                         else
-                            return System.Configuration.ConfigurationManager.AppSettings[Key];
+                            return GetAppSettingOrEnvironmentalVariable(Key);
                     }
-                    else if (GetFromAppConfigFirst && System.Configuration.ConfigurationManager.AppSettings[Key] != null)
-                        return System.Configuration.ConfigurationManager.AppSettings[Key];
+                    else if (GetFromAppConfigFirst && GetAppSettingOrEnvironmentalVariable(Key) != null)
+                        return GetAppSettingOrEnvironmentalVariable(Key);
                     else if (System.Web.HttpContext.Current != null || !StringFunctions.IsNullOrWhiteSpace(HostWhenNull))
                     {  //I still have to check for HttpContext.Current and HostWhenNull ONLY because otherwise I don't know which Host I'm working with
                         string host = GetCurrentHost();
@@ -403,11 +408,15 @@ namespace General.Configuration
                             return null;
                         }
                     }
-				}
+                    */
+                }
 			}
 
+            
             public string GetGlobalOnly(string Key)
             {
+                return GetAppSettingOrEnvironmentalVariable(Key);
+                /*
                 try
                 {
                     if (GetFromAppConfig)
@@ -415,10 +424,10 @@ namespace General.Configuration
                         if (!StringFunctions.IsNullOrWhiteSpace(AppConfigBranch))
                             return ((NameValueCollection)System.Configuration.ConfigurationManager.GetSection(AppConfigBranch))[Key];
                         else
-                            return System.Configuration.ConfigurationManager.AppSettings[Key];
+                            return GetAppSettingOrEnvironmentalVariable(Key);
                     }
-                    else if (GetFromAppConfigFirst && System.Configuration.ConfigurationManager.AppSettings[Key] != null)
-                        return System.Configuration.ConfigurationManager.AppSettings[Key];
+                    else if (GetFromAppConfigFirst && GetAppSettingOrEnvironmentalVariable(Key) != null)
+                        return GetAppSettingOrEnvironmentalVariable(Key);
                     else
                     {
                         var settings = GetGlobalSettings();
@@ -431,7 +440,9 @@ namespace General.Configuration
                 {
                     return null;
                 }
+                */
             }
+            
 
             public string GetByEnviromnentModifers(string Key)
             {
@@ -441,6 +452,23 @@ namespace General.Configuration
                     return this[Key + "_" + General.Environment.Current.WhereAmI()];
                 else
                     return null;
+            }
+
+            public string GetAppSettingOrEnvironmentalVariable(string Key)
+            {
+                string value;
+                value = System.Environment.GetEnvironmentVariable(Key);
+                if (!String.IsNullOrWhiteSpace(value))
+                    return value;
+
+                if (System.Configuration.ConfigurationManager.AppSettings[Key] != null)
+                    value = System.Configuration.ConfigurationManager.AppSettings[Key];
+                if (!String.IsNullOrWhiteSpace(value))
+                    return value;
+                else
+                    value = null;
+
+                return value;
             }
 
 		}

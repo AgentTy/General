@@ -48,6 +48,12 @@ namespace General.Data
             #region Get Suffix From MachineName
             string strSuffix = String.Empty;
 
+            var explicitConnString = General.Configuration.GlobalConfiguration.ExplicitRuntimeConnectionString;
+            if (!String.IsNullOrWhiteSpace(explicitConnString))
+            {
+                return explicitConnString;
+            }
+
             if (PickConnectionByDevLiveStage)
                 strSuffix = "_" + General.Environment.Current.WhereAmI().ToString().ToLower();
             #endregion
@@ -56,7 +62,7 @@ namespace General.Data
                 if (!String.IsNullOrEmpty(General.Configuration.GlobalConfiguration.DefaultConnectionStringName))
                     strConnectionName = General.Configuration.GlobalConfiguration.DefaultConnectionStringName;
                 else
-                    strConnectionName = "ConnectionString";
+                    strConnectionName = "DefaultConnection";
 
             if (System.Configuration.ConfigurationManager.ConnectionStrings[strConnectionName + strSuffix] != null)
             {

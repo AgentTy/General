@@ -11,11 +11,28 @@ namespace General.Environment
 
         #region Settings
 
-        public static string HostingEnvironment { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("HostingEnvironment") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("hosting_environment") ?? ""; } }
-        public static string ServerNameList_Dev { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_Dev") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_dev") ?? ""; } }
-        public static string ServerNameList_QA { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_QA") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_qa") ?? ""; } }
-        public static string ServerNameList_Staging { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_Staging") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_stage") ?? ""; } }
-        public static string ServerNameList_CustomEnv { get { return GlobalConfiguration.GlobalSettings.GetGlobalOnly("ServerNameList_CustomEnv") ?? GlobalConfiguration.GlobalSettings.GetGlobalOnly("server_name_custom_env") ?? ""; } }
+        private static string _strHostingEnvironment;
+        public static string HostingEnvironment {
+            get {
+                /*
+                //Support for environmental variables in Azure
+                string azureValue = System.Environment.GetEnvironmentVariable("HostingEnvironment");
+                if (!String.IsNullOrWhiteSpace(azureValue))
+                    return azureValue;
+                azureValue = System.Environment.GetEnvironmentVariable("hosting_environment");
+                if (!String.IsNullOrWhiteSpace(azureValue))
+                    return azureValue;
+                */
+                if (_strHostingEnvironment != null)
+                    return _strHostingEnvironment;
+                _strHostingEnvironment = GlobalConfiguration.GlobalSettings.GetAppSettingOrEnvironmentalVariable("HostingEnvironment") ?? GlobalConfiguration.GlobalSettings.GetAppSettingOrEnvironmentalVariable("hosting_environment") ?? "";
+                return _strHostingEnvironment;
+            }
+        }
+        public static string ServerNameList_Dev { get { return GlobalConfiguration.GlobalSettings.GetAppSettingOrEnvironmentalVariable("ServerNameList_Dev") ?? ""; } }
+        public static string ServerNameList_QA { get { return GlobalConfiguration.GlobalSettings.GetAppSettingOrEnvironmentalVariable("ServerNameList_QA") ?? ""; } }
+        public static string ServerNameList_Staging { get { return GlobalConfiguration.GlobalSettings.GetAppSettingOrEnvironmentalVariable("ServerNameList_Staging") ?? ""; } }
+        public static string ServerNameList_CustomEnv { get { return GlobalConfiguration.GlobalSettings.GetAppSettingOrEnvironmentalVariable("ServerNameList_CustomEnv") ?? ""; } }
 
         #endregion
         
@@ -99,7 +116,27 @@ namespace General.Environment
                 return manualEnv;
             }
 
-			string server_name = System.Environment.MachineName.ToUpperInvariant();
+            //.Net Core Support
+            string coreEnv = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            if (!String.IsNullOrWhiteSpace(coreEnv))
+            {
+                switch(coreEnv)
+                {
+                    case "Development":
+                    case "Dev":
+                        return EnvironmentContext.Dev;
+                    case "QA":
+                        return EnvironmentContext.QA;
+                    case "Staging":
+                    case "Stage":
+                        return EnvironmentContext.Stage;
+                    default:
+                        return EnvironmentContext.Live;
+                }
+            }
+
+            //.Net Framework Support
+            string server_name = System.Environment.MachineName.ToUpperInvariant();
 
             string dev_list = ServerNameList_Dev.ToUpperInvariant();
             string qa_list = ServerNameList_QA.ToUpperInvariant();

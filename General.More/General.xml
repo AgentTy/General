@@ -174,11 +174,6 @@
             Gets the configured connection string
             </summary>
         </member>
-        <member name="M:General.DAO.DBConnection.GetConnectionString_NoHost(System.String)">
-            <summary>
-            Gets the configured connection string
-            </summary>
-        </member>
         <member name="M:General.DAO.DBConnection.GetOpenConnection">
             <summary>
             Gets an open connection object from the configured connection string
