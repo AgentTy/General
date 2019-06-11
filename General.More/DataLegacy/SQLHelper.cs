@@ -769,6 +769,7 @@ namespace General.DAO
 		    {
 
 				#region CacheOverrides
+            /*
 				bool boolFileCacheEnabled;
 				try	{boolFileCacheEnabled = Convert.ToBoolean(General.Configuration.GlobalConfiguration.GlobalSettings["sqlhelper_do_file_cache"]);}
 				catch {boolFileCacheEnabled = true;}
@@ -780,9 +781,11 @@ namespace General.DAO
 				catch {boolMemoryCacheEnabled = true;}
 				if(!boolMemoryCacheEnabled)
 					o.DoMemoryCache = false;
+                */
 				#endregion
 
 				//General.Debug.Trace("running GetDataset on " +cmd.CommandText+ "...DoMemoryCache = " +o.DoMemoryCache + ", DoFileCache = " + o.DoFileCache);
+                /*
 			    string strQueryHash = GetQueryHashCode(cmd);
 				if(o.DoMemoryCache || o.DoFileCache)
 			    {
@@ -810,12 +813,13 @@ namespace General.DAO
                 }
                 else
                 {
+                */
                     string strQueryString = GetQueryString(cmd);
                     LastProcedureCall = strQueryString;
                     //General.Debug.Trace("running GetDataset on " + strQueryString);
                     //General.Debug.JQueryDebugWrite(strQueryString);
                     return GetDatasetNoCache(cmd, ref o);
-                }
+                //}
 
 				
 		    }
@@ -859,6 +863,8 @@ namespace General.DAO
                         }
                         else if (ex.Message.ToLower().Contains("a transport-level error has occurred"))
                         {
+                            throw;
+                            /*
                             if (System.Web.HttpContext.Current != null)
                             {
                                 System.Web.HttpContext.Current.Session.Clear();
@@ -872,6 +878,7 @@ namespace General.DAO
                                 throw;
                                 //throw new Exception(ex.Message + " : " + o.ConnectionString, ex);
                             }
+                            */
                         }
                         else
                             throw;
