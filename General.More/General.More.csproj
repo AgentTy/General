@@ -137,7 +137,7 @@
     </Reference>
     <Reference Include="VM.xPort.Ds2xl, Version=3.4.0.0, Culture=neutral, PublicKeyToken=a83f0d1a0f55aa06, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\xPortTools\.NET xPorter 3.4\VM.xPort.Ds2xl.dll</HintPath>
+      <HintPath>..\GAC\xPortTools\VM.xPort.Ds2xl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
