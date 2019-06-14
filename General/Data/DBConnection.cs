@@ -45,14 +45,14 @@ namespace General.Data
 		{
             System.Configuration.ConnectionStringSettings objConnString = null;
 
-            #region Get Suffix From MachineName
-            string strSuffix = String.Empty;
-
             var explicitConnString = General.Configuration.GlobalConfiguration.ExplicitRuntimeConnectionString;
             if (!String.IsNullOrWhiteSpace(explicitConnString))
             {
                 return explicitConnString;
             }
+
+            #region Get Suffix From MachineName
+            string strSuffix = String.Empty;
 
             if (PickConnectionByDevLiveStage)
                 strSuffix = "_" + General.Environment.Current.WhereAmI().ToString().ToLower();

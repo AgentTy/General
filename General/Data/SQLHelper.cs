@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace General.Data
 {
@@ -291,6 +293,47 @@ namespace General.Data
                 // Return the dataset
                 return ds;
             }
+        }
+        #endregion
+
+        #region ExecuteSqlBatchScript
+
+        public static async Task<bool> ExecuteSqlBatchScript(string connectionString, string sqlScript)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                return await General.Data.SqlHelper.ExecuteSqlBatchScript(conn, sqlScript);
+            }
+        }
+
+        public static async Task<bool> ExecuteSqlBatchScript(SqlConnection conn, string sqlScript)
+        {
+            bool hasErrors = false;
+            // split script on GO command
+            IEnumerable<string> commandStrings = Regex.Split(sqlScript, @"^\s*GO\s*$",
+                                     RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+            foreach (string commandString in commandStrings)
+            {
+                if (commandString.Trim() != "")
+                {
+                    try
+                    {
+                        using (var command = new SqlCommand(commandString, conn))
+                        {
+                            await command.ExecuteNonQueryAsync();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+            }
+
+            return !hasErrors;
         }
         #endregion
 
