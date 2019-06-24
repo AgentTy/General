@@ -14,9 +14,7 @@ namespace General.Drawing.Contracts
         #region Constructor
         public ContractWriter()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+
         }
         #endregion
 

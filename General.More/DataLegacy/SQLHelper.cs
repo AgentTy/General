@@ -1042,7 +1042,6 @@ namespace General.DAO
 				}
 			
 				// Detach the SqlParameters from the command object, so they can be used again.
-				// HACK: There is a problem here, the output parameter values are fletched 
 				// when the reader is closed, so if the parameters are detached from the command
 				// then the SqlReader can´t set its values. 
 				// When this happen, the parameters can´t be used again in other command.

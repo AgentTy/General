@@ -17,9 +17,7 @@ namespace General.Utilities.Data.Conversion
 		/// </summary>
 		public oledb()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
+
 		}
 
 		/// <summary>

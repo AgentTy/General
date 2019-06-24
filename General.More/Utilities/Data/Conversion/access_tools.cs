@@ -15,9 +15,7 @@ namespace General.Utilities.Data.Conversion
 		/// </summary>
 		public access_tools()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
+
 		}
 
 		/// <summary>

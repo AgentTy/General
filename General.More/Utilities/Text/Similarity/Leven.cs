@@ -70,9 +70,7 @@ namespace General.Utilities.Text.Similarity
 
 		public Leven()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
+
 		}
 	}
 }

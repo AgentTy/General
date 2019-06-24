@@ -92,9 +92,7 @@ namespace ExtendedControls
         #region Constructor
         public DumbMenu()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+
         }
         #endregion
 

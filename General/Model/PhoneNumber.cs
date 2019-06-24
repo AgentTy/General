@@ -5,6 +5,7 @@ using System.Web.Script.Serialization;
 using System.Runtime.Serialization;
 using General;
 using General.Configuration;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace General.Model
 {
@@ -46,7 +47,6 @@ namespace General.Model
         public string DefaultUSAreaCode
         {
             get { if (!String.IsNullOrEmpty(_strDefaultUSAreaCode)) return _strDefaultUSAreaCode; else return GlobalConfiguration.GlobalSettings["PhoneNumberDefaultUSAreaCode"]; }
-            set { _strDefaultUSAreaCode = value; }
         }
         #endregion
 
@@ -110,7 +110,7 @@ namespace General.Model
         public PhoneNumber(long Number, int? Extension, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -127,7 +127,7 @@ namespace General.Model
         public PhoneNumber(long Number, int? Extension, ParseArgument ParseAs, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -144,7 +144,7 @@ namespace General.Model
         public PhoneNumber(object Number, object Extension, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -181,7 +181,7 @@ namespace General.Model
         public PhoneNumber(object Number, object Extension, ParseArgument ParseAs, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -217,7 +217,7 @@ namespace General.Model
         public PhoneNumber(string Number, string Extension, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -251,7 +251,7 @@ namespace General.Model
         public PhoneNumber(string Number, string Extension, ParseArgument ParseAs, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -285,7 +285,7 @@ namespace General.Model
         public PhoneNumber(Int64 Number, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -302,7 +302,7 @@ namespace General.Model
         public PhoneNumber(Int64 Number, ParseArgument ParseAs, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number.ToString();
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -319,7 +319,7 @@ namespace General.Model
         public PhoneNumber(string Number, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number;
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -339,7 +339,7 @@ namespace General.Model
         public PhoneNumber(string Number, ParseArgument ParseAs, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = Number;
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -359,7 +359,7 @@ namespace General.Model
         public PhoneNumber(object DataCell, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = "";
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -386,7 +386,7 @@ namespace General.Model
         public PhoneNumber(object DataCell, ParseArgument ParseAs, string DefaultUSAreaCode = null)
 		{
             if (!StringFunctions.IsNullOrWhiteSpace(DefaultUSAreaCode))
-                this.DefaultUSAreaCode = DefaultUSAreaCode;
+                _strDefaultUSAreaCode = DefaultUSAreaCode;
 			_strSource = "";
 			_intCountryCode = -1;
 			_intAreaCode = -1;
@@ -943,12 +943,22 @@ namespace General.Model
 			return(Convert.ToInt64(result));
 		}
 
-		/// <summary>
-		/// Returns phone number as a sql big int excluding the extension
-		/// EX: 14802223456
-		/// A null phone number returns DBNull
-		/// </summary>
-		public object ToSql()
+        /// <summary>
+        /// Returns phone number as a sql big int excluding the extension
+        /// EX: 14802223456
+        /// A null phone number returns DBNull
+        /// </summary>
+        public object ToEFSQL()
+        {
+            return ToUnformattedNumber();
+        }
+
+        /// <summary>
+        /// Returns phone number as a sql big int excluding the extension
+        /// EX: 14802223456
+        /// A null phone number returns DBNull
+        /// </summary>
+        public object ToSql()
 		{
 			return ToSql("all");
 		}
@@ -1227,13 +1237,33 @@ namespace General.Model
                 return _Countries;
             }
 		}
-		#endregion
+        #endregion
 
-		#region PUBLIC PROPERTIES
-		/// <summary>
-		/// Returns the validation status of the PhoneNumber	
-		/// </summary>
-		[DataMember]
+        #region PUBLIC PROPERTIES
+        /// <summary>
+        /// Returns the default output string
+        /// </summary>
+        [DataMember]
+        public string Value
+        {
+            get { return ToString(); }
+            set
+            {
+                if (value != null)
+                {
+                    if (StringFunctions.IsNumeric(value))
+                        ParseNumber(Convert.ToInt64(value), ParseArgument.Unknown);
+                    else
+                        ParseNumber(value, ParseArgument.Unknown);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Returns the validation status of the PhoneNumber	
+        /// </summary>
+        [DataMember]
         public bool Valid
 		{
             get { 
@@ -1247,20 +1277,15 @@ namespace General.Model
 		/// <summary>
 		/// Returns the original data use to create the PhoneNumber
 		/// </summary>
-        [DataMember]
 		public string Source
 		{
 			get	{ return _strSource; }
-            set { _strSource = value; _intPropertiesLeftToPopulateObject--;
-            if (_intPropertiesLeftToPopulateObject <= 0)
-                ParseNumber(_strSource, _enuParseAs);
-            }
 		}
 
         /// <summary>
         /// Returns the original data use to create the PhoneNumber
         /// </summary>
-        [DataMember]
+        [DataMember, NotMapped]
         public ParseArgument ParseAs
         {
             get { return _enuParseAs; }
@@ -1271,15 +1296,6 @@ namespace General.Model
         }
 
         /// <summary>
-        /// Returns the default output string
-        /// </summary>
-        [DataMember]
-        public string Value
-        {
-            get { return ToString(); }
-        }
-
-        /// <summary>
         /// Returns the international dialing format
         /// </summary>
         [DataMember]
@@ -1287,37 +1303,6 @@ namespace General.Model
         {
             get { return ToInternationalDialString(); }
         }
-
-        /*
-        /// <summary>
-        /// Returns the default output string
-        /// </summary>
-        [DataMember]
-        public PhoneNumberSerializerModel SerializedValue
-        {
-            get
-            {
-                return new PhoneNumberSerializerModel
-                {
-                    Source = _strSource, 
-                    ParseAs = _enuParseAs
-                };
-            }
-            set
-            {
-                ParseNumber(value.Source, value.ParseAs);
-            }
-        }
-
-        [Serializable, DataContract]
-        public class PhoneNumberSerializerModel
-        {
-            [DataMember]
-            public string Source { get; set; }
-            [DataMember]
-            public ParseArgument ParseAs { get; set; }
-        }
-        */
 
 		/// <summary>
 		/// Returns the CountryCode
@@ -1346,7 +1331,7 @@ namespace General.Model
         public Int64 Number
 		{
 			get	{return _intNumber;}
-			//set {_intNumber = value;}
+			//set { if (value.HasValue) _intNumber = value.Value; else _intNumber = -1; }
 		}
 
 		/// <summary>

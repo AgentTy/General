@@ -3,6 +3,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using System.Runtime.Serialization;
 using General;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace General.Model
 {
@@ -267,6 +268,7 @@ namespace General.Model
 		/// <summary>
 		/// Returns the address reference
 		/// </summary>
+        [NotMapped]
 		public string Reference
 		{
 			get	{return _strReference;}
@@ -335,9 +337,10 @@ namespace General.Model
             }
 		}
 
-		/// <summary>
-		/// Returns the state
-		/// </summary>
+        /// <summary>
+        /// Returns the state
+        /// </summary>
+        [NotMapped]
         public string StateName
 		{
 			get	{return _strStateName;}
@@ -368,9 +371,10 @@ namespace General.Model
 			set { _strCountryCode = PokeSeal(_strCountryCode,value); }
 		}
 
-		/// <summary>
-		/// Returns the country code
-		/// </summary>
+        /// <summary>
+        /// Returns the country code
+        /// </summary>
+        [NotMapped]
         public string CountryName
 		{
 			get	{return _strCountryName;}

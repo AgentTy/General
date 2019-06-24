@@ -15,9 +15,7 @@ namespace General.Utilities.Data.Conversion
 		/// </summary>
 		public text_tools()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
+
 		}
 
 		/// <summary>

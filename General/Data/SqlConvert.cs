@@ -631,10 +631,27 @@ namespace General.Data
 			}
 		}
 
-		/// <summary>
-		/// Returns false if object IsDBNull
-		/// </summary>
-		public static bool ToBoolean(object obj)
+        public static DateTimeOffset ToDateTimeOffset(object obj)
+        {
+            if (Convert.IsDBNull(obj))
+            {
+                return new DateTimeOffset(1900, 1, 1,0,0,0, TimeSpan.FromHours(0));
+            }
+            else if (obj == null)
+            {
+                return new DateTimeOffset(1900, 1, 1, 0, 0, 0, TimeSpan.FromHours(0));
+            }
+            else
+            {
+                return DateTimeOffset.Parse(obj.ToString());
+            }
+        }
+
+
+        /// <summary>
+        /// Returns false if object IsDBNull
+        /// </summary>
+        public static bool ToBoolean(object obj)
 		{
 			if (Convert.IsDBNull(obj))
 			{

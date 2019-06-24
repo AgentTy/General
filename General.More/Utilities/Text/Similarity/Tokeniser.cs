@@ -96,9 +96,7 @@ namespace General.Utilities.Text.Similarity
 
 		public Tokeniser()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
+
 		}
 	}
 }
