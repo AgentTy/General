@@ -519,21 +519,15 @@ namespace General.Model
 		{
 			string x,y;
 
-			try
-			{x = Address1.ToString();}
-			catch(NullReferenceException ex)
-			{
-				string temp = ex.Message;
-				x = "null";
-			}	
+            if (Address1 is null)
+                x = "null";
+            else
+                x = Address1.ToString();
 
-			try
-			{y = Address2.ToString();}	
-			catch(NullReferenceException ex)
-			{
-				string temp = ex.Message;
-				y = "null";
-			}
+            if (Address2 is null)
+                y = "null";
+            else
+                y = Address2.ToString();
 
 			return(x == y);
 		}
@@ -545,23 +539,17 @@ namespace General.Model
 		{
 			string x,y;
 
-			try
-			{x = Address1.ToString();}
-			catch(NullReferenceException ex)
-			{
-				string temp = ex.Message;
-				x = "null";
-			}	
+            if (Address1 is null)
+                x = "null";
+            else
+                x = Address1.ToString();
 
-			try
-			{y = Address2.ToString();}	
-			catch(NullReferenceException ex)
-			{
-				string temp = ex.Message;
-				y = "null";
-			}
+            if (Address2 is null)
+                y = "null";
+            else
+                y = Address2.ToString();
 
-			return(x != y);
+            return (x != y);
 		}	
 
 		/// <summary>
