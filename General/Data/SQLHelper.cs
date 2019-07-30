@@ -328,6 +328,7 @@ namespace General.Data
                     }
                     catch (Exception ex)
                     {
+                        ex.Data.Add("SQLScript", commandString);
                         throw ex;
                     }
                 }

@@ -12,6 +12,13 @@ namespace General.Drawing
         public Bitmap Image;
         public Rectangle Bounds;
 
+        #region Resize
+        public Image Resize(int intSizePercent)
+        {
+            return Rendering.Resize(this, intSizePercent);
+        }
+        #endregion
+
         #region SaveJPEG
         public void SaveJPEG(string strFileName)
         {

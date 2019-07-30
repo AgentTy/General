@@ -42,6 +42,14 @@ namespace General.Drawing
         }
         #endregion
 
+        #region Resize
+        public static Image Resize(ImageHandler objImageHandler, int intSizePercent)
+        {
+            Image objNewImage = Tools.Resize(objImageHandler.Image, intSizePercent);
+            return objNewImage;
+        }
+        #endregion
+
         #region SaveJPEG
         public static void SaveJPEG(ImageHandler objImageHandler, string strFileName)
         {
