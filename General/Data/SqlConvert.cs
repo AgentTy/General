@@ -304,7 +304,6 @@ namespace General.Data
         /// <summary>
         /// Convert a ShortGuid into a sql UniqueIdentifier object
         /// </summary>
-        /*
         public static object ToSql(ShortGuid input)
         {
             if (input == ShortGuid.Empty)
@@ -312,7 +311,6 @@ namespace General.Data
             else
                 return input.Guid.ToString();
         }
-        */
 
 		/// <summary>
 		/// Convert an integer into a sql object
@@ -395,7 +393,6 @@ namespace General.Data
         /// <summary>
         /// Fix quotes for sql query strings
         /// </summary>
-        /*
         public static ShortGuid ToShortGuid(object obj)
         {
             if (Convert.IsDBNull(obj))
@@ -411,7 +408,6 @@ namespace General.Data
                 return (ShortGuid) ShortGuid.Encode(obj.ToString());
             }
         }
-        */
 
 		/// <summary>
 		/// Fix quotes for sql query strings

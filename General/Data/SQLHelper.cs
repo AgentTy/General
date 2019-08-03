@@ -9,6 +9,16 @@ using System.Threading.Tasks;
 
 namespace General.Data
 {
+    public class SqlConn
+    {
+        public SqlConn(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
+
+        public string ConnectionString { get; private set; }
+    }
+
     public class SqlHelper
     {
 
@@ -63,57 +73,35 @@ namespace General.Data
         /// Executes a SqlCommand and attaches a new connection if one hasn't been attached.
         /// </summary>
         /// <param name="cmd">SQLCommand - A valid command object with or without a Connection</param>
+        /// <param name="conn">SqlConn - A connection context object that will be used if a SQLConnection isnt already attached</param>
+        /// <param name="ConnectionStringName">ConnectionStringName - A valid connection string defined in the App.config file</param>
         /// <returns>int - Represents the number of rows effected</returns>
-        public static int ExecuteNonQuery(SqlCommand cmd)
+        public static int ExecuteNonQuery(SqlCommand cmd, SqlConn conn, String ConnectionStringName = null)
         {
-            return ExecuteNonQuery(cmd, "");
-        }
+            if (conn == null || String.IsNullOrEmpty(conn.ConnectionString))
+                if (!String.IsNullOrWhiteSpace(ConnectionStringName))
+                    conn = new SqlConn(DBConnection.GetConnectionString(ConnectionStringName));
 
-        /// <summary>
-        /// Executes a SqlCommand and attaches a new connection if one hasn't been attached.
-        /// </summary>
-        /// <param name="cmd">SQLCommand - A valid command object with or without a Connection</param>
-        /// <param name="cmd">ConnectionStringName - A valid connection string defined in the App.config file</param>
-        /// <returns>int - Represents the number of rows effected</returns>
-        public static int ExecuteNonQuery(SqlCommand cmd, String ConnectionStringName)
-        {
             if (cmd.Connection == null)
             {
-                cmd.Connection = DBConnection.GetOpenConnection(DBConnection.GetConnectionString(ConnectionStringName));
+                cmd.Connection = DBConnection.GetOpenConnection(conn.ConnectionString);
             }
             return ExecuteNonQuery(cmd, true);
         }
 
-
         /// <summary>
         /// Execute a SqlCommand (that returns no resultset) against the specified SqlConnection 
         /// using the SqlCommand.
         /// </summary>
         /// <remarks>
         /// e.g.:  
-        ///  int result = ExecuteNonQuery(conn, cmd);
+        ///  int result = ExecuteNonQuery(cmd, conn, true);
         /// </remarks>
-        /// <param name="connection">A valid SqlConnection</param>
         /// <param name="cmd">A valid SqlCommand</param>
-        /// <returns>An int representing the number of rows affected by the command</returns>
-        public static int ExecuteNonQuery(SqlConnection connection, SqlCommand cmd)
-        {
-            return (ExecuteNonQuery(connection, cmd, true));
-        }
-
-        /// <summary>
-        /// Execute a SqlCommand (that returns no resultset) against the specified SqlConnection 
-        /// using the SqlCommand.
-        /// </summary>
-        /// <remarks>
-        /// e.g.:  
-        ///  int result = ExecuteNonQuery(conn, cmd, true);
-        /// </remarks>
         /// <param name="connection">A valid SqlConnection</param>
-        /// <param name="cmd">A valid SqlCommand</param>
         /// <param name="mustCloseConnection">Should the connection be closed upon completion</param>
         /// <returns>An int representing the number of rows affected by the command</returns>
-        public static int ExecuteNonQuery(SqlConnection connection, SqlCommand cmd, bool mustCloseConnection)
+        public static int ExecuteNonQuery(SqlCommand cmd, SqlConnection connection, bool mustCloseConnection = false)
         {
             if (connection == null) throw new ArgumentNullException("connection");
             if (cmd == null) throw new ArgumentNullException("cmd");
@@ -177,42 +165,20 @@ namespace General.Data
         /// Executes a SqlCommand and attaches a new connection if one hasn't been attached.
         /// </summary>
         /// <param name="cmd">SQLCommand - A valid command object with or without a Connection</param>
+        /// <param name="conn">SqlConn - A connection context object that will be used if a SQLConnection isnt already attached</param>
+        /// <param name="ConnectionStringName">ConnectionStringName - A valid connection string defined in the App.config file</param>
         /// <returns>An object representing the first column of the first row of data</returns>
-        public static object ExecuteScalar(SqlCommand cmd)
+        public static object ExecuteScalar(SqlCommand cmd, SqlConn conn, String ConnectionStringName = null)
         {
-            return ExecuteScalar(cmd, "");
-        }
+            if (conn == null || String.IsNullOrEmpty(conn.ConnectionString))
+                if (!String.IsNullOrWhiteSpace(ConnectionStringName))
+                    conn = new SqlConn(DBConnection.GetConnectionString(ConnectionStringName));
 
-        /// <summary>
-        /// Executes a SqlCommand and attaches a new connection if one hasn't been attached.
-        /// </summary>
-        /// <param name="cmd">SQLCommand - A valid command object with or without a Connection</param>
-        /// <param name="cmd">ConnectionStringName - A valid connection string defined in the App.config file</param>
-        /// <returns>An object representing the first column of the first row of data</returns>
-        public static object ExecuteScalar(SqlCommand cmd, String ConnectionStringName)
-        {
             if (cmd.Connection == null)
             {
-                cmd.Connection = DBConnection.GetOpenConnection(DBConnection.GetConnectionString(ConnectionStringName));
+                cmd.Connection = DBConnection.GetOpenConnection(conn.ConnectionString);
             }
             return ExecuteScalar(cmd, true);
-        }
-
-
-        /// <summary>
-        /// Execute a SqlCommand (returning a single value) against the specified SqlConnection 
-        /// using the SqlCommand.
-        /// </summary>
-        /// <remarks>
-        /// e.g.:  
-        ///  int result = ExecuteScalar(conn, cmd);
-        /// </remarks>
-        /// <param name="connection">A valid SqlConnection</param>
-        /// <param name="cmd">A valid SqlCommand</param>
-        /// <returns>An object representing the first column of the first row of data</returns>
-        public static object ExecuteScalar(SqlConnection connection, SqlCommand cmd)
-        {
-            return (ExecuteScalar(connection, cmd, true));
         }
 
         /// <summary>
@@ -223,11 +189,11 @@ namespace General.Data
         /// e.g.:  
         ///  int result = ExecuteScalar(conn, cmd, true);
         /// </remarks>
-        /// <param name="connection">A valid SqlConnection</param>
         /// <param name="cmd">A valid SqlCommand</param>
+        /// <param name="connection">A valid SqlConnection</param>
         /// <param name="mustCloseConnection">Should the connection be closed upon completion</param>
         /// <returns>An object representing the first column of the first row of data</returns>
-        public static object ExecuteScalar(SqlConnection connection, SqlCommand cmd, bool mustCloseConnection)
+        public static object ExecuteScalar(SqlCommand cmd, SqlConnection connection, bool mustCloseConnection = true)
         {
             if (connection == null) throw new ArgumentNullException("connection");
             if (cmd == null) throw new ArgumentNullException("cmd");
@@ -240,13 +206,56 @@ namespace General.Data
 
         #endregion ExecuteScalar
 
-        #region ExecuteDataset
-        public static DataSet ExecuteDataset(SqlCommand cmd)
+        #region ExecuteList
+        public static List<string> ExecuteList(SqlCommand cmd, SqlConn conn)
         {
-            return ExecuteDataset(cmd, "");
-        }
 
-        public static DataSet ExecuteDataset(SqlCommand cmd, String ConnectionStringName)
+            #region Manage Connection
+            if (cmd == null) throw new ArgumentNullException("cmd");
+            if (cmd.Connection == null)
+            {
+                cmd.Connection = DBConnection.GetOpenConnection(conn.ConnectionString);
+            }
+            else if (cmd.Connection.State != ConnectionState.Open)
+            {
+                cmd.Connection.Open();
+            }
+            #endregion
+
+            // Create the DataAdapter & DataSet
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+
+                #region Execute
+                DataSet ds = new DataSet();
+                // Fill the DataSet using default values for DataTable names, etc
+                da.Fill(ds);
+                #endregion
+
+                #region Manage Connection
+                cmd.Connection.Close();
+                #endregion
+
+                #region Populate List
+                List<string> objList = new List<string>();
+                foreach (DataRow row in ds.Tables[0].Rows)
+                    objList.Add(row[0].ToString());
+                #endregion
+
+                return objList;
+            }
+        }
+        #endregion ExecuteList
+
+        #region ExecuteDataset
+        /// <summary>
+        /// Executes a SqlCommand and attaches a new connection if one hasn't been attached.
+        /// </summary>
+        /// <param name="cmd">SQLCommand - A valid command object with or without a Connection</param>
+        /// <param name="conn">SqlConn - A connection context object that will be used if a SQLConnection isnt already attached</param>
+        /// <param name="ConnectionStringName">ConnectionStringName - A valid connection string defined in the App.config file</param>
+        /// <returns>DataSet</returns>
+        public static DataSet ExecuteDataset(SqlCommand cmd, SqlConn conn, String ConnectionStringName = null)
         {
             if (cmd == null) throw new ArgumentNullException("cmd");
 
@@ -255,11 +264,15 @@ namespace General.Data
             {
                 DataSet ds = new DataSet();
 
+                if (conn == null || String.IsNullOrEmpty(conn.ConnectionString))
+                    if (!String.IsNullOrWhiteSpace(ConnectionStringName))
+                        conn = new SqlConn(DBConnection.GetConnectionString(ConnectionStringName));
+
                 // Fill the DataSet
                 try
                 {
                     if (cmd.Connection == null)
-                        cmd.Connection = DBConnection.GetOpenConnection(DBConnection.GetConnectionString(ConnectionStringName));
+                        cmd.Connection = DBConnection.GetOpenConnection(conn.ConnectionString);
                     da.Fill(ds);
                     cmd.Connection.Close();
                 }
@@ -359,24 +372,6 @@ namespace General.Data
             strParamList = StringFunctions.Shave(strParamList, 2);
             return (strParamList);
         }
-        #endregion
-
-        #region GetCommandSummary
-        /*
-        /// <summary>
-        /// This method will return a string summarizing the command parameters for debugging purposes.
-        /// </summary>
-        /// <param name="cmd">A valid SqlCommand object</param>
-        private static string GetCommandSummary(SqlCommand cmd)
-        {
-            string strParamList = "";
-            foreach (SqlParameter arg in cmd.Parameters)
-            {
-                strParamList += arg.ParameterName + " = " + arg.Value + "\n";
-            }
-            return (strParamList);
-        }
-        */
         #endregion
 
     }
