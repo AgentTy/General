@@ -23,6 +23,14 @@ namespace General.Model
             this.Height = objRectangle.Height;
         }
 
+        public JsonRectangle(Point point, Size size)
+        {
+            this.X = point.X;
+            this.Y = point.Y;
+            this.Width = size.Width;
+            this.Height = size.Height;
+        }
+
         [DataMember]
         public int X { get; set; }
         [DataMember]
@@ -31,6 +39,11 @@ namespace General.Model
         public int Width { get; set; }
         [DataMember]
         public int Height { get; set; }
+
+        public Rectangle ToRectangle()
+        {
+            return new Rectangle(X, Y, Width, Height);
+        }
 
     }
 }
