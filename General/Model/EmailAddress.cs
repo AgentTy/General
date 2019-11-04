@@ -123,6 +123,8 @@ namespace General.Model
 		/// <param name="strEmail">string - A potential email address</param>
 		/// <returns>bool</returns>
 		public static bool IsValid(string strEmail) {
+            if (String.IsNullOrWhiteSpace(strEmail))
+                return false;
 			string strEmailRegEx = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
 				@"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" + 
 				@".)+))([a-zA-Z]{2,24}|[0-9]{1,3})(\]?)$";

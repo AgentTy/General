@@ -2508,23 +2508,6 @@
             Transfers the contents of a DataView to an OLEDB destination
             </summary>
         </member>
-        <member name="M:General.Utilities.Data.Conversion.dBaseReader.IsNumber(System.String)">
-            <summary>
-            Simple function to test is a string can be parsed. There may be a better way, but this works
-            If you port this to .NET 2.0, use the new TryParse methods instead of this
-              *Thanks to wu.qingman on code project for fixing a bug in this for me
-            </summary>
-            <param name="number">string to test for parsing</param>
-            <returns>true if string can be parsed</returns>
-        </member>
-        <member name="M:General.Utilities.Data.Conversion.dBaseReader.JulianToDateTime(System.Int64)">
-            <summary>
-            Convert a Julian Date to a .NET DateTime structure
-            Implemented from pseudo code at http://en.wikipedia.org/wiki/Julian_day
-            </summary>
-            <param name="lJDN">Julian Date to convert (days since 01/01/4713 BC)</param>
-            <returns>DateTime</returns>
-        </member>
         <member name="T:General.Utilities.Data.Conversion.text_tools">
             <summary>
             Summary description for text_tools.
