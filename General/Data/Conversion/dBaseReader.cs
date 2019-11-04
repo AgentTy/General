@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace General.Utilities.Data.Conversion
+namespace General.Data.Conversion
 {
     // Read an entire standard DBF file into a DataTable
     // http://www.codeproject.com/Articles/24247/Load-a-DBF-into-a-DataTable

@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\GlobalConfiguration.cs" />
+    <Compile Include="Data\Conversion\dBaseReader.cs" />
     <Compile Include="Data\DBConnection.cs" />
     <Compile Include="Data\FullTextSearch.cs" />
     <Compile Include="Data\SqlConvert.cs" />

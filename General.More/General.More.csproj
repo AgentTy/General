@@ -234,7 +234,6 @@
     <Compile Include="Utilities\Data\Conversion\oledb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\Data\Conversion\dBaseReader.cs" />
     <Compile Include="Utilities\Data\Conversion\text_tools.cs">
       <SubType>Code</SubType>
     </Compile>
