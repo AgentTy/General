@@ -66,6 +66,7 @@
     <Compile Include="Environment\HostCache.cs" />
     <Compile Include="Environment\HostState.cs" />
     <Compile Include="IO\Bytes.cs" />
+    <Compile Include="Model\SimpleContactCard.cs" />
     <Compile Include="Model\GPSCoordinate.cs" />
     <Compile Include="Model\JsonObject.cs" />
     <Compile Include="Model\JsonRectangle.cs" />
