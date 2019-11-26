@@ -11,7 +11,7 @@ namespace General.Model
     /// A SimpleContactCard is an object that contains a PostalAddress + additional fields such as Name, Phone, Email, etc.
     /// </summary>
     [Serializable, DataContract]
-	public class SimpleContactCard : PostalAddress
+	public class SimpleContactCard
 	{
 
         #region Constructors
@@ -69,28 +69,148 @@ namespace General.Model
         /// <summary>
         /// Outputs Inline String for Google
         /// </summary>
-        public override string PostalAddressGoogleString
+        public string PostalAddressGoogleString
         {
             //get { return Company + " " + base.PostalAddressGoogleString; }
-            get { return HttpUtility.UrlEncode(base.ToHTMLString(",").TrimEnd(new [] {','})); }
+            get { return HttpUtility.UrlEncode(ToHTMLString(",").TrimEnd(new [] {','})); }
         }
 
-		#endregion 
+        #endregion
 
-		#region Public Methods
+        #region PostalAddress Properties
+        /// <summary>
+        /// Returns address line 1
+        /// </summary>
+        [DataMember]
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// Returns address line 2
+        /// </summary>
+        [DataMember]
+        public string Address2 { get; set; }
+
+        /// <summary>
+        /// Returns address line 3
+        /// </summary>
+        [DataMember]
+        public virtual string Address3 { get; set; }
+
+        private string _strCity;
+        /// <summary>
+        /// Returns the city
+        /// </summary>
+        [DataMember]
+        public string City
+        {
+            get { return _strCity; }
+            set
+            {
+                _strCity = value;
+                if (_strCity != null)
+                    _strCity = _strCity.Trim();
+            }
+        }
+
+        private string _strStateCode;
+        /// <summary>
+        /// Returns the state
+        /// </summary>
+        [DataMember]
+        public string StateCode
+        {
+            get { return _strStateCode; }
+            set
+            {
+                _strStateCode = value;
+                if (_strStateCode != null)
+                    _strStateCode = _strStateCode.Trim();
+            }
+        }
+
+        private string _strPostalCode;
+        /// <summary>
+        /// Returns the postal code
+        /// </summary>
+        [DataMember]
+        public string PostalCode
+        {
+            get { return _strPostalCode; }
+            set
+            {
+                _strPostalCode = value;
+                if (_strPostalCode != null)
+                    _strPostalCode = _strPostalCode.Trim();
+            }
+        }
+
+
+        private string _strCountryCode;
+        /// <summary>
+        /// Returns the country code
+        /// </summary>
+        [DataMember]
+        public string CountryCode
+        {
+            get { return _strCountryCode; }
+            set {
+                _strCountryCode = value;
+                if (_strCountryCode != null)
+                    _strCountryCode = _strCountryCode.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Outputs HTML String
+        /// </summary>
+        private string HTMLString
+        {
+            get { return ToHTMLString("<br/>"); }
+        }
+
+        public bool WorthValidating
+        {
+            get
+            {
+                if (StringFunctions.IsNullOrWhiteSpace(Address1) || StringFunctions.IsNullOrWhiteSpace(City))
+                    return false;
+                return true;
+            }
+        }
+
+        public bool WorthMakingLabel
+        {
+            get
+            {
+                if (StringFunctions.IsNullOrWhiteSpace(Address1) || StringFunctions.IsNullOrWhiteSpace(City) || StringFunctions.IsNullOrWhiteSpace(PostalCode))
+                    return false;
+                return true;
+            }
+        }
+
+        public bool HasZipPlus4
+        {
+            get
+            {
+                return (System.Text.RegularExpressions.Regex.IsMatch(PostalCode, "\\d{5}-\\d{4}"));
+            }
+        }
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Validates the data
         /// </summary>
         public bool ValidateAddress(ref string Errors)
         {
-            return base.Validate(ref Errors, "<br>\n");
+            return AddressValidate(ref Errors, "<br>\n");
         }
 
 		/// <summary>
 		/// Validates the data
 		/// </summary>
-		public override bool Validate(ref string Errors)
+		public bool Validate(ref string Errors)
 		{
 			return Validate(ref Errors, "<br>\n");
 		}
@@ -98,7 +218,7 @@ namespace General.Model
 		/// <summary>
 		/// Validates the data
 		/// </summary>
-		public override bool Validate(ref string Errors, string LineBreak)
+		public bool Validate(ref string Errors, string LineBreak)
 		{
 			string strRequiredList = "firstname,lastname,phone,fax,email,address1,city,statecode,postalcode,countrycode"; 
 			return Validate(ref Errors, "<br>\n",strRequiredList);
@@ -107,7 +227,7 @@ namespace General.Model
 		/// <summary>
 		/// Validates the data
 		/// </summary>
-		public override bool Validate(ref string Errors, string LineBreak, string RequiredList)
+		public bool Validate(ref string Errors, string LineBreak, string RequiredList)
 		{
 			StringBuilder sb = new StringBuilder();
 			
@@ -163,7 +283,7 @@ namespace General.Model
 			
 			string err = sb.ToString();
 
-			if(base.Validate(ref err, LineBreak, RequiredList) == false)
+			if(AddressValidate(ref err, LineBreak, RequiredList) == false)
 				valid = false;
 
 			Errors += err;
@@ -199,18 +319,71 @@ namespace General.Model
                 }
             }
         }
-		#endregion
+        #endregion
 
-		#region Output
-		/// <summary>
-		/// Returns a string formatted ContactCard with html line breaks 
-		/// </summary>
-		public override string ToString()
+        #region Output
+        public string ToLocationString()
+        {
+            return ToLocationString(false);
+        }
+
+        public string ToLocationString(bool blnShort)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            //CITY
+            if (_strCity != null && _strCity != "")
+            {
+                sb.Append(_strCity);
+                if (_strStateCode != null && _strStateCode != "")
+                    sb.Append(", ");
+                else if (_strPostalCode != null && _strPostalCode != "")
+                    sb.Append(" ");
+                else if (_strCountryCode != null && _strCountryCode != "" && _strCountryCode.ToLower() != "us" && _strCountryCode.ToLower() != "usa")
+                    sb.Append("; ");
+            }
+
+            //STATE
+            if (_strStateCode != null && _strStateCode != "")
+            {
+                sb.Append(_strStateCode);
+
+                if (_strPostalCode != null && _strPostalCode != "")
+                    sb.Append(" ");
+                else if (_strCountryCode != null && _strCountryCode != "" && _strCountryCode.ToLower() != "us" && _strCountryCode.ToLower() != "usa")
+                    sb.Append("; ");
+            }
+
+            //COUNTRY
+            if (_strCountryCode != null && _strCountryCode != "" && _strCountryCode.ToLower() != "us" && _strCountryCode.ToLower() != "usa")
+            {
+                sb.Append(_strCountryCode);
+            }
+
+
+            return (sb.ToString());
+        }
+        [DataMember]
+        public string GetLocationString
+        {
+            get
+            {
+                return ToLocationString();
+            }
+        }
+
+        /// <summary>
+        /// Returns a string formatted ContactCard with html line breaks 
+        /// </summary>
+        public override string ToString()
 		{
 			return(ToString("<br>"));
 		}
 
-        public override string ToString(string LineBreak)
+        /// <summary>
+		/// Returns a string formatted address with custom line breaks 
+		/// </summary>
+		public virtual string ToString(string LineBreak)
         {
             return ToHTMLString(LineBreak);
         }
@@ -226,7 +399,7 @@ namespace General.Model
 		/// <summary>
 		/// Returns a string formatted AddressBookEntry with specified line breaks 
 		/// </summary>
-		public new string ToHTMLString(string LineBreak)
+		public string ToHTMLString(string LineBreak)
 		{
 			StringBuilder sb = new StringBuilder();
 
@@ -236,7 +409,7 @@ namespace General.Model
 			sb.Append(LastName);
 			if(sb.Length > 0) sb.Append(LineBreak);
 			
-			sb.Append(base.ToString(LineBreak));
+			sb.Append(GenerateAddressHtmlString(LineBreak));
 			
 			if(Phone != null)
 			{
@@ -285,13 +458,62 @@ namespace General.Model
                 if (sb.Length > 0) sb.Append(LineBreak);
             }
 
-			sb.Append(base.ToString(LineBreak));
+			sb.Append(ToString(LineBreak));
 			return sb.ToString();
 		}
 
+        public string GenerateAddressHtmlString(string LineBreak)
+        {
+            StringBuilder sb = new StringBuilder();
 
-		#region ToDebuggingString
-		public virtual string ToDebuggingString()
+            if (Address1 != null && Address1.Trim() != "") sb.Append(Address1 + LineBreak);
+            if (Address2 != null && Address2.Trim() != "") sb.Append(Address2 + LineBreak);
+            if (Address3 != null && Address3.Trim() != "") sb.Append(Address3 + LineBreak);
+
+            //CITY
+            if (City != null && City != "")
+            {
+                sb.Append(City);
+                if (StateCode != null && StateCode != "")
+                    sb.Append(", ");
+                else if (PostalCode != null && PostalCode != "")
+                    sb.Append(" ");
+                else if (CountryCode != null && CountryCode != "" && CountryCode.ToLower() != "us" && CountryCode.ToLower() != "usa")
+                    sb.Append("; ");
+            }
+
+            //STATE
+            if (StateCode != null && StateCode != "")
+            {
+                sb.Append(StateCode);
+
+                if (PostalCode != null && PostalCode != "")
+                    sb.Append(" ");
+                else if (CountryCode != null && CountryCode != "" && CountryCode.ToLower() != "us" && CountryCode.ToLower() != "usa")
+                    sb.Append("; ");
+            }
+
+            //POSTAL
+            if (PostalCode != null && PostalCode != "")
+            {
+                sb.Append(PostalCode);
+                if (CountryCode != null && CountryCode != "" && CountryCode.ToLower() != "us" && CountryCode.ToLower() != "usa")
+                    sb.Append(LineBreak);
+            }
+
+            //COUNTRY
+            if (CountryCode != null && CountryCode != "" && CountryCode.ToLower() != "us" && CountryCode.ToLower() != "usa")
+            {
+                sb.Append(CountryCode);
+            }
+
+            sb.Append(LineBreak);
+
+            return (sb.ToString());
+        }
+
+        #region ToDebuggingString
+        public virtual string ToDebuggingString()
 		{
 			return ToDebuggingString("<br>");
 		}
@@ -372,9 +594,9 @@ namespace General.Model
 		/// </summary>
 		public override bool Equals(object obj)
 		{
-            if (obj.GetType() != typeof(AddressBookEntry))
+            if (obj.GetType() != typeof(SimpleContactCard))
                 return false;
-			return(this==(AddressBookEntry) obj);
+			return(this==(SimpleContactCard) obj);
 		}
 
 		/// <summary>
@@ -385,7 +607,86 @@ namespace General.Model
 			return(this.ToString().GetHashCode());
 		}
 
-		#endregion
+        #endregion
 
-	}
+
+        #region Postal Address Methods
+
+        /// <summary>
+        /// Validates the data
+        /// </summary>
+        public virtual bool AddressValidate(ref string Errors)
+        {
+            return AddressValidate(ref Errors, "<br>\n");
+        }
+
+        /// <summary>
+        /// Validates the data
+        /// </summary>
+        public virtual bool AddressValidate(ref string Errors, string LineBreak)
+        {
+            string strRequiredList = "address1,city,statecode,postalcode,countrycode";
+            return AddressValidate(ref Errors, "<br>\n", strRequiredList);
+        }
+
+        /// <summary>
+        /// Validates the data
+        /// </summary>
+        public virtual bool AddressValidate(ref string Errors, string LineBreak, string RequiredList)
+        {
+            bool valid = true;
+            StringBuilder sb = new StringBuilder();
+            RequiredList = RequiredList.ToLower();
+
+            if (StringFunctions.Contains(RequiredList, "address1") || StringFunctions.Contains(RequiredList, "address"))
+            {
+                if (Address1 == string.Empty)
+                {
+                    valid = false;
+                    sb.Append("Must fill out address line 1." + LineBreak);
+                }
+            }
+
+            if (StringFunctions.Contains(RequiredList, "city"))
+            {
+                if (_strCity == string.Empty)
+                {
+                    valid = false;
+                    sb.Append("Must fill out city." + LineBreak);
+                }
+            }
+
+            if (StringFunctions.Contains(RequiredList, "statecode") || StringFunctions.Contains(RequiredList, "state"))
+            {
+                if (_strStateCode == string.Empty)
+                {
+                    valid = false;
+                    sb.Append("Must enter State/Province." + LineBreak);
+                }
+            }
+
+            if (StringFunctions.Contains(RequiredList, "postalcode") || StringFunctions.Contains(RequiredList, "postal"))
+            {
+                if (_strPostalCode == string.Empty)
+                {
+                    valid = false;
+                    sb.Append("Must fill out postal code." + LineBreak);
+                }
+            }
+
+            if (StringFunctions.Contains(RequiredList, "countrycode") || StringFunctions.Contains(RequiredList, "country"))
+            {
+                if (_strCountryCode == string.Empty)
+                {
+                    valid = false;
+                    sb.Append("Must fill out country code." + LineBreak);
+                }
+            }
+
+            Errors += sb.ToString();
+            return valid;
+        }
+
+        #endregion
+    }
 }
