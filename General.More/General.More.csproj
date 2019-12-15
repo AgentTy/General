@@ -339,7 +339,6 @@
     <Compile Include="Web\SOAPClient.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WordpressFunctions.cs" />
     <Compile Include="XML.cs" />
     <Compile Include="XMLNameValueCollection.cs" />
     <EmbeddedResource Include="Utilities\UI\SingleInstanceApplicationWithSystemTray.resx">

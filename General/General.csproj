@@ -119,6 +119,7 @@
     <Compile Include="Units\Unit.cs" />
     <Compile Include="Web\MimeTypeMap.cs" />
     <Compile Include="Web\WebTools.cs" />
+    <Compile Include="WordpressFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.txt" />
