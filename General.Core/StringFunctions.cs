@@ -1,72 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
-namespace General.StringExtensions
+namespace General
 {
 
     public static class StringExtensions
     {
-        #region IsUpper
-        public static bool IsUpper(this string value)
+        public static string TrimEnd(this string source, string value)
         {
-            // Consider string to be uppercase if it has no lowercase letters.
-            for (int i = 0; i < value.Length; i++)
-            {
-                if (char.IsLower(value[i]))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-        #endregion
+            if (!source.EndsWith(value))
+                return source;
 
-        #region IsLower
-        public static bool IsLower(this string value)
-        {
-            // Consider string to be lowercase if it has no uppercase letters.
-            for (int i = 0; i < value.Length; i++)
-            {
-                if (char.IsUpper(value[i]))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return source.Remove(source.LastIndexOf(value));
         }
-        #endregion
-
-        #region Contains
-        public static bool Contains(this string source, string toCheck, StringComparison comp)
-        {
-            return source?.IndexOf(toCheck, comp) >= 0;
-        }
-        #endregion
-
     }
 
-}
-
-namespace General
-{
-    public class StringFunctions
+    public class StringFunctions : F
     {
-        #region IsNullOrWhiteSpace
-        //This method was introduced in .Net 4, it's here for 3.5 compatibility
-        public static bool IsNullOrWhiteSpace(String value)
-        {
-            if (value == null) return true;
 
-            for (int i = 0; i < value.Length; i++)
-            {
-                if (!Char.IsWhiteSpace(value[i])) return false;
-            }
-
-            return true;
-        }
-        #endregion
+    }
+    public class F
+    {
 
         #region MaskString
         public static string MaskString(string Input, int CharsToShow, char Mask)
@@ -165,11 +120,12 @@ namespace General
         {
             return Char.IsUpper(ch);
         }
-
+        /*
         public static bool IsUpper(string value)
         {
             return General.StringExtensions.StringExtensions.IsUpper(value);
         }
+        */
         #endregion
 
         #region IsLower
@@ -181,10 +137,12 @@ namespace General
             return Char.IsLower(ch);
         }
 
+        /*
         public static bool IsLower(string value)
         {
             return General.StringExtensions.StringExtensions.IsLower(value);
         }
+        */
         #endregion
 
         #region IsNumeric
@@ -300,6 +258,7 @@ namespace General
             return (result);
         }
         #endregion
+
 
         #region Shave
         /// <summary>
@@ -484,6 +443,7 @@ namespace General
                 return true;
         }
         #endregion
+
 
         #region ContainsBefore
         /// <summary>
@@ -856,6 +816,5 @@ namespace General
             return String.Format("{0}{1}", number, suffix);
         }
         #endregion
-
     }
 }

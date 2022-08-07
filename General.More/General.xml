@@ -3869,12 +3869,6 @@
             Summary description for Time.
             </summary>
         </member>
-        <member name="T:General.WordpressFunctions">
-            <summary>
-            Summary description for WordpressFunctions
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:General.WordpressFunctions.wpautop(System.String)" -->
         <member name="P:General.SimpleXMLNameValueCollection.Item(System.Int32)">
             <summary>
             Gets a value using an index.
