@@ -741,9 +741,13 @@ namespace General.Model
 					strPreExt = StringFunctions.Left(strTemp, strTemp.IndexOf("^"));
 					strExt = StringFunctions.AllAfter(strTemp, strTemp.IndexOf("^"));
 					strPreExt = StringFunctions.ForceInteger(strPreExt);
-					intTempNumber = Convert.ToInt64(strPreExt);
+					if (!String.IsNullOrWhiteSpace(strPreExt))
+						intTempNumber = Convert.ToInt64(strPreExt);
+					else
+						intTempNumber = -1;
 					strExt = StringFunctions.ForceInteger(strExt);
-					_intExtension = Convert.ToInt32(strExt);
+					if(!String.IsNullOrWhiteSpace(strExt))
+						_intExtension = Convert.ToInt32(strExt);
 					strTemp = strPreExt;
 					return intTempNumber;
 				}
