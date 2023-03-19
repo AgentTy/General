@@ -424,6 +424,8 @@ namespace General.Model
         {
             get
             {
+                if (PostalCode == null)
+                    return false;
                 return (System.Text.RegularExpressions.Regex.IsMatch(PostalCode, "\\d{5}-\\d{4}"));
             }
         }
