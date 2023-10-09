@@ -1324,10 +1324,20 @@ namespace General.Model
 			get { return ToInternationalDialString(); }
 		}
 
-		/// <summary>
-		/// Returns the CountryCode
-		/// </summary>
-		[DataMember]
+        /// <summary>
+        /// Returns the unformatted phone number
+        /// </summary>
+        [DataMember]
+        public string UnformattedNumber
+        {
+            get { return ToUnformattedNumber(); }
+        }
+        
+
+        /// <summary>
+        /// Returns the CountryCode
+        /// </summary>
+        [DataMember]
 		public Int64 CountryCode
 		{
 			get { return _intCountryCode; }
