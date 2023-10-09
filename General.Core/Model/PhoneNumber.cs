@@ -914,7 +914,11 @@ namespace General.Model
 		{
 			StringBuilder sb = new StringBuilder();
 
-			if (_intCountryCode != -1) sb.Append(_intCountryCode.ToString());
+			if (_intCountryCode != -1)
+			{
+                sb.Append("+");
+                sb.Append(_intCountryCode.ToString());
+			}
 
 			if (_intAreaCode != -1) sb.Append(_intAreaCode.ToString());
 			sb.Append(_intNumber.ToString());
