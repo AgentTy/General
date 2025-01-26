@@ -16,6 +16,8 @@ namespace General.Configuration
 		#region Private Variables
 		private static System.Collections.Specialized.NameValueCollection _objGlobalSettings;
         private static System.Collections.Specialized.NameValueCollection _objHostSettings;
+        private static System.Collections.Specialized.NameValueCollection _objEnvironmentSettings;
+        private static System.Collections.Specialized.NameValueCollection _objEnvironmentConnStrings;
         private static GlobalSettingsContainer _objGlobalSettingsContainer = new GlobalSettingsContainer();
         #endregion
 
@@ -110,7 +112,15 @@ namespace General.Configuration
         */
         #endregion
 
-		#region Public Properties
+        #region Environment Settings
+        public static void ImportEnvironmentSettings(NameValueCollection settings, NameValueCollection connStrings = null)
+        {
+            _objEnvironmentSettings = settings;
+            _objEnvironmentConnStrings = connStrings;
+        }
+        #endregion
+
+        #region Public Properties
         //public static bool GetFromAppConfig { get; set; }
         public static string DefaultConnectionStringName { get; set; }
         public static string ExplicitRuntimeConnectionString { get; set; }
@@ -250,6 +260,13 @@ namespace General.Configuration
                 if (!String.IsNullOrWhiteSpace(value))
                     return value;
 
+                if(_objEnvironmentSettings != null)
+                {
+                    value = _objEnvironmentSettings[Key];
+                    if (!String.IsNullOrWhiteSpace(value))
+                        return value;
+                }
+
                 /*
                 if (!UseOldSysConfigLibrary)
                     return null;
@@ -265,7 +282,24 @@ namespace General.Configuration
                 return value;
             }
 
-		}
+            public string GetConnectionString(string Key)
+            {
+                string value;
+                value = System.Environment.GetEnvironmentVariable(Key);
+                if (!String.IsNullOrWhiteSpace(value))
+                    return value;
+
+                if (_objEnvironmentConnStrings != null)
+                {
+                    value = _objEnvironmentConnStrings[Key];
+                    if (!String.IsNullOrWhiteSpace(value))
+                        return value;
+                }
+
+                return value;
+            }
+
+        }
 		#endregion
 
 

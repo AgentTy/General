@@ -103,26 +103,7 @@ namespace General.Environment
                 return manualEnv;
             }
 
-            //.Net Core Support
-            string coreEnv = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            if (!String.IsNullOrWhiteSpace(coreEnv))
-            {
-                switch(coreEnv)
-                {
-                    case "Development":
-                    case "Dev":
-                        return EnvironmentContext.Dev;
-                    case "QA":
-                        return EnvironmentContext.QA;
-                    case "Staging":
-                    case "Stage":
-                        return EnvironmentContext.Stage;
-                    default:
-                        return EnvironmentContext.Live;
-                }
-            }
-
-            //.Net Framework Support
+            //Explicit Environment By Machine Name
             string server_name = System.Environment.MachineName.ToUpperInvariant();
 
             string dev_list = ServerNameList_Dev.ToUpperInvariant();
@@ -170,7 +151,26 @@ namespace General.Environment
                 }
             }
 
-			return EnvironmentContext.Live;
+            //.Net Core Environment Support
+            string coreEnv = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            if (!String.IsNullOrWhiteSpace(coreEnv))
+            {
+                switch (coreEnv)
+                {
+                    case "Development":
+                    case "Dev":
+                        return EnvironmentContext.Dev;
+                    case "QA":
+                        return EnvironmentContext.QA;
+                    case "Staging":
+                    case "Stage":
+                        return EnvironmentContext.Stage;
+                    default:
+                        return EnvironmentContext.Live;
+                }
+            }
+
+            return EnvironmentContext.Live;
         }
         #endregion
 
